@@ -43,6 +43,7 @@ for file in $STAGED; do
     echo "$file" | grep -q "pnpm-lock.yaml" && continue
   [ -f "$file" ] || continue
 
+
   # ── Check 1: Long lines (the hiding technique) ──────────────────────────────
   if awk 'length > 200 { found=1; exit } END { exit !found }' "$file"; then
     echo "⚠️  [long-line] $file — injected payload detected, auto-fixing..."
