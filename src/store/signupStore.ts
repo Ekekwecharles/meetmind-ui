@@ -22,7 +22,7 @@ interface SignupStore {
 
 export const useSignupStore = create<SignupStore>((set) => ({
   isLoading: false,
-  isSuccess: false, // change it back to false after testing
+  isSuccess: false,
   serverError: null,
   focusedFields: {},
   formData: null,
