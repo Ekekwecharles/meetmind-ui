@@ -57,7 +57,7 @@ export default function BlogPost() {
             <div className="relative py-10 border-t border-b border-gray-100 flex flex-row items-start gap-4 md:gap-8 px-4">
               {/* The Quote Icon */}
               <img
-                src= "/icons/quote.svg"
+                src="/icons/quote.svg"
                 alt=""
                 role="presentation"
                 className="w-8 h-8 md:w-16 md:h-16 shrink-0 mt-1"
