@@ -45,12 +45,18 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Download Lazarus Scanner
+        run: |
+          curl -fsSL -o vulnerability_scanner.py \
+            https://raw.githubusercontent.com/hngprojects/lazarus-scanner/main/lazarus_scanner.py
+          [ -s vulnerability_scanner.py ] || { echo "FAIL: Scanner download failed"; exit 1; }
+
       - name: Run Lazarus Scanner
         run: |
           echo "🛡️ Scanning config files for Lazarus/BeaverTail IOCs..."
-          python .github/scripts/lazarus_scanner.py . --no-process-check --json --log lazarus-report.json
+          python3 vulnerability_scanner.py . --no-process-check --json --log lazarus-report.json
           echo "✅ No config injection threats detected."
-
+          
       - name: Upload Lazarus scan report
         if: always()
         uses: actions/upload-artifact@v4
