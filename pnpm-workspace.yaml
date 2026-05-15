@@ -6,3 +6,6 @@ allowBuilds:
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
+auditConfig:
+  ignoreGhsas:
+    - "GHSA-qx2v-qp2m-jg93"
