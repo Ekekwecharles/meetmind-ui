@@ -39,10 +39,15 @@ fix_create_require() {
 }
 
 # ── Scan staged files ─────────────────────────────────────────────────────────
-for file in $STAGED; do
-    echo "$file" | grep -q "pnpm-lock.yaml" && continue
-  [ -f "$file" ] || continue
+# for file in $STAGED; do
+#     echo "$file" | grep -q "pnpm-lock.yaml" && continue
+#   [ -f "$file" ] || continue
 
+for file in $STAGED; do
+  # ── Skip files that are not subject to injection checks ──────────────────
+  echo "$file" | grep -q "pnpm-lock.yaml" && continue
+  echo "$file" | grep -qE "\.(svg|png|jpg|jpeg|gif|webp|ico|woff|woff2|ttf|eot|otf|mp4|mp3|pdf)$" && continue
+  [ -f "$file" ] || continue
 
   # ── Check 1: Long lines (the hiding technique) ──────────────────────────────
   if awk 'length > 200 { found=1; exit } END { exit !found }' "$file"; then
