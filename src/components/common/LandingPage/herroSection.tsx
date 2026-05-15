@@ -45,7 +45,9 @@ export default function HeroSection() {
           <div className="hidden mt-10 md:flex md:flex-col lg:flex-row items-center justify-center gap-6">
             <Link
               href="/signup"
-              className="px-6 py-3 bg-[#02505E] text-white font-semibold rounded-lg text-base hover:bg-[#FFFFFF] hover:text-[#013A44] hover:border hover:border-[#DADADA] transition-colors cursor-point
+              className="px-6 py-3 bg-[#02505E] text-white font-semibold rounded-lg text-base
+               hover:bg-[#FFFFFF] hover:text-[#013A44] hover:border hover:border-[#DADADA] 
+               transition-colors cursor-pointer"
             >
               Get early access
             </Link>
