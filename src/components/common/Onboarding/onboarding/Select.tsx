@@ -1,4 +1,4 @@
-import type React from 'react';
+import type React from "react";
 
 type SelectProps = React.SelectHTMLAttributes<HTMLSelectElement> & {
   label?: string;
@@ -24,11 +24,14 @@ const Select = ({
           w-full rounded-md border border-gray-200 bg-white
           px-3 py-2 text-sm outline-none transition
           focus:border-[#005566] focus:ring-1 focus:ring-[#005566]/20
-          ${error ? 'border-red-500 focus:border-red-500 focus:ring-red-200' : ''}
-          ${className ?? ''}
+          ${error ? "border-red-500 focus:border-red-500 focus:ring-red-200" : ""}
+          ${className ?? ""}
         `}
         {...props}
       >
+        <option value="" disabled hidden>
+          Select an option
+        </option>
         {options.map((opt) => (
           <option key={opt.value} value={opt.value}>
             {opt.label}

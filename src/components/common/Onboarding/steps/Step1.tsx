@@ -6,7 +6,7 @@ const Step1 = () => {
   return (
     <div className="flex flex-col  gap-4">
       <div className="mb-6 sm:mb-8">
-        <Image src="/onboarding/MeetmindLogo.svg" width={299} height={60} alt="Meetmind Logo fill"/>
+        <Image src="/onboarding/MeetmindLogo.svg" width={299} height={60} alt="Meetmind Logo"/>
       </div>
 
       <div className="flex flex-col gap-6">

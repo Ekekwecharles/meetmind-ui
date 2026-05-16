@@ -25,7 +25,7 @@ const hireOptions: HireOption[] = [
 ];
 
 const Step2 = () => {
-  const { data, updateData, nextStep, prevStep } = onboardingStore();
+  const { data, updateData, nextStep, prevStep, hasAttemptedStep } = onboardingStore();
   const isValid =
     data.companyName.trim() !== '' &&
     data.role.trim() !== '' &&
@@ -77,7 +77,7 @@ const Step2 = () => {
           </div>
         </div>
 
-        {!isValid && (
+        {!isValid && hasAttemptedStep && (
           <p className="text-xs text-red-500">
             Please fill all required fields before continuing
           </p>

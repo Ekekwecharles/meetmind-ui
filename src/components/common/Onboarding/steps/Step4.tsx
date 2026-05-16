@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const Step4 = () => {
   const { data, updateData, nextStep, prevStep } = onboardingStore();
-  const isValid = data.integrations.google || data.integrations.zoom;
+  const isValid = data.integrations !== null;
   return (
     <div className="flex flex-col justify-center gap-6 md:w-full lg:w-auto">
       <div className="flex flex-col items-center justify-center">
@@ -28,27 +28,21 @@ const Step4 = () => {
           <IntegrationCard
             name="Google Meet"
             logo={<Image src="/onboarding/Google.svg" width={299} height={60} alt="Google" />}
-            isConnected={data.integrations.google}
+            isConnected={data.integrations === 'google'}
             onConnect={() =>
               updateData({
-                integrations: {
-                  ...data.integrations,
-                  google: true,
-                },
-              })
+    integrations: 'google',
+  })
             }
           />
           <IntegrationCard
             name="Zoom"
             logo={<Image src="/onboarding/Google.svg" width={299} height={60} alt="Zoom" />}
-            isConnected={data.integrations.zoom}
+            isConnected={data.integrations === 'zoom'}
             onConnect={() =>
               updateData({
-                integrations: {
-                  ...data.integrations,
-                  zoom: true,
-                },
-              })
+    integrations: 'zoom',
+  })
             }
           />
         </div>

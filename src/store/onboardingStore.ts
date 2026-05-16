@@ -1,5 +1,5 @@
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 interface OnboardingData {
   companyName: string;
@@ -11,10 +11,7 @@ interface OnboardingData {
     autoRecord: boolean;
     announce: boolean;
   };
-  integrations: {
-    google: boolean;
-    zoom: boolean;
-  };
+  integrations: "google" | "zoom" | null;
 }
 
 interface OnboardingState {
@@ -26,6 +23,8 @@ interface OnboardingState {
   prevStep: () => void;
   updateData: (partial: Partial<OnboardingData>) => void;
   validateStep: () => boolean;
+  hasAttemptedStep: boolean;
+  setHasAttemptedStep: (value: boolean) => void;
   submitOnboarding: () => Promise<void>;
   reset: () => void;
 }
@@ -33,19 +32,16 @@ interface OnboardingState {
 export type StepNumber = 1 | 2 | 3 | 4 | 5;
 
 const initialData: OnboardingData = {
-  companyName: '',
-  role: '',
-  hires: '',
-  tone: 'Friendly',
+  companyName: "",
+  role: "",
+  hires: "",
+  tone: "Friendly",
   preferences: {
     dynamic: true,
     autoRecord: true,
     announce: false,
   },
-  integrations: {
-    google: false,
-    zoom: false,
-  },
+  integrations: null,
 };
 
 export const onboardingStore = create<OnboardingState>()(
@@ -54,12 +50,18 @@ export const onboardingStore = create<OnboardingState>()(
       step: 1,
       data: initialData,
       isSubmitting: false,
+      hasAttemptedStep: false,
+      setHasAttemptedStep: (value) => set({ hasAttemptedStep: value }),
       setStep: (step) => set({ step }),
       nextStep: () => {
         const { step, validateStep } = get();
-        if (!validateStep()) return;
+        if (!validateStep()) {
+          set({ hasAttemptedStep: true });
+          return;
+        } 
         set({
           step: Math.min(step + 1, 5) as StepNumber,
+          hasAttemptedStep: false,
         });
       },
       prevStep: () => {
@@ -76,10 +78,6 @@ export const onboardingStore = create<OnboardingState>()(
               ...state.data.preferences,
               ...partial.preferences,
             },
-            integrations: {
-              ...state.data.integrations,
-              ...partial.integrations,
-            },
           },
         })),
       validateStep: () => {
@@ -88,11 +86,11 @@ export const onboardingStore = create<OnboardingState>()(
         const validators: Record<StepNumber, () => boolean> = {
           1: () => true,
           2: () =>
-            data.companyName.trim() !== '' &&
-            data.role.trim() !== '' &&
-            data.hires.trim() !== '',
+            data.companyName.trim() !== "" &&
+            data.role.trim() !== "" &&
+            data.hires.trim() !== "",
           3: () => true,
-          4: () => data.integrations.google || data.integrations.zoom,
+          4: () => data.integrations !== null,
           5: () => true,
         };
 
@@ -106,19 +104,19 @@ export const onboardingStore = create<OnboardingState>()(
 
         try {
           const response = await fetch(
-            'the actual api route. For when you talk to the backend',
+            "the actual api route. For when you talk to the backend",
             {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
               body: JSON.stringify(data),
-            }
+            },
           );
-          if (!response.ok) throw new Error('Failed to submit onboarding');
+          if (!response.ok) throw new Error("Failed to submit onboarding");
           const result = await response.json();
           return result;
           // NOTE TO ANYONE REVIEWING THIS PART: The api call is not complete. I just wanted to put it in place so that I wont forget.
         } catch (error) {
-          console.error('Onboarding failed:', error);
+          console.error("Onboarding failed:", error);
         } finally {
           set({ isSubmitting: false });
         }
@@ -127,14 +125,15 @@ export const onboardingStore = create<OnboardingState>()(
         set({
           step: 1,
           data: initialData,
+          hasAttemptedStep: false,
         }),
     }),
     {
-      name: 'onboarding-storage',
+      name: "onboarding-storage",
       partialize: (state) => ({
         step: state.step,
         data: state.data,
       }),
-    }
-  )
+    },
+  ),
 );
