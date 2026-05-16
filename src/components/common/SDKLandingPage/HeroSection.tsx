@@ -59,11 +59,7 @@ export default function HeroSection() {
            width={690}
           height={548}
         />
-        {/* <img 
-            src='/images/SDKimportSnippet.png'
-          alt="SDK Integration Snippet"
-          className="h-auto w-full"
-           /> */}
+       
       </div>
 
       <div className="flex flex-col justify-between md:max-w-183 mx-auto gap-4 md:mb-12">
@@ -79,7 +75,7 @@ export default function HeroSection() {
             Try Demo
           </Link>
           <Link
-            href="/#api"
+            href="/api"
             className="inline-block min-w-56 text-center py-2 border border-[#035A69] text-[#02505E] hover:text-[#FEFEFF] hover:bg-[#02505E] font-bold rounded-lg text-base cursor-pointer"
           >
             Get API Keys

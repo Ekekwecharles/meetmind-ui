@@ -117,11 +117,7 @@ export default function Features() {
              width={308}
               height={314}
           />
-          {/* <img 
-            src='/images/personaConfigSnippet.png'
-            alt="Persona Config Snippet"
-            className="rounded-lg shadow-lg"
-           /> */}
+          
         </div>
       </section>
     </section>

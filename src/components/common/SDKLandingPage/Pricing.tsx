@@ -57,7 +57,7 @@ export default function Pricing() {
           </ul>
         </div>
 
-        {/* Pro Plan (Highlighted) */}
+        
         <div className="relative flex flex-col bg-[#E6F0F1] p-8 h-full rounded-2xl border-2 border-[#B1CFD4] shadow-md text-left items-start gap-6 transition-all duration-300 hover:-translate-y-2 hove
           <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#B1CFD4] text-[#0F172A] text-xs font-bold px-4 py-1 rounded-full tracking-wider whitespace-nowrap shadow-sm">
             Most Popular
@@ -99,7 +99,7 @@ export default function Pricing() {
           </ul>
         </div>
 
-        {/* Enterprise Plan */}
+        
         <div className="flex flex-col bg-white p-8 h-full rounded-2xl border border-gray-200 shadow-sm text-left items-start gap-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-md">
           <span className="px-3 py-1 bg-[#F7F9FB] border border-[#88898A] text-[#0F172A] text-xs font-bold rounded-full uppercase tracking-wider">
             Enterprise
