@@ -44,7 +44,10 @@ export default function CTASection() {
 
             <Link
               href="/watch-demo"
-              className="flex justify-center items-center w-66.5 h-14 px-4 py-2.5 mx-auto bg-[#F7F9FB] text-[#035A69] hover:bg-[#02505E] hover:text-[#F7F9FB] font-semibold rounded-lg text-base cursor-
+              className="flex justify-center items-center w-66.5 h-14 
+                px-4 py-2.5 mx-auto bg-[#F7F9FB] text-[#035A69] 
+                hover:bg-[#02505E] hover:text-[#F7F9FB] font-semibold 
+                rounded-lg text-base cursor-pointer"
             >
               Watch Demo
             </Link>
