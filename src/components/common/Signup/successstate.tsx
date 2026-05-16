@@ -30,8 +30,8 @@ const UploadSuccess = () => {
           you&apos;re set, {formData.name}
         </h1>
         <p className="text-center text-base">
-          Welcome to our MeetMind, your AI co-pilot for thoughtful interviews,
-          here&apos;s what you can do from day one.
+          Welcome to MeetMind, your AI co-pilot for thoughtful interviews.
+          Here&apos;s what you can do from day one.
         </p>
       </div>
 

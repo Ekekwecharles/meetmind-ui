@@ -60,12 +60,11 @@ const Signform = () => {
       setServerError(null);
       setIsSuccess(false);
 
-      const response = await api.post(
+      await api.post(
         "https://api.staging.meetmind.hng14.com/api/v1/auth/signup",
         data,
       );
 
-      console.log("Success:", response.data);
       setFormData(data);
       setIsSuccess(true);
       router.push("/signup");
