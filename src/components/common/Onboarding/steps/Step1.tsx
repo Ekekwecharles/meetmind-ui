@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { onboardingStore } from "../../../../store/onboardingStore";
 const Step1 = () => {
-  const { nextStep } = onboardingStore();
+  const nextStep = onboardingStore((state) => state.nextStep);
   return (
     <div className="flex flex-col  gap-4">
       <div className="flex gap-4 justify-center items-center">

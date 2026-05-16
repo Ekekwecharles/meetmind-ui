@@ -5,7 +5,9 @@ import Card from "../onboarding/Card";
 import Image from "next/image";
 
 const Step5 = () => {
-  const { submitOnboarding, isSubmitting, prevStep } = onboardingStore();
+  const submitOnboarding = onboardingStore((s) => s.submitOnboarding);
+  const isSubmitting = onboardingStore((s) => s.isSubmitting);
+  const prevStep = onboardingStore((s) => s.prevStep);
   return (
     <div className="flex flex-col justify-center gap-6 lg:max-w-md md:w-full lg:w-auto">
       <div className="flex flex-col items-center justify-center">
@@ -22,7 +24,7 @@ const Step5 = () => {
           </h1>
         </div>
 
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center gap-2">
           <h3 className="font-bold text-[40px] leading-12 text-center">
             Welcome To MeetMind
           </h3>
