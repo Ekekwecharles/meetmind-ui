@@ -1,9 +1,7 @@
 import SignUp from "@/components/common/Signup/sign-up";
 import React from "react";
 
-type Props = {};
-
-const Signpage = (props: Props) => {
+const Signpage = () => {
   return (
     <section>
       <SignUp />
