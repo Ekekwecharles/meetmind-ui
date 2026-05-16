@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
-const appName = process.env.NEXT_PUBLIC_APP_NAME ?? "Next Starter";
+const appName = process.env.NEXT_PUBLIC_APP_NAME ?? "MeetMind";
 
 export const metadata: Metadata = {
   metadataBase: new URL(appUrl),
