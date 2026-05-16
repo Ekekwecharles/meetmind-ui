@@ -38,7 +38,7 @@ export function HireRadioGroup({
             key={opt.value}
             onClick={() => handleSelect(opt.value)}
             className={cn(
-              'flex items-center gap-4 cursor-pointer rounded-xl border p-4 transition-all relative',
+              'flex items-center gap-4 cursor-pointer rounded-xl border p-4 transition-all relative w-full',
               active
                 ? 'border-primary bg-card ring-1 ring-ring'
                 : 'border-border hover:border-slate-300 bg-white'
