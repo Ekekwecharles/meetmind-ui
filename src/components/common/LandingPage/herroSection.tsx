@@ -87,8 +87,8 @@ export default function HeroSection() {
               <Link
                 href="/watch-demo"
                 className="flex justify-center items-center w-86.25 h-14 px-4 py-2.5 
-                mx-auto bg-[#F7F9FB] border border-[#DADADA] text-[#0F172A] 
-                font-semibold rounded-lg text-[16px] hover:bg-[#02505E] 
+                  mx-auto bg-[#F7F9FB] border border-[#DADADA] text-[#0F172A] 
+                  font-semibold rounded-lg text-[16px] hover:bg-[#02505E] 
                 hover:text-[#F7F9FB] transition-colors gap-2 cursor-pointer"
               >
                 Watch Demo
