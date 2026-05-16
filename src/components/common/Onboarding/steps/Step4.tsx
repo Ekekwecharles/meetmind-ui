@@ -37,7 +37,7 @@ const Step4 = () => {
           />
           <IntegrationCard
             name="Zoom"
-            logo={<Image src="/onboarding/Google.svg" width={299} height={60} alt="Zoom" />}
+            logo={<Image src="/onboarding/Zoom.svg" width={299} height={60} alt="Zoom" />}
             isConnected={data.integrations === 'zoom'}
             onConnect={() =>
               updateData({

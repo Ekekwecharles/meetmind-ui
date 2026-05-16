@@ -26,7 +26,7 @@ export function IntegrationCard({
           <span className="text-xs font-bold">Done</span>
         </div>
       ) : (
-        <button
+        <button type='button'
           onClick={onConnect}
           className="px-4 py-1.5 bg-[#005a64] text-white text-xs font-bold rounded-full hover:bg-[#004a52] transition-colors"
         >

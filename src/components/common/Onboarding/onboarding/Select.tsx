@@ -1,4 +1,5 @@
 import type React from "react";
+import { useId } from "react";
 
 type SelectProps = React.SelectHTMLAttributes<HTMLSelectElement> & {
   label?: string;
@@ -13,13 +14,15 @@ const Select = ({
   className,
   ...props
 }: SelectProps) => {
+  const generatedId = useId();
+const selectId = props.id ?? generatedId;
   return (
     <div className="flex flex-col gap-1 w-full">
       {label && (
-        <label className="text-sm font-medium text-gray-700">{label}</label>
+        <label  htmlFor={selectId} className="text-sm font-medium text-gray-700">{label}</label>
       )}
 
-      <select
+      <select id={selectId}
         className={`
           w-full rounded-md border border-gray-200 bg-white
           px-3 py-2 text-sm outline-none transition

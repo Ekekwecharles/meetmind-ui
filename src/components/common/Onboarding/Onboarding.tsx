@@ -40,11 +40,10 @@ const STEPS: Record<StepNumber, StepConfig> = {
 };
 
 const Onboarding = () => {
-  const { step } = onboardingStore();
+  const step = onboardingStore((state) => state.step);
 
-  const current = STEPS[step];
+  const current = STEPS[step] ?? STEPS[1];
 
-  if (!current) return null;
 
   const Layout = current.layout;
   const StepComponent = current.component;

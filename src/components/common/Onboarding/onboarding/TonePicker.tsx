@@ -16,6 +16,7 @@ const TonePicker = () => {
           const isSelected = data.tone === tone;
           return (
             <button
+             type="button"
               key={tone}
               onClick={() => updateData({ tone })}
               className={cn(

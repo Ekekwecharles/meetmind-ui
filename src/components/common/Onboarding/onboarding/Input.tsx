@@ -1,4 +1,5 @@
 import type React from 'react';
+import {useId} from "react"
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
@@ -6,13 +7,15 @@ type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
 };
 
 const Input = ({ label, error, className, ...props }: InputProps) => {
+  const generatedId = useId()
+   const inputId = props.id ?? generatedId;
   return (
     <div className="flex flex-col gap-1 w-full">
       {label && (
-        <label className="text-sm font-medium text-foreground">{label}</label>
+        <label htmlFor={inputId} className="text-sm font-medium text-foreground">{label}</label>
       )}
 
-      <input
+      <input id={inputId}
         className={`
           w-full rounded-md border border-border bg-background
           px-3 py-2 text-sm outline-none transition

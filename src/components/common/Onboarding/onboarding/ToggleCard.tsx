@@ -14,7 +14,7 @@ export function ToggleCard({
   onToggle,
 }: ToggleCardProps) {
   return (
-    <div
+    <button
       onClick={onToggle}
       className="flex items-center justify-between p-5 bg-white border border-border rounded-2xl cursor-pointer hover:border-slate-200 transition-all"
     >
@@ -35,6 +35,6 @@ export function ToggleCard({
           )}
         />
       </div>
-    </div>
+    </button>
   );
 }
