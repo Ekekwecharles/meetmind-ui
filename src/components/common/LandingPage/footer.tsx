@@ -66,8 +66,8 @@ export default function Footer() {
                 <Image
                   src="/icons/meetmind-logo.svg"
                   alt="MeetMind logo"
-                  width={88}
-                  height={88}
+                  width={42}
+                  height={42}
                   className="h-10 w-auto"
                 />
               </Link>
@@ -94,8 +94,8 @@ export default function Footer() {
                   <Image
                     src={social.icon}
                     alt=""
-                    width={88}
-                    height={88}
+                    width={20}
+                    height={20}
                     className="w-5 h-5"
                   />
                 </a>

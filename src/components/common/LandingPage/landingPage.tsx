@@ -1,13 +1,13 @@
 import React from "react";
-import Navbar from "./navbar";
-import HeroSection from "./herroSection";
-import DashboardPreview from "./dashboardPreview";
+import Navbar from "./Navbar";
+import HeroSection from "./HeroSection";
+import DashboardPreview from "./DashboardPreview";
 import HowItWorks from "./HowItWorks";
 import FeaturesGrid from "./FeaturesGrid";
 import TemperatureControl from "./TemperatureControl";
 import Testimonials from "./Testimonials";
 import CTASection from "./CTASection";
-import Footer from "./footer";
+import Footer from "./Footer";
 
 const LandingPage = () => {
   return (

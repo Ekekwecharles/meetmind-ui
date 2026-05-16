@@ -49,8 +49,8 @@ export default function HowItWorks() {
               <Image
                 src={step.image}
                 alt={`${step.title} illustration`}
-                width={88}
-                height={88}
+                width={240}
+                height={180}
                 className="w-60 h-auto rounded-lg mb-6"
               />
 
@@ -78,8 +78,8 @@ export default function HowItWorks() {
             <Image
               src="/images/interview-image.jpg"
               alt="Professional conducting a video interview"
-              width={88}
-              height={88}
+              width={80}
+              height={80}
               className="w-full h-full object-cover scale-110"
             />
           </div>
@@ -109,8 +109,8 @@ export default function HowItWorks() {
                   <Image
                     src="/icons/checkmark.svg"
                     alt=""
-                    width={13}
-                    height={13}
+                    width={16}
+                    height={16}
                     className="w-3.25 h-3.25 mt-1"
                   />
                   Arrives briefed on the candidate and role
@@ -119,8 +119,8 @@ export default function HowItWorks() {
                   <Image
                     src="/icons/checkmark.svg"
                     alt=""
-                    width={13}
-                    height={13}
+                    width={16}
+                    height={16}
                     className="w-3.25 h-3.25 mt-1"
                   />
                   Asks follow-ups when gaps are detected
@@ -129,8 +129,8 @@ export default function HowItWorks() {
                   <Image
                     src="/icons/checkmark.svg"
                     alt=""
-                    width={13}
-                    height={13}
+                    width={16}
+                    height={16}
                     className="w-3.25 h-3.25 mt-1"
                   />
                   Structured notes ready the second you hang up

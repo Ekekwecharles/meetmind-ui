@@ -44,7 +44,7 @@ export default function TemperatureControl() {
           </p>
 
           {/* Description */}
-          <p className="mt-3 text-[16px] text-[#3F4555] text-center lg:text-start md:max-w-118.5 max-w-86 lg:max-w-118.5 lg:mx-auto">
+          <p className="mt-3 text-sm text-[#3F4555] text-center lg:text-start md:max-w-118.5 max-w-86 lg:mx-auto">
             Not every interview needs the same level of involvement. Temperature
             lets you dial Meet Mind from completely silent to actively engaged,
             for every role, round, and interviewee style.
