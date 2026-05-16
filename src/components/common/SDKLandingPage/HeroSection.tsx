@@ -92,11 +92,13 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-272 mx-auto mt-16 justify-stretch items-stretch ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-272
+       mx-auto mt-16 justify-stretch items-stretch ">
         {cardData.map((card) => (
           <div
             key={card.id}
-            className="flex flex-col bg-white p-4 h-auto rounded-xl border border-gray-100 shadow-sm aspect-square justify-around text-center transition-all duration-300 hover:-translate-y-2 hover:sha
+            className="flex flex-col bg-white p-4 h-auto rounded-xl border border-gray-100 shadow-sm aspect-square
+             justify-around text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-md"
           >
             <h1 className="text-[40px] font-bold text-[#0F172A]">
               {card.title}
