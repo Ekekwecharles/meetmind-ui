@@ -4,7 +4,7 @@ const wideTestimonials = [
     role: "Product Manager",
     company: "Circle",
     quote:
-      '"We use Polio on a daily basis for several internal processes, and I cannot rave enough about them. Incredible flexibility and features combined with super intuitive UI."',
+      "We use Polio on a daily basis for several internal processes, and I cannot rave enough about them. Incredible flexibility and features combined with super intuitive UI.",
     image: "/images/theresa-webb.png",
   },
   {
