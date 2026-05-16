@@ -77,9 +77,9 @@ export default function HeroSection() {
               <Link
                 href="/signup"
                 className="flex justify-center items-center w-86.25 h-14 px-4 py-2.5 
-                bg-[#02505E] text-[#FEFEFF] font-semibold rounded-lg text-base 
-                hover:bg-[#F7F9FB] hover:text-[#013A44] hover:border 
-                hover:border-[#DADADA] transition-colors cursor-pointer"
+                  bg-[#02505E] text-[#FEFEFF] font-semibold rounded-lg text-base 
+                  hover:bg-[#F7F9FB] hover:text-[#013A44] hover:border 
+                  hover:border-[#DADADA] transition-colors cursor-pointer"
               >
                 Get early access
               </Link>
