@@ -11,7 +11,7 @@ import Footer from "./footer";
 
 const LandingPage = () => {
   return (
-    <div>
+    <div className="bg-[#F7F9FB]">
       <Navbar />
       <HeroSection />
       <DashboardPreview />
