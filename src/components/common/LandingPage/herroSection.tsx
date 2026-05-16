@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="bg-[#F7F9FB] pt-24 pb-16">
+    <section id="hero" className="bg-[#F7F9FB] pt-24 pb-14 lg:pb-8">
       <div className="max-w-7xl mx-auto px-6 md:p-10 lg:p-20 text-center">
         <div className="relative flex justify-center items-start md:gap-16 lg:gap-24 text-center">
           <Image
@@ -12,7 +12,7 @@ export default function HeroSection() {
             alt="Task List Star"
             width={64}
             height={64}
-            className="h-auto w-9 left-12 -top-3 md:w-20 absolute lg:left-34 lg:-top-12"
+            className="h-auto w-9 left-10 -top-3 md:w-20 absolute lg:left-34 lg:-top-12"
           />
           <h1 className="font-serif text-4xl md:text-[60px] text-[#0F172A] md:max-w-196 tracking-[-0.15rem] leading-[1.4] md:tracking-[-0.1rem] md:leading-none">
             Interview better. <br />{" "}
@@ -42,7 +42,7 @@ export default function HeroSection() {
           />
 
           {/* Desktop & Tablet View */}
-          <div className="hidden mt-10 md:flex md:flex-col lg:flex-row items-center justify-center gap-6">
+          <div className="hidden mt-10 md:flex md:flex-row items-center justify-center gap-6">
             <Link
               href="/signup"
               className="flex justify-center items-center w-47.5 h-14 px-4 py-2.5 bg-[#02505E]
