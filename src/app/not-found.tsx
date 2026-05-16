@@ -33,7 +33,7 @@ function ErrorNavbar() {
         />
       </Link>
 
-      <div className="hidden items-center gap-[4.35rem] xl:flex">
+      <div className="hidden items-center gap-[4.35rem] lg:flex">
         <nav className="flex items-center gap-7" aria-label="Primary">
           {navItems.map((item) => (
             <Link
@@ -103,13 +103,13 @@ function ErrorNavbar() {
 function ErrorCodeMark() {
   return (
     <div
-      className="relative h-[4.875rem] w-[9.625rem] text-center sm:h-[5.25rem] sm:w-[10.5rem]"
+      className="relative flex h-[4.875rem] w-[9.625rem] items-center justify-center sm:h-[5.25rem] sm:w-[10.5rem]"
       aria-hidden="true"
     >
       <span className="block font-sans text-[4rem] font-extralight leading-none tracking-[0.16em] text-black sm:text-[4.375rem]">
         404
       </span>
-      <span className="absolute left-[4.3rem] top-[-0.55rem] h-[6.875rem] w-px -rotate-45 bg-black sm:left-[4.7rem] sm:top-[-0.65rem] sm:h-[7.5rem]" />
+      <span className="absolute left-1/2 top-[-0.55rem] h-[6.875rem] w-px -translate-x-1/2 -rotate-45 bg-black sm:top-[-0.65rem] sm:h-[7.5rem]" />
     </div>
   );
 }
