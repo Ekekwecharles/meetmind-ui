@@ -1,40 +1,49 @@
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { onboardingStore } from '../../../../store/onboardingStore';
-import { ArrowLeft } from 'lucide-react';
-import { HireRadioGroup, type HireOption } from '../onboarding/RadioCard';
-import Input from '../onboarding/Input';
-import Select from '../onboarding/Select';
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { onboardingStore } from "../../../../store/onboardingStore";
+import { ArrowLeft } from "lucide-react";
+import { HireRadioGroup, type HireOption } from "../onboarding/RadioCard";
+import Input from "../onboarding/Input";
+import Select from "../onboarding/Select";
 
 const hireOptions: HireOption[] = [
   {
-    value: '1-5',
-    title: '1 - 5 hires',
-    description: 'Small team or solo recruiter',
+    value: "1-5",
+    title: "1 - 5 hires",
+    description: "Small team or solo recruiter",
   },
   {
-    value: '6-20',
-    title: '6-20 hires',
-    description: 'Small team or solo recruiter',
+    value: "6-20",
+    title: "6-20 hires",
+    description: "Small team or solo recruiter",
   },
   {
-    value: '20+',
-    title: '20+ hires',
-    description: 'High-volume and enterprise hiring',
+    value: "20+",
+    title: "20+ hires",
+    description: "High-volume and enterprise hiring",
   },
 ];
 
 const Step2 = () => {
-  const { data, updateData, nextStep, prevStep, hasAttemptedStep } = onboardingStore();
+  const { data, updateData, nextStep, prevStep, hasAttemptedStep } =
+    onboardingStore();
   const isValid =
-    data.companyName.trim() !== '' &&
-    data.role.trim() !== '' &&
-    data.hires.trim() !== '';
+    data.companyName.trim() !== "" &&
+    data.role.trim() !== "" &&
+    data.hires.trim() !== "";
   return (
     <div className="flex flex-col justify-center gap-6 md:w-full lg:w-auto">
       <div className="flex flex-col items-center justify-center">
-        <div className="mb-6 sm:mb-8 lg:mb-4">
-          <Image src="/onboarding/MeetmindLogo.svg" width={299} height={60} alt="Meetmind Logo"/>
+        <div className="mb-6 sm:mb-8 lg:mb-4 flex gap-4 justify-center items-center">
+          <Image
+            src="/onboarding/MeetmindLogo.svg"
+            width={60}
+            height={60}
+            alt="Meetmind Logo"
+          />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl tracking-[-2%] font-bold leading-14">
+            Meet<span className="text-primary">Mind</span>
+          </h1>
         </div>
 
         <div className="flex flex-col items-center gap-2">
@@ -60,9 +69,9 @@ const Step2 = () => {
             value={data.role}
             onChange={(e) => updateData({ role: e.target.value })}
             options={[
-              { value: 'ceo', label: 'CEO' },
-              { value: 'founder', label: 'Founder' },
-              { value: 'engineer', label: 'Engineer' },
+              { value: "ceo", label: "CEO" },
+              { value: "founder", label: "Founder" },
+              { value: "engineer", label: "Engineer" },
             ]}
           />
 

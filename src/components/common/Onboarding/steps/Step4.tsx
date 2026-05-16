@@ -13,13 +13,16 @@ const Step4 = () => {
   return (
     <div className="flex flex-col justify-center gap-6 md:w-full lg:w-auto">
       <div className="flex flex-col items-center justify-center">
-        <div className="">
+        <div className="flex gap-4 justify-center items-center">
           <Image
             src="/onboarding/MeetmindLogo.svg"
-            width={299}
+            width={60}
             height={60}
             alt="Meetmind Logo"
           />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl tracking-[-2%] font-bold leading-14">
+            Meet<span className="text-primary">Mind</span>
+          </h1>
         </div>
 
         <div className="flex flex-col items-center">

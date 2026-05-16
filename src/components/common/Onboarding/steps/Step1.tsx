@@ -1,12 +1,20 @@
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { onboardingStore } from '../../../../store/onboardingStore';
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { onboardingStore } from "../../../../store/onboardingStore";
 const Step1 = () => {
   const { nextStep } = onboardingStore();
   return (
     <div className="flex flex-col  gap-4">
-      <div className="mb-6 sm:mb-8">
-        <Image src="/onboarding/MeetmindLogo.svg" width={299} height={60} alt="Meetmind Logo"/>
+      <div className="flex gap-4 justify-center items-center">
+        <Image
+          src="/onboarding/MeetmindLogo.svg"
+          width={60}
+          height={60}
+          alt="Meetmind Logo"
+        />
+        <h1 className="text-3xl sm:text-4xl md:text-5xl tracking-[-2%] font-bold leading-14">
+          Meet<span className="text-primary">Mind</span>
+        </h1>
       </div>
 
       <div className="flex flex-col gap-6">
