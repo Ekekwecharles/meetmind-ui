@@ -38,8 +38,8 @@ const Step4 = () => {
             logo={
               <Image
                 src="/onboarding/Google.svg"
-                width={299}
-                height={60}
+                width={24}
+                height={24}
                 alt="Google"
               />
             }
@@ -55,8 +55,8 @@ const Step4 = () => {
             logo={
               <Image
                 src="/onboarding/Zoom.svg"
-                width={299}
-                height={60}
+                width={24}
+                height={24}
                 alt="Zoom"
               />
             }
