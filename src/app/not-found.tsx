@@ -1,6 +1,6 @@
-/* eslint-disable @next/next/no-img-element */
 import { BellDot, ChevronDown, Search } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const navItems = [
   { label: 'Dashboard', to: '/' },
@@ -20,15 +20,19 @@ function ErrorNavbar() {
         }
         aria-label="MeetMind homepage"
       >
-        <img
+        <Image
           src="/icons/meetmind-logo.svg"
           alt=""
           aria-hidden="true"
+          width={42}
+          height={42}
           className="h-[2.625rem] w-[2.625rem]"
         />
-        <img
+        <Image
           src="/icons/MeetMind.svg"
           alt="MeetMind"
+          width={112}
+          height={18}
           className="h-[1.125rem] w-28"
         />
       </Link>
@@ -55,45 +59,37 @@ function ErrorNavbar() {
         </nav>
 
         <div className="flex items-center gap-5 text-[#374151]">
-          <button
-            type="button"
-            aria-label="Search"
+          <div
+            aria-hidden="true"
             className={
               "inline-flex size-8 items-center justify-center rounded-md " +
-              "transition-colors hover:bg-[#E4F0F2] hover:text-[#035A69] " +
-              "focus-visible:outline-none focus-visible:ring-2 " +
-              "focus-visible:ring-[#035A69] focus-visible:ring-offset-4"
+              "transition-colors hover:bg-[#E4F0F2] hover:text-[#035A69]"
             }
           >
             <Search className="size-[1.125rem]" strokeWidth={1.8} />
-          </button>
-          <button
-            type="button"
-            aria-label="Notifications"
+          </div>
+          <div
+            aria-hidden="true"
             className={
               "inline-flex size-8 items-center justify-center rounded-md " +
-              "transition-colors hover:bg-[#E4F0F2] hover:text-[#035A69] " +
-              "focus-visible:outline-none focus-visible:ring-2 " +
-              "focus-visible:ring-[#035A69] focus-visible:ring-offset-4"
+              "transition-colors hover:bg-[#E4F0F2] hover:text-[#035A69]"
             }
           >
             <BellDot className="size-[1.125rem]" strokeWidth={1.8} />
-          </button>
-          <button
-            type="button"
-            aria-label="Open profile menu"
-            className={
-              "flex items-center gap-3 rounded-md focus-visible:outline-none " +
-              "focus-visible:ring-2 focus-visible:ring-[#035A69] focus-visible:ring-offset-4"
-            }
+          </div>
+          <div
+            aria-hidden="true"
+            className="flex items-center gap-3 rounded-md"
           >
-            <img
+            <Image
               src="/images/darrell-steward.png"
               alt="User profile"
+              width={32}
+              height={32}
               className="size-8 rounded-full object-cover"
             />
             <ChevronDown className="size-4" strokeWidth={1.8} />
-          </button>
+          </div>
         </div>
       </div>
     </header>
