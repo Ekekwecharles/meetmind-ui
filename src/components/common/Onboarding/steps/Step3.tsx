@@ -6,7 +6,10 @@ import TonePicker from "../onboarding/TonePicker";
 import { ToggleCard } from "../onboarding/ToggleCard";
 
 const Step3 = () => {
-  const { data, updateData, nextStep, prevStep } = onboardingStore();
+  const data = onboardingStore((state) => state.data);
+  const updateData = onboardingStore((state) => state.updateData);
+  const nextStep = onboardingStore((state) => state.nextStep);
+  const prevStep = onboardingStore((state) => state.prevStep);
   return (
     <div className="flex flex-col justify-center gap-6 md:w-full lg:w-auto">
       <div className="flex flex-col items-center justify-center">

@@ -29,7 +29,7 @@ export function HireRadioGroup({
   };
 
   return (
-    <div className="space-y-3" role="radiogroup" aria-label="Hiring plan">
+    <div className="space-y-3" role="radiogroup" aria-label="Hiring plan" id="no-of-hires">
       {options.map((opt) => {
         const active = selected === opt.value;
 
@@ -40,6 +40,13 @@ export function HireRadioGroup({
             key={opt.value}
             aria-checked={active}
             onClick={() => handleSelect(opt.value)}
+            tabIndex={active ? 0 : -1}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                handleSelect(opt.value);
+              }
+            }}
             className={cn(
               "flex items-center gap-4 cursor-pointer rounded-xl border p-4 transition-all relative w-full",
               active

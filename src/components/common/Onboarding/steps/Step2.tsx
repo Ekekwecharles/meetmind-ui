@@ -25,8 +25,11 @@ const hireOptions: HireOption[] = [
 ];
 
 const Step2 = () => {
-  const { data, updateData, nextStep, prevStep, hasAttemptedStep } =
-    onboardingStore();
+  const data = onboardingStore((state) => state.data);
+  const updateData = onboardingStore((state) => state.updateData);
+  const nextStep = onboardingStore((state) => state.nextStep);
+  const prevStep = onboardingStore((state) => state.prevStep);
+  const hasAttemptedStep = onboardingStore((state) => state.hasAttemptedStep);
   const isValid =
     data.companyName.trim() !== "" &&
     data.role.trim() !== "" &&
