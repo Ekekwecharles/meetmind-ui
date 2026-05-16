@@ -62,7 +62,8 @@ export default function Features() {
           {featuresList.map((feature) => (
             <div
               key={feature.id}
-              className="flex flex-col bg-white p-6 rounded-xl border border-gray-100 shadow-sm gap-6 text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-md"
+              className="flex flex-col bg-white p-6 rounded-xl border border-gray-100 shadow-sm gap-6 
+              text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-md"
             >
               <div className="flex items-center justify-start w-full">
                 <Image 

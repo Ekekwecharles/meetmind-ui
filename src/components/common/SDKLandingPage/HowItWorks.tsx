@@ -104,13 +104,15 @@ export default function HowItWorks() {
           {quickStartSteps.map((quickstep) => (
             <div
               key={quickstep.id}
-              className="flex flex-col bg-white p-6 rounded-b-xl border-x border-b border-gray-100 shadow-sm border-t-4 border-t-[#035A69] gap-6 text-left transition-all duration-300 hover:-translate-
+              className="flex flex-col bg-white p-6 rounded-b-xl border-x border-b 
+              border-gray-100 shadow-sm border-t-4 border-t-[#035A69] gap-6 text-left transition-all
+               duration-300 hover:-translate-y-2 hover:shadow-md"
             >
               <div className="flex items-center justify-between w-full">
                 <p className="text-base font-normal text-[#0A8F8F]">
                   {quickstep.num}
                 </p>
-                {/* Optimized Next.js Image */}
+                
                 <Image
                   src={quickstep.icon}
                   alt={`${quickstep.title} illustration`}

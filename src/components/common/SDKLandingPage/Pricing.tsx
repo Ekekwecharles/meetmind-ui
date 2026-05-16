@@ -57,9 +57,11 @@ export default function Pricing() {
           </ul>
         </div>
 
-        
-        <div className="relative flex flex-col bg-[#E6F0F1] p-8 h-full rounded-2xl border-2 border-[#B1CFD4] shadow-md text-left items-start gap-6 transition-all duration-300 hover:-translate-y-2 hove
-          <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#B1CFD4] text-[#0F172A] text-xs font-bold px-4 py-1 rounded-full tracking-wider whitespace-nowrap shadow-sm">
+        {/* Pro Plan (Highlighted) */}
+        <div className="relative flex flex-col bg-[#E6F0F1] p-8 h-full rounded-2xl border-2 border-[#B1CFD4] shadow-md 
+        text-left items-start gap-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-md">
+          <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#B1CFD4] text-[#0F172A] text-xs 
+          font-bold px-4 py-1 rounded-full tracking-wider whitespace-nowrap shadow-sm">
             Most Popular
           </span>
 
@@ -99,9 +101,12 @@ export default function Pricing() {
           </ul>
         </div>
 
-        
-        <div className="flex flex-col bg-white p-8 h-full rounded-2xl border border-gray-200 shadow-sm text-left items-start gap-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-md">
-          <span className="px-3 py-1 bg-[#F7F9FB] border border-[#88898A] text-[#0F172A] text-xs font-bold rounded-full uppercase tracking-wider">
+        {/* Enterprise Plan */}
+        <div className="flex flex-col bg-white p-8 h-full rounded-2xl border border-gray-200
+         shadow-sm text-left items-start gap-6 transition-all
+         duration-300 hover:-translate-y-2 hover:shadow-md">
+          <span className="px-3 py-1 bg-[#F7F9FB] border border-[#88898A] text-[#0F172A] 
+          text-xs font-bold rounded-full uppercase tracking-wider">
             Enterprise
           </span>
           <div>
@@ -113,7 +118,8 @@ export default function Pricing() {
           </div>
           <Link
             href="/#contact"
-            className="w-full block text-center py-3 bg-gray-50 hover:bg-gray-100 text-[#0F172A] text-base font-bold rounded-xl border border-gray-200 transition-colors"
+            className="w-full block text-center py-3 bg-gray-50 hover:bg-gray-100 text-[#0F172A]
+             text-base font-bold rounded-xl border border-gray-200 transition-colors"
           >
             Talk to us
           </Link>
