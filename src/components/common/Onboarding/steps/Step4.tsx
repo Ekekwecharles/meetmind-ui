@@ -5,13 +5,21 @@ import { IntegrationCard } from "../onboarding/IntegrationCard";
 import Image from "next/image";
 
 const Step4 = () => {
-  const { data, updateData, nextStep, prevStep } = onboardingStore();
+  const data = onboardingStore((state) => state.data);
+  const updateData = onboardingStore((state) => state.updateData);
+  const nextStep = onboardingStore((state) => state.nextStep);
+  const prevStep = onboardingStore((state) => state.prevStep);
   const isValid = data.integrations !== null;
   return (
     <div className="flex flex-col justify-center gap-6 md:w-full lg:w-auto">
       <div className="flex flex-col items-center justify-center">
         <div className="">
-          <Image src="/onboarding/MeetmindLogo.svg" width={299} height={60} alt="Meetmind Logo" />
+          <Image
+            src="/onboarding/MeetmindLogo.svg"
+            width={299}
+            height={60}
+            alt="Meetmind Logo"
+          />
         </div>
 
         <div className="flex flex-col items-center">
@@ -27,22 +35,36 @@ const Step4 = () => {
         <div className="w-full space-y-3 mb-8">
           <IntegrationCard
             name="Google Meet"
-            logo={<Image src="/onboarding/Google.svg" width={299} height={60} alt="Google" />}
-            isConnected={data.integrations === 'google'}
+            logo={
+              <Image
+                src="/onboarding/Google.svg"
+                width={299}
+                height={60}
+                alt="Google"
+              />
+            }
+            isConnected={data.integrations === "google"}
             onConnect={() =>
               updateData({
-    integrations: 'google',
-  })
+                integrations: "google",
+              })
             }
           />
           <IntegrationCard
             name="Zoom"
-            logo={<Image src="/onboarding/Zoom.svg" width={299} height={60} alt="Zoom" />}
-            isConnected={data.integrations === 'zoom'}
+            logo={
+              <Image
+                src="/onboarding/Zoom.svg"
+                width={299}
+                height={60}
+                alt="Zoom"
+              />
+            }
+            isConnected={data.integrations === "zoom"}
             onConnect={() =>
               updateData({
-    integrations: 'zoom',
-  })
+                integrations: "zoom",
+              })
             }
           />
         </div>

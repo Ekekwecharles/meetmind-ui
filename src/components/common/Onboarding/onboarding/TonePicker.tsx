@@ -1,7 +1,7 @@
-import { onboardingStore } from '../../../../store/onboardingStore';
-import { cn } from '@/lib/utils';
+import { onboardingStore } from "../../../../store/onboardingStore";
+import { cn } from "@/lib/utils";
 
-const tones = ['Friendly', 'Casual', 'Professional'];
+const tones = ["Friendly", "Casual", "Professional"];
 
 const TonePicker = () => {
   const { data, updateData } = onboardingStore();
@@ -16,14 +16,15 @@ const TonePicker = () => {
           const isSelected = data.tone === tone;
           return (
             <button
-             type="button"
+              type="button"
+              aria-pressed={isSelected}
               key={tone}
               onClick={() => updateData({ tone })}
               className={cn(
-                'flex-1 py-2 h-13 text-sm font-medium rounded-lg border transition-all',
+                "flex-1 py-2 h-12 text-sm font-medium rounded-lg border transition-all",
                 isSelected
-                  ? 'border-primary text-primary bg-white shadow-sm'
-                  : 'border-border text-muted-foreground bg-white hover:border-slate-300 hover:text-slate-700'
+                  ? "border-primary text-primary bg-white shadow-sm"
+                  : "border-border text-muted-foreground bg-white hover:border-slate-300 hover:text-slate-700",
               )}
             >
               {tone}

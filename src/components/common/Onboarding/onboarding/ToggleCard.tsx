@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
 interface ToggleCardProps {
   title: string;
@@ -15,6 +15,9 @@ export function ToggleCard({
 }: ToggleCardProps) {
   return (
     <button
+      type="button"
+      aria-pressed={enabled}
+      aria-label={title}
       onClick={onToggle}
       className="flex items-center justify-between p-5 bg-white border border-border rounded-2xl cursor-pointer hover:border-slate-200 transition-all"
     >
@@ -24,14 +27,14 @@ export function ToggleCard({
       </div>
       <div
         className={cn(
-          'w-12 h-6 rounded-full transition-colors relative flex items-center px-1 shrink-0',
-          enabled ? 'bg-primary text-primary-foreground' : 'bg-muted'
+          "w-12 h-6 rounded-full transition-colors relative flex items-center px-1 shrink-0",
+          enabled ? "bg-primary text-primary-foreground" : "bg-muted",
         )}
       >
         <div
           className={cn(
-            'bg-white w-4 h-4 rounded-full transition-transform duration-200 ease-in-out shadow-sm',
-            enabled ? 'translate-x-6' : 'translate-x-0'
+            "bg-white w-4 h-4 rounded-full transition-transform duration-200 ease-in-out shadow-sm",
+            enabled ? "translate-x-6" : "translate-x-0",
           )}
         />
       </div>

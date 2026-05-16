@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { useState } from 'react';
-import { cn } from '@/lib/utils';
-import { User } from 'lucide-react';
+import { useState } from "react";
+import { cn } from "@/lib/utils";
+import { User } from "lucide-react";
 
 export interface HireOption {
   value: string;
@@ -21,7 +21,7 @@ export function HireRadioGroup({
   defaultValue,
   onValueChange,
 }: Props) {
-  const [selected, setSelected] = useState(defaultValue ?? '');
+  const [selected, setSelected] = useState(defaultValue ?? "");
 
   const handleSelect = (value: string) => {
     setSelected(value);
@@ -29,19 +29,22 @@ export function HireRadioGroup({
   };
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-3" role="radiogroup" aria-label="Hiring plan">
       {options.map((opt) => {
         const active = selected === opt.value;
 
         return (
-          <button type='button'
+          <button
+            type="button"
+            role="radio"
             key={opt.value}
+            aria-checked={active}
             onClick={() => handleSelect(opt.value)}
             className={cn(
-              'flex items-center gap-4 cursor-pointer rounded-xl border p-4 transition-all relative w-full',
+              "flex items-center gap-4 cursor-pointer rounded-xl border p-4 transition-all relative w-full",
               active
-                ? 'border-primary bg-card ring-1 ring-ring'
-                : 'border-border hover:border-slate-300 bg-white'
+                ? "border-primary bg-card ring-1 ring-ring"
+                : "border-border hover:border-slate-300 bg-white",
             )}
           >
             <div className="shrink-0 text-slate-400">
@@ -51,8 +54,8 @@ export function HireRadioGroup({
             <div className="grow">
               <p
                 className={cn(
-                  'font-semibold text-[15px]',
-                  active ? 'text-foreground' : 'text-muted-foreground'
+                  "font-semibold text-[15px]",
+                  active ? "text-foreground" : "text-muted-foreground",
                 )}
               >
                 {opt.title}
