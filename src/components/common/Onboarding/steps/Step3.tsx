@@ -16,6 +16,7 @@ const Step3 = () => {
             width={60}
             height={60}
             alt="Meetmind Logo"
+            className="h-10 sm:h-12 md:h-14 lg:h-15 w-auto"
           />
           <h1 className="text-3xl sm:text-4xl md:text-5xl tracking-[-2%] font-bold leading-14">
             Meet<span className="text-primary">Mind</span>
