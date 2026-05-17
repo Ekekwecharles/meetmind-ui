@@ -78,7 +78,8 @@ export default function EnterEmailForm({ setStep, setEmail }: Props) {
                 />
                 <input
                   type="email"
-                  className={`w-full pl-11 pr-10 py-2.5 border rounded-lg text-gray-800 text-sm font-medium placeholder:text-gray-400 placeholder:text-sm placeholder:font-normal focus:outline-none ${e
+                  className={`w-full pl-11 pr-10 py-2.5 border rounded-lg text-gray-800 text-sm font-medium placeholder:text-gray-400 placeholder:text-sm placeholder:font-normal focus:outline-none 
+                    ${errors.email ? "border-[#EF4444]" : "border-gray-300"}`}
                   {...register("email")}
                   placeholder="you@company.com"
                 />
