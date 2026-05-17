@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import personaConfigSnippet from '/images/personaConfigSnippet.png';
+
 
 export default function Features() {
   const featuresList = [
