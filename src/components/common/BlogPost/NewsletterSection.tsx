@@ -128,7 +128,8 @@ export default function NewsletterSection() {
                 onChange={(e) => setAgreed(e.target.checked)}
                 required
                 disabled={isLoading}
-                className="w-5 h-5 text-[#036475] border-gray-300 rounded focus:ring-[#036475] cursor-pointer disabled:opacity-50"
+                className="w-5 h-5 text-[#036475] border-gray-300 rounded 
+                focus:ring-[#036475] cursor-pointer disabled:opacity-50"
               />
             </div>
             <label
