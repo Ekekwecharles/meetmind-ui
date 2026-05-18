@@ -2,11 +2,7 @@ import Navbar from '@/components/common/LandingPage/navbar';
 import Footer from '@/components/common/LandingPage/footer';
 import NewsletterSection from '@/components/common/BlogPost/NewsletterSection';
 import SocialShare from '@/components/common/BlogPost/SocialShare';
-<<<<<<< Updated upstream
-import Image from 'next/image';
-=======
 
->>>>>>> Stashed changes
 
 
 export default function BlogPost() {
@@ -18,21 +14,10 @@ export default function BlogPost() {
         {/* Hero Section */}
         <div className="max-w-5xl mx-auto px-4 md:px-6 mb-12">
           <div className="rounded-xl overflow-hidden shadow-xl mb-12">
-<<<<<<< Updated upstream
-            <Image
-              src="/images/blogpostimage.png"
-              alt="AI Meeting Interaction"
-              className="w-full h-auto object-cover mt-12"
-              width={1280}
-              height={510}
-              priority={false}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1280px"
-=======
             <img
               src="/images/blogpostimage.png"
               alt="AI Meeting Interaction"
               className="w-full h-auto object-cover mt-12"
->>>>>>> Stashed changes
             />
           </div>
 
@@ -71,19 +56,6 @@ export default function BlogPost() {
 
             <div className="relative py-10 border-t border-b border-gray-100 flex flex-row items-start gap-4 md:gap-8 px-4">
               {/* The Quote Icon */}
-<<<<<<< Updated upstream
-              <Image
-                src="/icons/quotation.svg"
-                alt=""
-                role="presentation"
-                className="w-8 h-8 md:w-16 md:h-16 shrink-0 mt-1"
-                width={72}
-                height={72}
-              />
-
-              {/* The Heading Group */}
-              <h2 className="font-serif text-[#111111] text-2xl md:text-3xl lg:text-5xl tracking-tight leading-[1.1] ">
-=======
               <img
                 src= "/icons/quote.svg"
                 alt=""
@@ -93,7 +65,6 @@ export default function BlogPost() {
 
               {/* The Heading Group */}
               <h2 className="font-serif text-[#000000] text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1] ">
->>>>>>> Stashed changes
                 <span className="block">INTERVIEW BETTER.</span>
                 <span className="block">REMEMBER EVERYTHING.</span>
               </h2>
