@@ -1,9 +1,9 @@
 'use client';
 
 import { PricingCards } from '@/components/common/pricing/PricingCards';
-import { FeaturesSection } from '@/components/common/pricing/FeatuersSection';
-import Navbar from '@/components/common/LandingPage/navbar';
-import Footer from '@/components/common/LandingPage/footer';
+import { FeaturesSection } from '@/components/common/pricing/FeaturesSection';
+import Navbar from '@/components/common/LandingPage/Navbar';    
+import Footer from '@/components/common/LandingPage/Footer';
 
 export default function PricingPage() {
   return (
