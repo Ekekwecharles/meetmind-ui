@@ -1,7 +1,8 @@
 import Navbar from '@/components/common/LandingPage/navbar';
 import Footer from '@/components/common/LandingPage/footer';
 import NewsletterSection from '@/components/common/BlogPost/NewsletterSection';
-import SocialShare from '@/components/common/BlogPost/SocialShare';import Image from 'next/image';
+import SocialShare from '@/components/common/BlogPost/SocialShare';
+import Image from 'next/image';
 
 
 export default function BlogPost() {
@@ -69,7 +70,7 @@ export default function BlogPost() {
               />
 
               {/* The Heading Group */}
-              <h2 className="font-['Bodoni_Moda'] text-[#111111] text-2xl md:text-3xl lg:text-5xl tracking-tight leading-[1.1] ">
+              <h2 className="font-serif text-[#111111] text-2xl md:text-3xl lg:text-5xl tracking-tight leading-[1.1] ">
                 <span className="block">INTERVIEW BETTER.</span>
                 <span className="block">REMEMBER EVERYTHING.</span>
               </h2>
