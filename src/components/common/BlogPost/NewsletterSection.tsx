@@ -1,15 +1,57 @@
 "use client";
 
 import { useState } from 'react';
+import api from '@/lib/api'
 
 export default function NewsletterSection() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [agreed, setAgreed] = useState(false);
+  
+  // States to track the API status
+  const [isLoading, setIsLoading] = useState(false);
+  const [statusMessage, setStatusMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Newsletter subscription:', { name, email, agreed });
+    
+    if (!agreed) {
+      setStatusMessage({ type: 'error', text: 'You must agree to the terms to subscribe.' });
+      return;
+    }
+
+    setIsLoading(true);
+    setStatusMessage(null);
+
+    try {
+      // Axios POST request to your endpoint
+      const response = await api.post('https://api.staging.meetmind.hng14.com/api/v1/subscriptions/email', {
+        name: name,
+        email: email,
+      });
+
+      // Show success message from server or fallback text
+      setStatusMessage({ 
+        type: 'success', 
+        text: response.data?.message || 'Successfully subscribed to our newsletter!' 
+      });
+      
+      // Clear form inputs on success
+      setName('');
+      setEmail('');
+      setAgreed(false);
+
+    } catch (error: any) {
+      // Safely grab the backend error message if it exists
+      const errorMessage = error.response?.data?.message || 'Failed to connect to the server. Please try again.';
+      
+      setStatusMessage({
+        type: 'error',
+        text: errorMessage,
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -25,27 +67,55 @@ export default function NewsletterSection() {
         </div>
 
         <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
+          {/* Status Alert Box */}
+          {statusMessage && (
+            <div 
+              className={`mb-6 p-4 rounded-xl text-sm font-medium border ${
+                statusMessage.type === 'success' 
+                  ? 'bg-green-50 text-green-700 border-green-200' 
+                  : 'bg-red-50 text-red-700 border-red-200'
+              }`}
+            >
+              {statusMessage.text}
+            </div>
+          )}
+
           <div className="flex flex-col md:flex-row gap-4 mb-6">
             <input
               type="text"
               placeholder="Enter your Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="md:hidden w-full px-4 py-4 bg-[#F8FAFC] border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#036475]/20 focus:border-[#036475] transition-all"
+              disabled={isLoading}
+              className="md:hidden w-full px-4 py-4 bg-[#F8FAFC] border
+               border-gray-200 rounded-xl focus:outline-none focus:ring-2 
+               focus:ring-[#036475]/20 focus:border-[#036475] 
+               transition-all disabled:opacity-50"
             />
             <input
               type="email"
               placeholder="Enter your Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 px-4 py-4 bg-[#F8FAFC] border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#036475]/20 focus:border-[#036475] transition-all"
               required
+              disabled={isLoading}
+              
+              className="flex-1 px-4 py-4 bg-[#F8FAFC] border border-gray-200 rounded-xl
+               focus:outline-none focus:ring-2 focus:ring-[#036475]/20 focus:border-[#036475]
+               transition-all disabled:opacity-50"
             />
             <button
               type="submit"
-              className="w-full md:w-fit px-8 py-4 bg-[#024E5B] text-white font-bold rounded-xl hover:bg-[#023a44] transition-colors cursor-pointer text-sm  tracking-wider"
+              disabled={isLoading}
+              className="w-full md:w-fit px-8 py-4 bg-[#024E5B] text-white font-bold rounded-xl
+               hover:bg-[#023a44] transition-colors cursor-pointer text-sm tracking-wider
+               disabled:bg-[#024E5B]/50 disabled:cursor-not-allowed flex items-center justify-center min-w-[130px]"
             >
-              Subscribe
+              {isLoading ? (
+                <span className="inline-block animate-pulse">Subscribing...</span>
+              ) : (
+                'Subscribe'
+              )}
             </button>
           </div>
 
@@ -56,8 +126,9 @@ export default function NewsletterSection() {
                 type="checkbox"
                 checked={agreed}
                 onChange={(e) => setAgreed(e.target.checked)}
-                className="w-5 h-5 text-[#036475] border-gray-300 rounded focus:ring-[#036475] cursor-pointer"
                 required
+                disabled={isLoading}
+                className="w-5 h-5 text-[#036475] border-gray-300 rounded focus:ring-[#036475] cursor-pointer disabled:opacity-50"
               />
             </div>
             <label

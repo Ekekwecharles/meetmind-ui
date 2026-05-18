@@ -1,5 +1,5 @@
-import Navbar from '@/components/common/LandingPage/navbar';
-import Footer from '@/components/common/LandingPage/footer';
+import Navbar from '@/components/common/LandingPage/Navbar';
+import Footer from '@/components/common/LandingPage/Footer';
 import NewsletterSection from '@/components/common/BlogPost/NewsletterSection';
 import SocialShare from '@/components/common/BlogPost/SocialShare';
 import Image from 'next/image';
@@ -20,7 +20,7 @@ export default function BlogPost() {
               className="w-full h-auto object-cover mt-12"
               width={1280}
               height={510}
-              priority={false}
+              priority={true}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1280px"
             />
           </div>
