@@ -40,6 +40,7 @@ function ErrorCodeMark() {
         alt="404 Graphic" 
         width={160} 
         height={160} 
+        priority
         className="h-32 w-32 sm:h-40 sm:w-40"
       />
     </div>
