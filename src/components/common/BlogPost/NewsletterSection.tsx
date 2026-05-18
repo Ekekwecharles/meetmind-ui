@@ -24,7 +24,6 @@ export default function NewsletterSection() {
     setStatusMessage(null);
 
     try {
-      // Axios POST request to your endpoint
       const response = await api.post('https://api.staging.meetmind.hng14.com/api/v1/subscriptions/email', {
         name: name,
         email: email,
@@ -40,7 +39,7 @@ export default function NewsletterSection() {
       setName('');
       setEmail('');
       setAgreed(false);
-      
+
     } catch (error: unknown) {
       const errorMessage =
         error instanceof Error
