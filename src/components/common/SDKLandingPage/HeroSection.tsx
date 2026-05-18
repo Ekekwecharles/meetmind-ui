@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import SDKImportSnippet from './SDKImportSnippet';
 
 
 export default function HeroSection() {
@@ -51,15 +51,7 @@ export default function HeroSection() {
 
       
       <div className="relative mx-auto my-12 block max-w-fit">
-        <Image
-          src='/images/SDKimportSnippet.png'
-          alt="SDK Integration Snippet"
-          priority 
-          className=""
-           width={690}
-          height={548}
-        />
-       
+        <SDKImportSnippet/>
       </div>
 
       <div className="flex flex-col justify-between md:max-w-183 mx-auto gap-4 md:mb-12">

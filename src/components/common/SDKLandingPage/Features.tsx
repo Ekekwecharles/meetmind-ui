@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import PersonaSnippet from './PersonaConfigSnippet';
 
 
 
@@ -110,16 +111,10 @@ export default function Features() {
           </div>
         </div>
         
-        <div className="flex md:justify-end md:w-1/2">
-          <Image
-            src='/images/personaConfigSnippet.png'
-            alt="Persona Config Snippet"
-            className="rounded-lg shadow-lg "
-             width={308}
-              height={314}
-          />
-          
+        <div className="flex justify-end md:w-1/2">
+          <PersonaSnippet/>
         </div>
+
       </section>
     </section>
   );
