@@ -40,11 +40,13 @@ export default function NewsletterSection() {
       setName('');
       setEmail('');
       setAgreed(false);
-
-    } catch (error: any) {
-      // Safely grab the backend error message if it exists
-      const errorMessage = error.response?.data?.message || 'Failed to connect to the server. Please try again.';
       
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error
+        ? error.message
+        : 'Failed to connect to the server. Please try again.'; 
+
       setStatusMessage({
         type: 'error',
         text: errorMessage,
