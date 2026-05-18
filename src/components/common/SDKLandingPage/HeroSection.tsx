@@ -1,40 +1,9 @@
 import Link from 'next/link';
 import SDKImportSnippet from './SDKImportSnippet';
+import { cardData } from './pageData/SDKPageData';
 
 
 export default function HeroSection() {
-  const cardData = [
-    {
-      id: 1,
-      title: '<500ms',
-      subtitle: 'Response latency',
-      desc: 'Relevance engine per turn',
-    },
-    {
-      id: 2,
-      title: '<10%',
-      subtitle: 'Word error rate',
-      desc: 'Transcription accuracy',
-    },
-    {
-      id: 3,
-      title: '99.9%',
-      subtitle: 'Uptime SLA',
-      desc: 'During business hours',
-    },
-    {
-      id: 4,
-      title: '<5min',
-      subtitle: 'SDK setup time',
-      desc: 'Install to first agent',
-    },
-    {
-      id: 5,
-      title: '30s',
-      subtitle: 'Auto-save interval',
-      desc: 'Notes synced continuously',
-    },
-  ];
 
   return (
     <section id="sdkhero" className="bg-[#F7F9FB] pt-18 pb-16 px-4">

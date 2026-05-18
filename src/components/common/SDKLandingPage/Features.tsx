@@ -1,47 +1,10 @@
 import Image from 'next/image';
 import PersonaSnippet from './PersonaConfigSnippet';
+import { featuresList } from './pageData/SDKPageData';
 
 
 
 export default function Features() {
-  const featuresList = [
-    {
-      id: 1,
-      icon: '/icons/plugicon.png',
-      title: 'Platform adapters',
-      desc: 'Plug-and-play connectors for Zoom and Google Meet. No custom connector needed.',
-    },
-    {
-      id: 2,
-      icon: '/icons/brainicon.png',
-      title: 'Context injection',
-      desc: 'Feed the agent documents, scorecards, and agendas before the call. It arrives informed.',
-    },
-    {
-      id: 3,
-      icon: '/icons/foldericon.png',
-      title: 'Live voice participation',
-      desc: 'The agent joins as a named participant, interacting with audio in real-time.',
-    },
-    {
-      id: 4,
-      icon: '/icons/foldericon.png',
-      title: 'Relevance engine',
-      desc: 'Decides when to speak passive, standard, or proactive modes with config thresholds.',
-    },
-    {
-      id: 5,
-      icon: '/icons/foldericon.png',
-      title: 'Structured note capture',
-      desc: 'Auto-saves decisions, action items, and open questions every 30 seconds.',
-    },
-    {
-      id: 6,
-      icon: '/icons/foldericon.png',
-      title: 'Post-session query',
-      desc: 'Natural language search over the session record. Ask anything, get a direct answer.',
-    },
-  ];
 
   return (
     <section

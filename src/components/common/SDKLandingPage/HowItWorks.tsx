@@ -1,57 +1,9 @@
 import Image from 'next/image';
+import { steps } from './pageData/SDKPageData';
+import { quickStartSteps } from './pageData/SDKPageData';
 
 
 export default function HowItWorks() {
-  const steps = [
-    {
-      id: 1,
-      title: 'Step 01',
-      subject: 'Inject context before the call.',
-      desc: 'Upload documents, agendas, scorecards, and role descriptions. The agent arrives at the meeting fully briefed not cold.',
-    },
-    {
-      id: 2,
-      title: 'Step 02',
-      subject: 'Agent joins the call',
-      desc: 'MeetMind connects to Zoom or Google Meet as an active, named participant, not a bot in the corner. It introduces itself and begins listening immediately.',
-    },
-    {
-      id: 3,
-      title: 'Step 03',
-      subject: 'Listens, decides, speaks',
-      desc: 'The relevance engine scores every speaker turn. When the threshold is met it speaks, asking follow-ups, flagging gaps, holding the conversation naturally.',
-    },
-    {
-      id: 4,
-      title: 'Step 04',
-      subject: 'Structured output, immediately',
-      desc: 'Session ends and a complete scorecard, AI summary, and queryable transcript are available instantly. No manual notes. No memory-dependent write-ups.',
-    },
-  ];
-
-  const quickStartSteps = [
-    {
-      id: 1,
-      num: '01',
-      icon: '/icons/foldericon.png',
-      title: 'Inject Context',
-      desc: 'Provide agenda, documents, or candidate data before the session starts.',
-    },
-    {
-      id: 2,
-      num: '02',
-      icon: '/icons/plugicon.png',
-      title: 'Connect to a meeting',
-      desc: 'Point the adapter at a Zoom or Google Meet link and run.',
-    },
-    {
-      id: 3,
-      num: '03',
-      icon: '/icons/chipicon.png',
-      title: 'Get structured output',
-      desc: 'Scorecard, summary, and queryable transcript ready instantly.',
-    },
-  ];
 
   return (
     <section
