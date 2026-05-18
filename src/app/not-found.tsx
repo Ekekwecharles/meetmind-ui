@@ -1,17 +1,9 @@
-import { BellDot, ChevronDown, Search } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const navItems = [
-  { label: 'Dashboard', to: '/' },
-  { label: 'Candidates', to: '/candidates' },
-  { label: 'Interviews', to: '/interviews', active: true },
-  { label: 'Calendar', to: '/calendar' },
-];
-
-function ErrorNavbar() {
+function SimpleHeader() {
   return (
-    <header className="mx-auto flex h-[5.25rem] w-full max-w-[90rem] items-center justify-between px-5 sm:h-24 sm:px-10 xl:h-[7.5rem] xl:px-[4.5rem]">
+    <header className="mx-auto flex h-[5.25rem] w-full max-w-[90rem] items-center px-5 sm:h-24 sm:px-10 xl:h-[7.5rem] xl:px-[4.5rem]">
       <Link
         href="/"
         className={
@@ -36,62 +28,6 @@ function ErrorNavbar() {
           className="h-[1.125rem] w-28"
         />
       </Link>
-
-      <div className="hidden items-center gap-[4.35rem] lg:flex">
-        <nav className="flex items-center gap-7" aria-label="Primary">
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.to}
-              aria-current={item.active ? 'page' : undefined}
-              className={
-                "whitespace-nowrap rounded-md text-[0.875rem] leading-none " +
-                "transition-colors focus-visible:outline-none focus-visible:ring-2 " +
-                "focus-visible:ring-[#035A69] focus-visible:ring-offset-4 " +
-                (item.active
-                  ? 'bg-[#E4F0F2] px-3 py-2 font-medium text-[#035A69]'
-                  : 'font-normal text-[#111827] hover:text-[#035A69]')
-              }
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-5 text-[#374151]">
-          <div
-            aria-hidden="true"
-            className={
-              "inline-flex size-8 items-center justify-center rounded-md " +
-              "transition-colors hover:bg-[#E4F0F2] hover:text-[#035A69]"
-            }
-          >
-            <Search className="size-[1.125rem]" strokeWidth={1.8} />
-          </div>
-          <div
-            aria-hidden="true"
-            className={
-              "inline-flex size-8 items-center justify-center rounded-md " +
-              "transition-colors hover:bg-[#E4F0F2] hover:text-[#035A69]"
-            }
-          >
-            <BellDot className="size-[1.125rem]" strokeWidth={1.8} />
-          </div>
-          <div
-            aria-hidden="true"
-            className="flex items-center gap-3 rounded-md"
-          >
-            <Image
-              src="/images/darrell-steward.png"
-              alt="User profile"
-              width={32}
-              height={32}
-              className="size-8 rounded-full object-cover"
-            />
-            <ChevronDown className="size-4" strokeWidth={1.8} />
-          </div>
-        </div>
-      </div>
     </header>
   );
 }
@@ -99,13 +35,21 @@ function ErrorNavbar() {
 function ErrorCodeMark() {
   return (
     <div
-      className="relative flex h-[4.875rem] w-[9.625rem] items-center justify-center sm:h-[5.25rem] sm:w-[10.5rem]"
+      className="flex items-center justify-center gap-[0.16em]"
       aria-hidden="true"
     >
-      <span className="block font-sans text-[4rem] font-extralight leading-none tracking-[0.16em] text-black sm:text-[4.375rem]">
-        404
+      <span className="block font-sans text-[4rem] font-extralight leading-none text-[#111827] sm:text-[4.375rem]">
+        4
       </span>
-      <span className="absolute left-1/2 top-[-0.55rem] h-[6.875rem] w-px -translate-x-1/2 -rotate-45 bg-black sm:top-[-0.65rem] sm:h-[7.5rem]" />
+      <div className="relative flex items-center justify-center">
+        <span className="block font-sans text-[4rem] font-extralight leading-none text-[#111827] sm:text-[4.375rem]">
+          0
+        </span>
+        <span className="absolute left-1/2 top-1/2 h-[125%] w-px -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-[#111827]" />
+      </div>
+      <span className="block font-sans text-[4rem] font-extralight leading-none text-[#111827] sm:text-[4.375rem]">
+        4
+      </span>
     </div>
   );
 }
@@ -113,7 +57,7 @@ function ErrorCodeMark() {
 export default function NotFoundPage() {
   return (
     <div className="min-h-dvh bg-white text-[#111827]">
-      <ErrorNavbar />
+      <SimpleHeader />
 
       <main className="mx-auto flex w-full max-w-[90rem] flex-col items-center px-6 pt-[5.875rem] text-center sm:px-10 sm:pt-[8.5rem] xl:px-[4.5rem] xl:pt-[13.5rem]">
         <ErrorCodeMark />
