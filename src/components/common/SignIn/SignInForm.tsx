@@ -1,11 +1,27 @@
+"use client";
+
+import { useForm } from "react-hook-form";
+import Link from "next/link";
+
+interface SignInFormData {
+  email: string;
+  password: string;
+}
+
 const SignInForm = () => {
+  const { register, handleSubmit } = useForm<SignInFormData>();
+
+  const onSubmit = (data: SignInFormData) => {
+    console.log(data);
+  };
+
   return (
     <div className="rounded-[32px] bg-white px-6 py-8 lg:px-8 lg:py-10">
       <h2 className="text-center text-[24px] font-bold text-text-color-primary">
         Sign in
       </h2>
 
-      <div className="mt-8 space-y-6">
+      <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-6">
         {/* Email Field */}
         <div>
           <label
@@ -19,6 +35,7 @@ const SignInForm = () => {
             id="email"
             type="email"
             placeholder="you@company.com"
+            {...register("email")}
             className="h-[48px] w-full rounded-[8px] border input-border px-4 
                 outline-none transition-all placeholder:text-placeholder 
                 focus:border-input-border-focus"
@@ -38,6 +55,7 @@ const SignInForm = () => {
             id="password"
             type="password"
             placeholder="Enter your password"
+            {...register("password")}
             className=" h-[48px] w-full rounded-[8px] border border-input-border px-4 
               outline-none transition-all placeholder:text-placeholder
               focus:border-input-border-focus"
@@ -46,24 +64,24 @@ const SignInForm = () => {
 
         {/* Forgot Password */}
         <div className="flex justify-center">
-          <button
-            type="button"
+          <Link
+            href="/forgot-password"
             className="text-[16px] text-text-subtext cursor-pointer 
                 hover:opacity-80"
           >
             Forgot Password?
-          </button>
+          </Link>
         </div>
 
         {/* Submit Button */}
         <button
-          type="button"
+          type="submit"
           className="h-[48px] w-full rounded-[8px] bg-button-primary-bg text-[18px] font-semibold 
           text-white transition-all hover:opacity-80 cursor-pointer"
         >
           Sign In
         </button>
-      </div>
+      </form>
     </div>
   );
 };
