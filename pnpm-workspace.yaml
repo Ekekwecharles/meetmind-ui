@@ -1,6 +1,17 @@
+<<<<<<< Updated upstream
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
 auditConfig:
   ignoreGhsas:
     - "GHSA-qx2v-qp2m-jg93"
+=======
+allowBuilds:
+  core-js: true
+  msw: true
+  sharp: true
+  unrs-resolver: true
+ignoredBuiltDependencies:
+  - sharp
+  - unrs-resolver
+>>>>>>> Stashed changes
