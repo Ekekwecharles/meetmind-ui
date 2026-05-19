@@ -5,7 +5,7 @@ export default function SDKImportSnippet() {
       className="bg-[#0B132B] rounded-2xl p-6 font-mono text-sm sm:text-base text-[#F8F9FA] border w-full
      md:w-172 md:h-137 max-w-full border-gray-800 flex flex-col justify-between overflow-x-auto mx-auto select-text"
     >
-      {/* Window  Header */}
+      {/* Smippet  Header */}
       <div>
         <div className="flex items-center gap-2 pb-4 border-b border-gray-800 mb-6">
           <div className="flex items-center gap-2">
