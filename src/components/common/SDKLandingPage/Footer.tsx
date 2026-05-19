@@ -1,14 +1,13 @@
-import Link from 'next/link';
-import Image from 'next/image';
-
+import Link from "next/link";
+import Image from "next/image";
 
 const footerLinks = [
-  { label: 'Documentation', href: '/docs' },
-  { label: 'Github', href: 'https://github.com' },
-  { label: 'Changelog', href: '/changelog' },
-  { label: 'Privacy', href: '/privacy' },
-  { label: 'SDK2026', href: '#' },
-  { label: 'V0.10', href: '#' },
+  { label: "Documentation", href: "/docs" },
+  { label: "Github", href: "#" },
+  { label: "Changelog", href: "/changelog" },
+  { label: "Privacy", href: "/privacy" },
+  { label: "SDK2026", href: "#" },
+  { label: "V0.10", href: "#" },
 ];
 
 export default function Footer() {
@@ -19,7 +18,7 @@ export default function Footer() {
     >
       <div className="w-full lg:max-w-272 flex flex-col gap-12">
         {/* Top Section: Link Menu */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 font-normal text-lg pb-8 border-b border-gray-800/50">
+        <nav className="flex flex-col sm:flex-row items-start sm:items-center gap-6 font-normal text-lg  pb-8 border-b border-gray-800/50">
           {footerLinks.map((link) => (
             <Link
               key={link.label}
@@ -29,12 +28,16 @@ export default function Footer() {
               {link.label}
             </Link>
           ))}
-        </div>
+        </nav>
 
         {/* Bottom Section */}
         <div className="w-full flex flex-col md:flex-row justify-between gap-6 items-start md:items-center">
           {/* Logo Brand Frame */}
-          <Link href="#sdkhero" className="flex items-center gap-3 shrink-0">
+          <Link
+            href="#sdkhero"
+            aria-label="Go to SDK hero section"
+            className="flex items-center gap-3  shrink-0"
+          >
             <Image
               src="/icons/meetmind-logo.svg"
               alt="MeetMind Symbol"
@@ -42,9 +45,9 @@ export default function Footer() {
               height={32}
               className="h-8 w-auto object-contain"
             />
-            
+
             <Image
-              src='/icons/MeetMindText.svg'
+              src="/icons/MeetMindText.svg"
               alt="MeetMind Text"
               width={100}
               height={20}
