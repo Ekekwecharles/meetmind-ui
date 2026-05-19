@@ -2,14 +2,21 @@
 
 import { useForm } from "react-hook-form";
 import Link from "next/link";
-
-interface SignInFormData {
-  email: string;
-  password: string;
-}
+import { zodResolver } from "@hookform/resolvers/zod";
+import { signInSchema, type SignInFormData } from "@/schemas/signInSchema";
 
 const SignInForm = () => {
-  const { register, handleSubmit } = useForm<SignInFormData>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SignInFormData>({
+    resolver: zodResolver(signInSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
 
   const onSubmit = (data: SignInFormData) => {
     console.log(data);
@@ -40,6 +47,12 @@ const SignInForm = () => {
                 outline-none transition-all placeholder:text-placeholder 
                 focus:border-input-border-focus"
           />
+
+          {errors.email && (
+            <p className="mt-2 text-sm text-error-text">
+              {errors.email.message}
+            </p>
+          )}
         </div>
 
         {/* Password Field */}
@@ -60,6 +73,11 @@ const SignInForm = () => {
               outline-none transition-all placeholder:text-placeholder
               focus:border-input-border-focus"
           />
+          {errors.password && (
+            <p className="mt-2 text-sm text-error-text">
+              {errors.password.message}
+            </p>
+          )}
         </div>
 
         {/* Forgot Password */}
