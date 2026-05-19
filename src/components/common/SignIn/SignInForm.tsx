@@ -1,14 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signInSchema, type SignInFormData } from "@/schemas/signInSchema";
-import { LuEye, LuEyeOff } from "react-icons/lu";
+import AuthInput from "@/components/common/SignIn/AuthInput";
 
 const SignInForm = () => {
-  const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
@@ -41,85 +39,31 @@ const SignInForm = () => {
         className="mt-8 space-y-6"
       >
         {/* Email Field */}
-        <div>
-          <label
-            htmlFor="email"
-            className="mb-2 block text-[16px] font-medium text-text-color-label"
-          >
-            Email address
-          </label>
-
-          <input
-            id="email"
-            type="email"
-            placeholder="you@company.com"
-            {...register("email", {
-              onChange: () => {
-                if (errors.email) clearErrors("email");
-              },
-            })}
-            className={`h-[48px] w-full rounded-[8px] border px-4 outline-none 
-                transition-all placeholder:text-placeholder 
-                focus:border-input-border-focus 
-                ${errors.email ? "border-error" : "border-input-border"}
-                `}
-          />
-
-          {errors.email && (
-            <p className="mt-2 text-sm text-error-text">
-              {errors.email.message}
-            </p>
-          )}
-        </div>
+        <AuthInput
+          label="Email address"
+          type="email"
+          placeholder="you@company.com"
+          registration={register("email", {
+            onChange: () => {
+              if (errors.email) clearErrors("email");
+            },
+          })}
+          error={errors.email}
+        />
 
         {/* Password Field */}
-        <div>
-          <label
-            htmlFor="password"
-            className="mb-2 block text-sm font-medium text-text-color-label"
-          >
-            Password
-          </label>
-
-          <div className="relative">
-            <input
-              id="password"
-              type={showPassword ? "text" : "password"}
-              placeholder="Enter your password"
-              {...register("password", {
-                onChange: () => {
-                  if (errors.password) clearErrors("password");
-                },
-              })}
-              className={`h-[48px] w-full rounded-[8px] border px-4 outline-none 
-                transition-all placeholder:text-placeholder 
-                focus:border-input-border-focus 
-                ${errors.password ? "border-error" : "border-input-border"}
-                `}
-            />
-
-            <button
-              type="button"
-              onClick={() => setShowPassword((prev) => !prev)}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-input-placeholder 
-              hover:text-input-placeholder/80 cursor-pointer"
-            >
-              {showPassword ? (
-                <LuEyeOff
-                  size={20}
-                  className="animate-in fade-in duration-200"
-                />
-              ) : (
-                <LuEye size={20} className="animate-in fade-in duration-200" />
-              )}
-            </button>
-          </div>
-          {errors.password && (
-            <p className="mt-2 text-sm text-error-text">
-              {errors.password.message}
-            </p>
-          )}
-        </div>
+        <AuthInput
+          label="Password"
+          type="password"
+          placeholder="Enter your password"
+          registration={register("password", {
+            onChange: () => {
+              if (errors.password) clearErrors("password");
+            },
+          })}
+          error={errors.password}
+          showPasswordToggle
+        />
 
         {/* Forgot Password */}
         <div className="flex justify-center">

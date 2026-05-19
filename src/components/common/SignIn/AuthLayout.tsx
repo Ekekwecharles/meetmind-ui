@@ -11,13 +11,12 @@ const AuthLayout = ({ title, subtitle, children }: AuthLayoutProps) => {
   return (
     <section className="flex min-h-screen flex-col lg:flex-row">
       {/* Mobile Section */}
-      <div className="sticky top-0 h-[50vh] w-full overflow-hidden lg:hidden">
+      <div className="relative h-[50vh] w-full overflow-hidden lg:hidden">
         <Image
           src="/images/sign-in-bg-mobile.png"
           alt="Authentication background"
           fill
           sizes="(max-width: 768px) 100vw, 45vw"
-          priority
           className="object-cover"
         />
 
@@ -45,7 +44,6 @@ const AuthLayout = ({ title, subtitle, children }: AuthLayoutProps) => {
           alt="Authentication background"
           fill
           sizes="45vw"
-          priority
           className="object-cover"
         />
 
@@ -68,13 +66,13 @@ const AuthLayout = ({ title, subtitle, children }: AuthLayoutProps) => {
 
       {/* Right Section */}
       <div
-        className="relative -mt-25 z-20 flex flex-1 justify-center px-6 pb-10 
+        className="relative -mt-25 z-20 flex flex-1 justify-center px-2 pb-10 
                    lg:bg-bg-secondary lg:items-center lg:px-10 lg:py-10"
       >
         <div className="h-[40vh] lg:hidden" />
 
         {/* Floating Content Wrapper */}
-        <div className="w-[460px] rounded-t-[32px] p-8 lg:p-0 lg:rounded-none">
+        <div className="w-full max-w-[460px] rounded-t-[32px] p-8 lg:p-0 lg:rounded-none">
           {/* Logo */}
           <div className="mb-6 flex justify-center">
             <Image
@@ -82,7 +80,6 @@ const AuthLayout = ({ title, subtitle, children }: AuthLayoutProps) => {
               alt="MeetMind logo"
               width={60}
               height={60}
-              priority
               className="h-auto"
             />
           </div>
