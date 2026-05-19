@@ -1,60 +1,48 @@
 import { FaFacebookF, FaTwitter, FaPinterest } from "react-icons/fa";
+import Buttons from "@/components/reuseable-component/buttons";
 
 export default function SocialShare() {
   return (
     <div className="flex items-center w-full my-10">
 
-      {/* Facebook */}
-      <button
-        className="
-          flex-1 flex items-center justify-center gap-2
-          py-8
-          border-t border-b-2 border-t-gray-100 border-b-[#3b5998]
-          text-[#3b5998]
-          hover:bg-gray-50
-          transition-colors
-          text-nowrap
-          text-sm font-medium uppercase tracking-wider
-          cursor-pointer
+      {/* Facebook Share */}
+      <Buttons
+        type="button"
+        text="Share 694"
+        icon={<FaFacebookF className="size-5 mr-2" />}
+        style2="flex-1"     
+        style="
+          py-8 !rounded-none border-t border-b-2 border-t-gray-100 border-b-[#3b5998]
+          bg-transparent text-[#3b5998] hover:bg-gray-50 shadow-none
+          text-sm font-medium uppercase tracking-wider transition-colors
         "
-      >
-        <FaFacebookF className="size-5" />
-        <span>Share 694</span>
-      </button>
+      />
 
-      {/* Twitter */}
-      <button
-        className="
-          flex-1 flex items-center justify-center gap-2
-          py-8
-          border-t border-b-2 border-t-gray-100 border-b-sky-400
-          text-sky-500
-          hover:bg-gray-50
-          transition-colors
-          text-sm font-medium uppercase tracking-wider
-          cursor-pointer
+      {/* Twitter Tweet */}
+      <Buttons
+        type="button"
+        text="Tweet"
+        icon={<FaTwitter className="size-5 mr-2" />}
+        style2="flex-1"
+        style="
+          py-8 !rounded-none border-t border-b-2 border-t-gray-100 border-b-sky-400
+          bg-transparent text-sky-500 hover:bg-gray-50 shadow-none
+          text-sm font-medium uppercase tracking-wider transition-colors
         "
-      >
-        <FaTwitter className="size-5" />
-        <span>Tweet</span>
-      </button>
+      />
 
-      {/* Pinterest */}
-      <button
-        className="
-          flex-1 flex items-center justify-center gap-2
-          py-8
-          border-t border-b-2 border-t-gray-100 border-b-red-600
-          text-gray-500
-          hover:bg-gray-50
-          transition-colors
-          text-sm font-medium uppercase tracking-wider
-          cursor-pointer
+      {/* Pinterest Save */}
+      <Buttons
+        type="button"
+        text="694"
+        icon={<FaPinterest className="text-red-600 size-5 mr-2" />}
+        style2="flex-1"
+        style="
+          py-8 !rounded-none border-t border-b-2 border-t-gray-100 border-b-red-600
+          bg-transparent text-gray-500 hover:bg-gray-50 shadow-none
+          text-sm font-medium uppercase tracking-wider transition-colors
         "
-      >
-        <FaPinterest className="text-red-600 size-5" />
-        <span>694</span>
-      </button>
+      />
 
     </div>
   );

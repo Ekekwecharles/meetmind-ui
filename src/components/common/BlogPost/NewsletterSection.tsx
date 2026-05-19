@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import api from '@/lib/api'
+import axios from 'axios';
 
 export default function NewsletterSection() {
   const [name, setName] = useState('');
@@ -13,47 +14,53 @@ export default function NewsletterSection() {
   const [statusMessage, setStatusMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
+  
+  if (!agreed) {
+    setStatusMessage({ type: 'error', text: 'You must agree to the terms to subscribe.' });
+    return;
+  }
+
+  setIsLoading(true);
+  setStatusMessage(null);
+
+  try {
+    const response = await api.post('/api/v1/subscriptions/email', {
+      name: name,
+      email: email,
+    });
+
+    setStatusMessage({ 
+      type: 'success', 
+      text: response.data?.message || 'Successfully subscribed to our newsletter!' 
+    });
     
-    if (!agreed) {
-      setStatusMessage({ type: 'error', text: 'You must agree to the terms to subscribe.' });
-      return;
-    }
+    setName('');
+    setEmail('');
+    setAgreed(false);
 
-    setIsLoading(true);
-    setStatusMessage(null);
-
-    try {
-      const response = await api.post('https://api.staging.meetmind.hng14.com/api/v1/subscriptions/email', {
-        name: name,
-        email: email,
-      });
-
-      // Show success message from server or fallback text
-      setStatusMessage({ 
-        type: 'success', 
-        text: response.data?.message || 'Successfully subscribed to our newsletter!' 
-      });
-      
-      // Clear form inputs on success
-      setName('');
-      setEmail('');
-      setAgreed(false);
-
-    } catch (error: unknown) {
-      const errorMessage =
-        error instanceof Error
-        ? error.message
-        : 'Failed to connect to the server. Please try again.'; 
-
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      const responseData = error.response?.data;
+      const message =
+        responseData?.error?.details?.[0]?.msg ||
+        responseData?.message ||
+        "Failed to connect to the server. Please try again.";
+        
       setStatusMessage({
         type: 'error',
-        text: errorMessage,
+        text: message,
       });
-    } finally {
-      setIsLoading(false);
+    } else {
+      setStatusMessage({
+        type: 'error',
+        text: "Unexpected error. Please try again.",
+      });
     }
-  };
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   return (
     <section className="py-16 px-4 bg-[#F7F9FB]">

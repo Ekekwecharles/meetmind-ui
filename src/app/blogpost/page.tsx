@@ -3,6 +3,35 @@ import Footer from '@/components/common/LandingPage/Footer';
 import NewsletterSection from '@/components/common/BlogPost/NewsletterSection';
 import SocialShare from '@/components/common/BlogPost/SocialShare';
 import Image from 'next/image';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "MeetMind | AI Voice Agents for Live Meetings",
+  description: "Discover how MeetMind voice-enabled AI agents participate in live Zoom and Google Meet calls, conduct intelligent interviews, and capture structured meeting summaries.",
+  openGraph: {
+    title: "MeetMind | AI Voice Agents for Live Meetings",
+    description: "Voice-enabled AI agents that join Zoom and Google Meet calls, listen actively, speak when relevant, and deliver complete candidate scorecards.",
+    url: "https://meetmind.hng14.com/blogpost",
+    siteName: "MeetMind",
+    images: [
+      {
+        url: "/images/blogpostimage.png",
+        width: 1280,
+        height: 510,
+        alt: "MeetMind AI Meeting Interaction",
+      },
+    ],
+    locale: "en_US",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MeetMind | AI Voice Agents for Live Meetings",
+    description: "Voice-enabled AI agents that join live calls and conduct intelligent interviews.",
+    images: ["/images/blogpostimage.png"],
+  },
+};
+
 
 
 export default function BlogPost() {
