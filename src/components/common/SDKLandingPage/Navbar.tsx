@@ -1,42 +1,46 @@
-'use client'; // Required for useState and useEffect in Next.js App Router
+"use client"; // Required for useState and useEffect in Next.js App Router
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoIosMenu } from "react-icons/io";
 import { MdOutlineCancel } from "react-icons/md";
-import Image from 'next/image';
-import Link from 'next/link';
-
+import Image from "next/image";
+import Link from "next/link";
 
 const navLinks = [
-  { label: 'How it works', href: '#how-it-works' },
-  { label: 'Features', href: '#features' },
-  { label: 'Pricing', href: '#pricing' },
+  { label: "How it works", href: "#how-it-works" },
+  { label: "Features", href: "#features" },
+  { label: "Pricing", href: "#pricing" },
 ];
 
 export default function Navbar() {
+  const router = useRouter();
+  const handleDocsClick = () => {
+    router.push("/docs");
+  };
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (!isMobileMenuOpen) return;
 
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setIsMobileMenuOpen(false);
+      if (e.key === "Escape") setIsMobileMenuOpen(false);
     };
 
     const handleClickOutside = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (!target.closest('nav')) {
+      if (!target.closest("nav")) {
         setIsMobileMenuOpen(false);
       }
     };
 
-    document.addEventListener('keydown', handleEscape);
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isMobileMenuOpen]);
 
@@ -46,15 +50,14 @@ export default function Navbar() {
         {/* Logo + Brand Name */}
         <div className="flex gap-6">
           <Link href="/#hero" className="flex items-center">
-            <Image 
+            <Image
               src="/icons/meetmind-logo.svg"
               alt="MeetMind Logo"
-              className="h-8 w-auto" 
+              className="h-8 w-auto"
               width={32}
               height={32}
-              priority 
+              priority
             />
-           
           </Link>
           <p className="font-bold text-[24px]">
             Meet<span className="text-[#4F46E5]">Mind</span>
@@ -78,7 +81,7 @@ export default function Navbar() {
             <button
               type="button"
               className="flex items-center gap-1 text-[#0F172A] text-sm font-medium cursor-pointer"
-              onClick={() => console.log('DOCS menu clicked')}
+              onClick={handleDocsClick}
             >
               <span>Docs</span>
               <RiArrowDropDownLine className="w-4 h-4" />
@@ -100,7 +103,11 @@ export default function Navbar() {
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <MdOutlineCancel size={24} /> : <IoIosMenu size={24} />}
+          {isMobileMenuOpen ? (
+            <MdOutlineCancel size={24} />
+          ) : (
+            <IoIosMenu size={24} />
+          )}
         </button>
       </div>
 
