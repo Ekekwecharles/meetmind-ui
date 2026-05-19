@@ -31,9 +31,9 @@ export default function SDKImportSnippet() {
             <div>
               <span className="text-white">persona = </span>
               <span className="text-[#C77DFF]">Persona</span>(
-              <span className="text-white">name=</span><span className="text-[#72EFDD]">"Alex"</span>,{' '}
-              <span className="text-white">tone=</span><span className="text-[#72EFDD]">"professional"</span>,{' '}
-              <span className="text-white">mode=</span><span className="text-[#72EFDD]">"standard"</span>)
+              <span className="text-white">name=</span><span className="text-[#72EFDD]">&quot;Alex&quot;</span>,{' '}
+              <span className="text-white">tone=</span><span className="text-[#72EFDD]">&quot;professional&quot;</span>,{' '}
+              <span className="text-white">mode=</span><span className="text-[#72EFDD]">&quot;standard&quot;</span>)
             </div>
           </div>
 
@@ -43,8 +43,8 @@ export default function SDKImportSnippet() {
               <span className="text-white">session = </span>
               <span className="text-[#C77DFF]">Session</span>(
               <div className="pl-6 text-white">
-                platform=<span className="text-[#72EFDD]">"zoom"</span>,{' '}
-                meeting_link="meeting_url",
+                platform=<span className="text-[#72EFDD]">&quot;zoom&quot;</span>,{' '}
+                meeting_link=&quot;meeting_url&quot;,
               </div>
               <div className="pl-6 text-white">
                 persona=persona,
@@ -52,8 +52,8 @@ export default function SDKImportSnippet() {
               <div className="pl-6">
                 <span className="text-white">context=</span>
                 <span className="text-[#C77DFF]">load_docs</span>([
-                <span className="text-[#72EFDD]">"jd.pdf"</span>,{' '}
-                <span className="text-[#72EFDD]">"candidate.pdf"</span>])
+                <span className="text-[#72EFDD]">&quot;jd.pdf&quot;</span>,{' '}
+                <span className="text-[#72EFDD]">&quot;candidate.pdf&quot;</span>])
               </div>
               )
             </div>

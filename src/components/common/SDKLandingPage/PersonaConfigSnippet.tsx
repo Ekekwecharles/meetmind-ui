@@ -46,11 +46,11 @@ export default function PersonaSnippet() {
         <pre>
           <code>
             <span className="text-slate-300">persona</span> = <span className="text-[#a78bfa]">Persona</span>(<span className="block pl-4">
-              <span className="text-slate-300">name</span>=<span className="text-[#3b82f6]">"John"</span>,<br />
-              <span className="text-slate-300">tone</span>=<span className="text-[#3b82f6]">"professional"</span>,<br />
-              <span className="text-slate-300">mode</span>=<span className="text-[#3b82f6]">"standard"</span>,<br />
-              <span className="text-slate-300">verbosity</span>=<span className="text-[#3b82f6]">"medium"</span>,<br />
-              <span className="text-slate-300">interruption_pause</span>=<span className="text-[#3b82f6]">"3s"</span>,<br />
+              <span className="text-slate-300">name</span>=<span className="text-[#3b82f6]">&quot;John&quot;</span>,<br />
+              <span className="text-slate-300">tone</span>=<span className="text-[#3b82f6]">&quot;professional&quot;</span>,<br />
+              <span className="text-slate-300">mode</span>=<span className="text-[#3b82f6]">&quot;standard&quot;</span>,<br />
+              <span className="text-slate-300">verbosity</span>=<span className="text-[#3b82f6]">&quot;medium&quot;</span>,<br />
+              <span className="text-slate-300">interruption_pause</span>=<span className="text-[#3b82f6]">&quot;3s&quot;</span>,<br />
               <span className="text-slate-300">auto_record</span>=<span className="text-[#ef4444]">True</span>,<br />
               <span className="text-slate-300">handle_unknown</span>=<span className="text-[#ef4444]">False</span>,
             </span>)

@@ -1,7 +1,9 @@
 'use client'; // Required for useState and useEffect in Next.js App Router
 
 import { useEffect, useState } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { RiArrowDropDownLine } from "react-icons/ri";
+import { IoIosMenu } from "react-icons/io";
+import { MdOutlineCancel } from "react-icons/md";
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -79,7 +81,7 @@ export default function Navbar() {
               onClick={() => console.log('DOCS menu clicked')}
             >
               <span>Docs</span>
-              <ChevronDown className="w-4 h-4" />
+              <RiArrowDropDownLine className="w-4 h-4" />
             </button>
           </div>
         </div>
@@ -98,7 +100,7 @@ export default function Navbar() {
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileMenuOpen ? <MdOutlineCancel size={24} /> : <IoIosMenu size={24} />}
         </button>
       </div>
 
