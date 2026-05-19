@@ -1,6 +1,5 @@
 "use client";
 
-import { CircleCheck } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -9,10 +8,10 @@ export default function ResetSuccess() {
   const router = useRouter();
 
   return (
-    <div className="bg-[#0F172A]/75 flex items-center justify-center md:bg-[#F7F9FB] h-full">
+    <div className="flex items-center justify-center h-full md:bg-[#F7F9FB]">
       <div className="p-4 max-w-[420px] flex flex-col justify-center">
         <div className="flex justify-center">
-        <Image
+          <Image
             src="/icons/meetmind-logo.svg"
             alt="logo"
             width={43}
@@ -20,13 +19,14 @@ export default function ResetSuccess() {
           />
         </div>
 
-        <div className="mt-8 p-6 bg-[#FEFEFF] rounded-2xl">
+        <div className="mt-8 p-6 bg-[#FEFEFF] rounded-2xl shadow-sm">
           <div className="flex flex-col items-center">
-            <div className="bg-[#E9F8F3] rounded-full w-9 h-9 flex justify-center items-center mb-5">
-              <CircleCheck
-                strokeWidth={1.5}
-                size={23}
-                className="text-[#10B982DD]"
+            <div className="mb-4">
+              <Image
+                src="/icons/green-check.svg"
+                alt="mail"
+                width={40}
+                height={40}
               />
             </div>
             <div className="text-center">

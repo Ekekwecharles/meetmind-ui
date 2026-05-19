@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, ChevronDown, ArrowLeft } from "lucide-react";
+import { FiChevronDown, FiArrowLeft } from "react-icons/fi";
 import api from "@/lib/api";
 import z from "zod";
 import { useForm } from "react-hook-form";
@@ -46,10 +46,9 @@ export default function EnterEmailForm({ setStep, setEmail }: Props) {
   }
 
   return (
-    <div className="bg-[#0F172A]/75 flex items-center justify-center h-full md:bg-[#F7F9FB]">
+    <div className="flex items-center justify-center h-full md:bg-[#F7F9FB]">
       <div className="p-4 max-w-[420px] flex flex-col justify-center">
         <div className="flex justify-center">
-          {/* <img src="/icons/meetmind-logo.svg" alt="logo" /> */}
           <Image
             src="/icons/meetmind-logo.svg"
             alt="logo"
@@ -58,7 +57,7 @@ export default function EnterEmailForm({ setStep, setEmail }: Props) {
           />
         </div>
 
-        <div className="mt-8 p-6 bg-[#FEFEFF] rounded-2xl">
+        <div className="mt-8 p-6 bg-[#FEFEFF] rounded-2xl shadow-sm">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="text-center">
               <h3 className="font-bold text-xl">Reset your Password</h3>
@@ -71,11 +70,14 @@ export default function EnterEmailForm({ setStep, setEmail }: Props) {
               <p className="mb-1">Email address</p>
 
               <div className="relative">
-                {/* key icon */}
-                <Mail
-                  strokeWidth={1}
-                  className="absolute left-3.5 top-1/2 -translate-y-1/2  text-gray-400"
+                <Image
+                  src="/icons/mail.svg"
+                  alt="mail"
+                  width={20}
+                  height={20}
+                  className="absolute left-3.5 top-1/2 -translate-y-1/2"
                 />
+
                 <input
                   type="email"
                   className={`w-full pl-11 pr-10 py-2.5 border rounded-lg text-gray-800 text-sm font-medium placeholder:text-gray-400 placeholder:text-sm placeholder:font-normal focus:outline-none 
@@ -83,7 +85,8 @@ export default function EnterEmailForm({ setStep, setEmail }: Props) {
                   {...register("email")}
                   placeholder="you@company.com"
                 />
-                <ChevronDown
+
+                <FiChevronDown
                   size={18}
                   className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#070D17]"
                 />
@@ -104,12 +107,12 @@ export default function EnterEmailForm({ setStep, setEmail }: Props) {
               href="/signUp"
               className="flex text-[#5E6470] gap-2 mt-5 justify-center text-sm"
             >
-              <ArrowLeft strokeWidth={1.5} className="text-[#91949D]" />{" "}
+              <FiArrowLeft size={18} className="text-[#91949D]" />
               <span className="pt-[2px]">Back to login</span>
             </a>
           </form>
         </div>
-        <p className="text-center mt-5 text-[#5E6470] text-shadow-mauve-400">
+        <p className="text-center p-4 mt-2 md:p-0 md:mt-5 text-[#5E6470] text-shadow-mauve-400 bg-[#F7F9FB] rounded-2xl">
           Don&apos;t have an account?{" "}
           <a href="" className="text-[#035A69]">
             Sign up

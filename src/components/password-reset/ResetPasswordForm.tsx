@@ -4,7 +4,7 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
-import { Eye, EyeClosed, Lock, ArrowLeft, Check } from "lucide-react";
+import { FiArrowLeft, FiCheck } from "react-icons/fi";
 import { useSearchParams } from "next/navigation";
 import api from "@/lib/api";
 import Link from "next/link";
@@ -85,13 +85,12 @@ export default function ResetPasswordForm({ setStep }: Props) {
       setStep("success");
     } catch {
       // If backend returns 4xx/5xx, Axios lands here
-
       setStep("invalid-link");
     }
   }
 
   return (
-    <div className="bg-[#F7F9FB] flex items-center justify-center h-full">
+    <div className="flex items-center justify-center h-full md:bg-[#F7F9FB]">
       <div className="p-4 max-w-[420px] flex flex-col justify-center">
         <div className="flex justify-center">
           <Image
@@ -101,7 +100,7 @@ export default function ResetPasswordForm({ setStep }: Props) {
             height={43}
           />
         </div>
-        <div className="mt-8 p-4 bg-[#FEFEFF] rounded-2xl">
+        <div className="mt-8 p-4 bg-[#FEFEFF] rounded-2xl shadow-sm">
           <form onSubmit={handleSubmit(onValid, onInvalid)}>
             <div className="text-center">
               <h3 className="font-bold text-xl">Create a new Password</h3>
@@ -115,7 +114,13 @@ export default function ResetPasswordForm({ setStep }: Props) {
 
               <div className="relative">
                 {/* key icon */}
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                <Image
+                  src="/icons/lock.svg"
+                  alt="lock"
+                  width={13}
+                  height={13}
+                  className="absolute left-3 top-1/2 -translate-y-1/2"
+                />
 
                 <input
                   type={showPassword ? "text" : "password"}
@@ -129,7 +134,21 @@ export default function ResetPasswordForm({ setStep }: Props) {
                   onClick={() => setShowPassword((prev) => !prev)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
                 >
-                  {showPassword ? <Eye size={18} /> : <EyeClosed size={18} />}
+                  {showPassword ? (
+                    <Image
+                      src="/icons/eye-open.svg"
+                      alt="eye open"
+                      width={18}
+                      height={18}
+                    />
+                  ) : (
+                    <Image
+                      src="/icons/eye-close.svg"
+                      alt="eye closed"
+                      width={18}
+                      height={18}
+                    />
+                  )}
                 </button>
               </div>
 
@@ -168,7 +187,13 @@ export default function ResetPasswordForm({ setStep }: Props) {
 
               <div className="relative">
                 {/* key icon */}
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                <Image
+                  src="/icons/lock.svg"
+                  alt="lock"
+                  width={13}
+                  height={13}
+                  className="absolute left-3 top-1/2 -translate-y-1/2"
+                />
 
                 <input
                   type={showConfirm ? "text" : "password"}
@@ -186,7 +211,21 @@ export default function ResetPasswordForm({ setStep }: Props) {
                   onClick={() => setShowConfirm((prev) => !prev)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
                 >
-                  {showConfirm ? <Eye size={18} /> : <EyeClosed size={18} />}
+                  {showConfirm ? (
+                    <Image
+                      src="/icons/eye-open.svg"
+                      alt="eye open"
+                      width={18}
+                      height={18}
+                    />
+                  ) : (
+                    <Image
+                      src="/icons/eye-close.svg"
+                      alt="eye closed"
+                      width={18}
+                      height={18}
+                    />
+                  )}
                 </button>
               </div>
               {/* Error */}
@@ -210,9 +249,9 @@ export default function ResetPasswordForm({ setStep }: Props) {
 
             <Link
               href="/signUp"
-              className="flex text-[#5E6470] gap-2 mt-5 justify-center"
+              className="flex text-[#5E6470] gap-2 mt-5 justify-center items-center"
             >
-              <ArrowLeft /> Back to Login
+              <FiArrowLeft size={18} className="text-[#91949D]" /> Back to Login
             </Link>
           </form>
         </div>
@@ -240,7 +279,7 @@ function ValidationItem({ text, valid, submitAttempted }: ValidationItemProps) {
             : "text-red-500" // wrong after submit
       }`}
     >
-      <Check size={16} />
+      <FiCheck />
       <span>{text}</span>
     </div>
   );

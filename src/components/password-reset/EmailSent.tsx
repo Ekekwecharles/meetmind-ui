@@ -1,6 +1,8 @@
 "use client";
 
-import { ArrowLeft, CircleCheck } from "lucide-react";
+// import { ArrowLeft, CircleCheck } from "lucide-react";
+import { FiArrowLeft } from "react-icons/fi";
+import { HiOutlineCheckCircle } from "react-icons/hi2";
 import { useEffect, useState } from "react";
 import api from "@/lib/api";
 import Image from "next/image";
@@ -43,7 +45,7 @@ export default function EmailSent({ setStep, email }: Props) {
   }
 
   return (
-    <div className="bg-[#0F172A]/75 flex items-center justify-center md:bg-[#F7F9FB] h-full">
+    <div className="flex items-center justify-center md:bg-[#F7F9FB] h-full">
       <div className="p-4 max-w-[420px] flex flex-col justify-center">
         <div className="flex justify-center">
           <Image
@@ -54,7 +56,7 @@ export default function EmailSent({ setStep, email }: Props) {
           />
         </div>
 
-        <div className="mt-8 p-6 bg-[#FEFEFF] rounded-2xl">
+        <div className="mt-8 p-6 bg-[#FEFEFF] rounded-2xl shadow-sm">
           <div>
             <div className="text-center">
               <h3 className="font-bold text-xl">Check your inbox</h3>
@@ -64,7 +66,8 @@ export default function EmailSent({ setStep, email }: Props) {
             </div>
 
             <div className="mb-1 flex text-sm text-[#25B788] items-center gap-2 p-3 px-4 bg-[#E9F8F3] rounded-xl">
-              <CircleCheck size={15} />
+              {/* <CircleCheck size={15} /> */}
+              <HiOutlineCheckCircle size={15} />
               <p>Email sent successfully</p>
             </div>
 
@@ -90,15 +93,16 @@ export default function EmailSent({ setStep, email }: Props) {
             </button>
 
             <a
-              href="/signUp"
+              href="/sign-up"
               className="flex text-[#5E6470] gap-2 mt-5 justify-center text-sm"
             >
-              <ArrowLeft strokeWidth={1.5} className="text-[#91949D]" />{" "}
+              {/* <ArrowLeft strokeWidth={1.5} className="text-[#91949D]" />{" "} */}
+              <FiArrowLeft className="text-[#91949D]" size={18} />
               <span className="pt-[2px]">Back to login</span>
             </a>
           </div>
         </div>
-        <p className="text-center mt-5 text-[#5E6470] text-sm">
+        <p className="text-center p-4 mt-2 md:p-0 md:mt-5 text-[#5E6470] text-sm bg-[#F7F9FB] rounded-2xl">
           Check spam or promotion if you don&apos;t see it
         </p>
       </div>

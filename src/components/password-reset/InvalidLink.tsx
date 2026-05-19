@@ -1,6 +1,5 @@
 "use client";
 
-import { CircleAlert } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -9,10 +8,10 @@ export default function InvalidLink() {
   const router = useRouter();
 
   return (
-    <div className="bg-[#0F172A]/75 flex items-center justify-center md:bg-[#F7F9FB] h-full">
+    <div className="flex items-center justify-center h-full md:bg-[#F7F9FB]">
       <div className="p-4 max-w-[420px] flex flex-col justify-center">
         <div className="flex justify-center">
-        <Image
+          <Image
             src="/icons/meetmind-logo.svg"
             alt="logo"
             width={43}
@@ -20,13 +19,14 @@ export default function InvalidLink() {
           />
         </div>
 
-        <div className="mt-8 p-6 bg-[#FEFEFF] rounded-2xl">
+        <div className="mt-8 p-6 bg-[#FEFEFF] rounded-2xl shadow-sm">
           <div className="flex flex-col items-center">
-            <div className="bg-[#FDECEC] rounded-full w-9 h-9 flex justify-center items-center mb-5">
-              <CircleAlert
-                strokeWidth={1.5}
-                size={23}
-                className="text-[#EF4444]"
+            <div className="mb-4">
+              <Image
+                src="/icons/red-alert.svg"
+                alt="logo"
+                width={40}
+                height={40}
               />
             </div>
             <div className="text-center">
@@ -43,7 +43,7 @@ export default function InvalidLink() {
             </button>
           </div>
         </div>
-        <p className="text-center mt-5 text-[#5E6470] text-sm">
+        <p className="text-center p-4 mt-2 md:p-0 text-[#5E6470] text-sm bg-[#F7F9FB] rounded-2xl">
           Check spam or promotion if you don&apos;t see it
         </p>
       </div>
