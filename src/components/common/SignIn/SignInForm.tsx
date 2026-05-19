@@ -12,26 +12,34 @@ const SignInForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    clearErrors,
+    formState: { errors, isSubmitting },
   } = useForm<SignInFormData>({
     resolver: zodResolver(signInSchema),
+    mode: "onSubmit",
+    reValidateMode: "onSubmit",
     defaultValues: {
       email: "",
       password: "",
     },
   });
 
-  const onSubmit = (data: SignInFormData) => {
+  const onSubmit = async (data: SignInFormData) => {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     console.log(data);
   };
 
   return (
     <div className="rounded-[32px] bg-white px-6 py-8 lg:px-8 lg:py-10">
       <h2 className="text-center text-[24px] font-bold text-text-color-primary">
-        Sign in
+        Sign In
       </h2>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-6">
+      <form
+        noValidate
+        onSubmit={handleSubmit(onSubmit)}
+        className="mt-8 space-y-6"
+      >
         {/* Email Field */}
         <div>
           <label
@@ -45,10 +53,16 @@ const SignInForm = () => {
             id="email"
             type="email"
             placeholder="you@company.com"
-            {...register("email")}
-            className="h-[48px] w-full rounded-[8px] border input-border px-4 
-                outline-none transition-all placeholder:text-placeholder 
-                focus:border-input-border-focus"
+            {...register("email", {
+              onChange: () => {
+                if (errors.email) clearErrors("email");
+              },
+            })}
+            className={`h-[48px] w-full rounded-[8px] border px-4 outline-none 
+                transition-all placeholder:text-placeholder 
+                focus:border-input-border-focus 
+                ${errors.email ? "border-error" : "border-input-border"}
+                `}
           />
 
           {errors.email && (
@@ -72,10 +86,16 @@ const SignInForm = () => {
               id="password"
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
-              {...register("password")}
-              className="h-[48px] w-full rounded-[8px] border border-input-border px-4
-                outline-none transition-all placeholder:text-placeholder 
-                focus:border-input-border-focus"
+              {...register("password", {
+                onChange: () => {
+                  if (errors.password) clearErrors("password");
+                },
+              })}
+              className={`h-[48px] w-full rounded-[8px] border px-4 outline-none 
+                transition-all placeholder:text-placeholder 
+                focus:border-input-border-focus 
+                ${errors.password ? "border-error" : "border-input-border"}
+                `}
             />
 
             <button
@@ -115,10 +135,12 @@ const SignInForm = () => {
         {/* Submit Button */}
         <button
           type="submit"
+          disabled={isSubmitting}
           className="h-[48px] w-full rounded-[8px] bg-button-primary-bg text-[18px] 
-          font-semibold text-white transition-all hover:opacity-80 cursor-pointer"
+          font-semibold text-white transition-all hover:opacity-80 cursor-pointer 
+          disabled:cursor-not-allowed disabled:opacity-50"
         >
-          Sign In
+          {isSubmitting ? "Signing In..." : "Sign In"}
         </button>
       </form>
     </div>
