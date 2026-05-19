@@ -10,8 +10,8 @@ interface AuthLayoutProps {
 const AuthLayout = ({ title, subtitle, children }: AuthLayoutProps) => {
   return (
     <section className="flex min-h-screen flex-col lg:flex-row">
-      {/* Mobile Hero Section */}
-      <div className="relative h-[70vh] w-full overflow-hidden lg:hidden">
+      {/* Mobile Section */}
+      <div className="relative h-[60vh] w-full overflow-hidden lg:hidden">
         <Image
           src="/images/sign-in-bg-mobile.png"
           alt="Authentication background"
@@ -54,12 +54,12 @@ const AuthLayout = ({ title, subtitle, children }: AuthLayoutProps) => {
 
         {/* Desktop Text */}
         <div className="absolute inset-0 z-10 flex items-center px-12">
-          <div className="max-w-[420px]">
-            <h1 className="text-[64px] font-bold leading-[0.95] text-white">
+          <div className="max-w-[640px]">
+            <h1 className="text-[48px] max-w-[527px] font-bold leading-[0.95] text-white">
               {title}
             </h1>
 
-            <p className="mt-6 text-[36px] leading-[1.1] text-white">
+            <p className="mt-6 text-[36px] max-w-[527px] leading-[1.1] text-white">
               {subtitle}
             </p>
           </div>
@@ -71,7 +71,6 @@ const AuthLayout = ({ title, subtitle, children }: AuthLayoutProps) => {
         className="relative flex flex-1 justify-center bg-bg-secondary px-6 
                 pb-10 lg:items-center lg:px-10 lg:py-10"
       >
-        {/* Floating Content Wrapper */}
         <div
           className=" relative z-20 flex w-full max-w-[460px] flex-col items-center 
                 -mt-20 lg:mt-0"

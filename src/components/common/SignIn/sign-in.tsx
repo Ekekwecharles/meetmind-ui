@@ -1,4 +1,5 @@
 import AuthLayout from "./AuthLayout";
+import SignInForm from "./SignInForm";
 
 const SignIn = () => {
   return (
@@ -6,7 +7,7 @@ const SignIn = () => {
       title="Welcome Back"
       subtitle="Designing intelligence that knows how to speak"
     >
-      <div className="bg-white p-10 rounded-2xl">Temporary Sign In Content</div>
+      <SignInForm />
     </AuthLayout>
   );
 };

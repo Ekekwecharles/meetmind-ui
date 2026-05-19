@@ -12,8 +12,8 @@
   --font-serif: var(--font-serif);
 
   /* =============== BACKGROUND COLORS =============== */
-  --color-bg-primary: #FFFFFF;
-  --color-bg-secondary: #F7F9FB;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f7f9fb;
   --color-bg-tertiary: #e6f0f1;
 
   /* =============== TEXT COLORS =============== */
@@ -45,7 +45,7 @@
   /* =============== FORM ELEMENT COLORS =============== */
   --color-input-bg: #fefeff;
   --color-input-border: #dadada;
-  --color-input-border-focus: #3b82f6;
+  --color-input-border-focus: #0f766e;
   --color-input-text: #b5b7bd;
   --color-input-placeholder: #9ca3af;
 
