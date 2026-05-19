@@ -1,7 +1,6 @@
 "use client"; // Required for useState and useEffect in Next.js App Router
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoIosMenu } from "react-icons/io";
 import { MdOutlineCancel } from "react-icons/md";
@@ -15,10 +14,6 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const router = useRouter();
-  const handleDocsClick = () => {
-    router.push("/docs");
-  };
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -78,14 +73,13 @@ export default function Navbar() {
 
           {/* DOCS */}
           <div className="relative flex items-center">
-            <button
-              type="button"
+            <Link
+              href="/docs"
               className="flex items-center gap-1 text-[#0F172A] text-sm font-medium cursor-pointer"
-              onClick={handleDocsClick}
             >
               <span>Docs</span>
               <RiArrowDropDownLine className="w-4 h-4" />
-            </button>
+            </Link>
           </div>
         </div>
 
