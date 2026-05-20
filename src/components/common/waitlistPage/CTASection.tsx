@@ -1,4 +1,4 @@
-import Buttons from "@/components/reuseable-component/buttons";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -17,15 +17,15 @@ const CTASection = () => {
           Join thousands of teams using AI to improve their meeting experiences
         </p>
 
-        <Link href="/WatchDemo " className="flex text-center justify-center">
-          <Buttons
-            text="Watch Demo"
-            style="bg-[#d2e9ec] text-[#004d57] px-8 py-4 hover:cursor-pointer 
-        rounded-xl font-semibold hover:bg-white transition-colors "
-            style2="md:w-[50%] lg:w-[35%]"
-            type="button"
-          />
-        </Link>
+        <Button
+          className="md:w-[50%] lg:w-[35%] bg-[#d2e9ec] text-[#004d57] px-8 py-4 hover:cursor-pointer 
+        rounded-xl font-semibold hover:bg-white transition-colors"
+          type="button"
+        >
+          <Link href="/WatchDemo" className="flex text-center justify-center">
+            Watch Demo
+          </Link>
+        </Button>
 
         <Image
           src="/icons/meetmind-logo-cta.svg"
