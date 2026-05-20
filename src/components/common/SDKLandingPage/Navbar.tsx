@@ -124,9 +124,9 @@ export default function Navbar() {
             <Link
               href="/docs"
               className="flex items-center gap-1 text-[#0F172A] text-sm font-medium cursor-pointer"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               <span>Docs</span>
-              <RiArrowDropDownLine className="w-4 h-4" />
             </Link>
             <Link
               href="/signup"
