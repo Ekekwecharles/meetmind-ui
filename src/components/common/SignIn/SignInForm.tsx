@@ -5,8 +5,13 @@ import Link from "next/link";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signInSchema, type SignInFormData } from "@/schemas/signInSchema";
 import AuthInput from "@/components/common/SignIn/AuthInput";
+import { loginUser } from "@/lib/auth";
+import axios from "axios";
+import { useState } from "react";
 
 const SignInForm = () => {
+  const [serverError, setServerError] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -23,8 +28,16 @@ const SignInForm = () => {
   });
 
   const onSubmit = async (data: SignInFormData) => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log(data);
+    setServerError("");
+    try {
+      const response = await loginUser(data);
+
+      console.log(response);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        setServerError(error.response?.data?.detail || "Something went wrong");
+      }
+    }
   };
 
   return (
@@ -75,6 +88,10 @@ const SignInForm = () => {
             Forgot Password?
           </Link>
         </div>
+
+        {serverError && (
+          <p className="text-center text-sm text-error-text">{serverError}</p>
+        )}
 
         {/* Submit Button */}
         <button
