@@ -39,18 +39,24 @@ const SignInForm = () => {
     try {
       const response = await loginUser(data);
 
-      // Save access token in browser storage unde the key "token"
+      if (!response.success) {
+        setServerError(response.message || "Invalid credentials");
+        return;
+      }
+
+      // Save access token in browser storage under the key "token"
       localStorage.setItem("token", response.data.access_token);
 
-      localStorage.setItem("user", JSON.stringify(response.data));
-      setAuth(
-        {
-          id: response.data.id,
-          email: response.data.email,
-          name: response.data.name,
-        },
-        response.data.access_token,
-      );
+      const authUser = {
+        id: response.data.id,
+        email: response.data.email,
+        name: response.data.name,
+      };
+
+      localStorage.setItem("user", JSON.stringify(authUser));
+
+      setAuth(authUser, response.data.access_token);
+
       router.push("/onboarding");
     } catch (error) {
       if (axios.isAxiosError(error)) {

@@ -35,12 +35,16 @@ export const useAuthStore = create<AuthState>((set) => ({
       isAuthenticated: true,
     }),
 
-  logout: () =>
+  logout: () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
     set({
       user: null,
       token: null,
       isAuthenticated: false,
-    }),
+    });
+  },
 
   hydrateAuth: () => {
     const token = localStorage.getItem("token");
@@ -48,12 +52,26 @@ export const useAuthStore = create<AuthState>((set) => ({
     const storedUser = localStorage.getItem("user");
 
     if (token && storedUser) {
-      set({
-        token,
-        user: JSON.parse(storedUser),
-        isAuthenticated: true,
-        isHydrated: true,
-      });
+      try {
+        const user = JSON.parse(storedUser) as AuthUser;
+
+        set({
+          token,
+          user,
+          isAuthenticated: true,
+          isHydrated: true,
+        });
+      } catch {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+
+        set({
+          user: null,
+          token: null,
+          isAuthenticated: false,
+          isHydrated: true,
+        });
+      }
     } else {
       set({
         isHydrated: true,
