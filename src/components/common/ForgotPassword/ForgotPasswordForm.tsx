@@ -13,9 +13,11 @@ import {
 import AuthFooter from "@/components/common/SignIn/AuthFooter";
 import { IoArrowBackOutline } from "react-icons/io5";
 import Link from "next/link";
+import CheckInbox from "../SignIn/CheckInbox";
 
 const ForgotPasswordForm = () => {
   const [serverError, setServerError] = useState("");
+  const [emailSent, setEmailSent] = useState(false);
 
   const {
     register,
@@ -36,10 +38,19 @@ const ForgotPasswordForm = () => {
 
     try {
       console.log(data);
+
+      setEmailSent(true);
     } catch {
       setServerError("Something went wrong");
     }
   };
+
+  // if (emailSent) {
+  //   return <CheckInbox />;
+  // }
+  if (emailSent) {
+    return <CheckInbox showSuccess email="you@workemail.com" />;
+  }
 
   return (
     <>
