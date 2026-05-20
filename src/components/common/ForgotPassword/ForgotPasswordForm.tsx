@@ -45,11 +45,8 @@ const ForgotPasswordForm = () => {
     }
   };
 
-  // if (emailSent) {
-  //   return <CheckInbox />;
-  // }
   if (emailSent) {
-    return <CheckInbox showSuccess email="you@workemail.com" />;
+    return <CheckInbox />;
   }
 
   return (

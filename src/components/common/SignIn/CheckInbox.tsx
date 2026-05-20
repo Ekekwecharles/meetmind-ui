@@ -23,24 +23,24 @@ const CheckInbox = ({ email, showSuccess = false }: CheckInboxProps) => {
           We’ve sent a password reset link to your email address
         </p>
 
-        {/* Email appears ONLY in second state */}
+        {/* Email on second state */}
         {showSuccess && email && (
           <p className="mt-6 text-[16px] font-medium text-text-color-primary">
             {email}
           </p>
         )}
 
-        {/* Success alert appears ONLY in second state */}
+        {/* Success alert on first state */}
         {!showSuccess && (
           <div
             className="
               mt-6 flex items-center gap-2 rounded-[16px]
-              bg-[#ECFDF3] px-4 py-4
+              bg-bg-success px-4 py-4
             "
           >
-            <IoCheckmarkCircleOutline size={20} className="text-[#12B76A]" />
+            <IoCheckmarkCircleOutline size={20} className="text-text-success" />
 
-            <span className="text-[14px] text-[#12B76A]">
+            <span className="text-[14px] text-text-success">
               Email sent successfully!
             </span>
           </div>
@@ -51,8 +51,8 @@ const CheckInbox = ({ email, showSuccess = false }: CheckInboxProps) => {
           disabled={!showSuccess}
           className="
             mt-6 h-[48px] w-full rounded-[12px]
-            bg-[#E5E7EB]
-            text-[16px] font-semibold text-[#9CA3AF]
+            bg-card-border
+            text-[16px] font-semibold text-card-text
           "
         >
           {showSuccess ? "Resend email" : "Resend email (26s)"}
@@ -63,8 +63,8 @@ const CheckInbox = ({ email, showSuccess = false }: CheckInboxProps) => {
           disabled={!showSuccess}
           className="
             mt-4 h-[48px] w-full rounded-[12px]
-            bg-[#E5E7EB]
-            text-[16px] font-semibold text-[#9CA3AF]
+            bg-card-border
+            text-[16px] font-semibold text-card-text
           "
         >
           Edit email

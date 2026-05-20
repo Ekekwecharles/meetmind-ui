@@ -52,8 +52,9 @@
 
   /* =============== STATUS & FEEDBACK COLORS =============== */
   --color-success: #25b788;
+  --color-bg-success: #ecfdf3;
   --color-success-bg: #fefeff;
-  --color-success-text: #91949d;
+  --color-text-success: #12b76a;
 
   --color-error: #ef4444;
   --color-error-bg: #fee2e2;
@@ -73,12 +74,12 @@
   /* =============== CARD & CONTAINER COLORS =============== */
   --color-card-bg: #ffffff;
   --color-card-border: #e5e7eb;
+  --color-card-text: #9ca3af;
   --color-card-shadow: rgba(0, 0, 0, 0.05);
 
   /* =============== SCROLLBAR COLORS =============== */
   --color-scrollbar-track: #f3f4f6;
   --color-scrollbar-thumb: #d1d5db;
-  --color-scrollbar-thumb-hover: #9ca3af;
 
   /* =============== RADIUS =============== */
   --radius-sm: calc(var(--radius) * 0.6);
