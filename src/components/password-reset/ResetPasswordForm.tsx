@@ -261,7 +261,7 @@ export default function ResetPasswordForm({ setStep }: Props) {
             </button>
 
             <Link
-              href="#"
+              href="/sign-in"
               className="flex text-[#5E6470] gap-2 mt-5 justify-center items-center"
             >
               <FiArrowLeft size={18} className="text-[#91949D]" /> Back to Login

@@ -24,7 +24,7 @@ export default function Error() {
             <div className="mb-4">
               <Image
                 src="/icons/red-alert.svg"
-                alt="logo"
+                alt="error alert icon"
                 width={40}
                 height={40}
               />

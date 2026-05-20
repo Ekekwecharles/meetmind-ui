@@ -38,7 +38,7 @@ export default function ResetSuccess() {
             </div>
             <button
               className={`text-sm text-white font-medium bg-[#02505E] rounded-md w-full p-3 mt-1`}
-              onClick={() => router.push("#")}
+              onClick={() => router.push("/sign-in")}
             >
               Sign in
             </button>
