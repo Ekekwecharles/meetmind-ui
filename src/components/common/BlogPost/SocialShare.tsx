@@ -4,7 +4,6 @@ import Buttons from "@/components/reuseable-component/buttons";
 export default function SocialShare() {
   return (
     <div className="flex items-center w-full my-10">
-
       {/* Facebook Share */}
       <Buttons
         type="button"
@@ -43,7 +42,6 @@ export default function SocialShare() {
           text-sm font-medium uppercase tracking-wider transition-colors
         "
       />
-
     </div>
   );
 }
