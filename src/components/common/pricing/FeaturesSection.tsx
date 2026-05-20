@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 
 // Feature data with plan availability
@@ -80,23 +78,23 @@ export function FeaturesSection() {
                   </td>
                   <td className="text-center py-3 px-4">
                     {item.starter ? (
-                      <span className="text-green-600 text-xl">✓</span>
+                      <span className="text-green-600 text-xl" aria-label="Available">✓</span>
                     ) : (
-                      <span className="text-gray-400 text-xl">—</span>
+                      <span className="text-gray-400 text-xl" aria-label="Not available">—</span>
                     )}
                   </td>
                   <td className="text-center py-3 px-4">
                     {item.pro ? (
-                      <span className="text-green-600 text-xl">✓</span>
+                      <span className="text-green-600 text-xl" aria-label="Available">✓</span>
                     ) : (
-                      <span className="text-gray-400 text-xl">—</span>
+                      <span className="text-gray-400 text-xl" aria-label="Not available">—</span>
                     )}
                   </td>
                   <td className="text-center py-3 px-4">
                     {item.enterprise ? (
-                      <span className="text-green-600 text-xl">✓</span>
+                      <span className="text-green-600 text-xl" aria-label="Available">✓</span>
                     ) : (
-                      <span className="text-gray-400 text-xl">—</span>
+                      <span className="text-gray-400 text-xl" aria-label="Not available">—</span>
                     )}
                   </td>
                 </tr>
@@ -119,25 +117,25 @@ export function FeaturesSection() {
                 <div className="text-center">
                   <div className="text-xs text-[#5c6b7a] mb-1">Starter</div>
                   {item.starter ? (
-                    <span className="text-green-600 text-lg">✓</span>
+                    <span className="text-green-600 text-lg" aria-label="Available">✓</span>
                   ) : (
-                    <span className="text-gray-400 text-lg">—</span>
+                    <span className="text-gray-400 text-lg" aria-label="Not available">—</span>
                   )}
                 </div>
                 <div className="text-center">
                   <div className="text-xs text-[#5c6b7a] mb-1">Pro</div>
                   {item.pro ? (
-                    <span className="text-green-600 text-lg">✓</span>
+                    <span className="text-green-600 text-lg" aria-label="Available">✓</span>
                   ) : (
-                    <span className="text-gray-400 text-lg">—</span>
+                    <span className="text-gray-400 text-lg" aria-label="Not available">—</span>
                   )}
                 </div>
                 <div className="text-center">
                   <div className="text-xs text-[#5c6b7a] mb-1">Enterprise</div>
                   {item.enterprise ? (
-                    <span className="text-green-600 text-lg">✓</span>
+                    <span className="text-green-600 text-lg" aria-label="Available">✓</span>
                   ) : (
-                    <span className="text-gray-400 text-lg">—</span>
+                    <span className="text-gray-400 text-lg" aria-label="Not available">—</span>
                   )}
                 </div>
               </div>

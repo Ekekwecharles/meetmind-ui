@@ -40,6 +40,7 @@ export function PricingCard({
         </>
       )}
       <button
+        type="button"
         onClick={onButtonClick}
         className={`
           w-full text-center py-2.5 px-4 rounded-full font-semibold text-sm transition-colors cursor-pointer

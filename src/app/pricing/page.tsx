@@ -1,5 +1,3 @@
-'use client';
-
 import { PricingCards } from '@/components/common/pricing/PricingCards';
 import { FeaturesSection } from '@/components/common/pricing/FeaturesSection';
 import Navbar from '@/components/common/LandingPage/Navbar';    
