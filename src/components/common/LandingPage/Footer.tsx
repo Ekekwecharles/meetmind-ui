@@ -7,14 +7,14 @@ const footerColumns = [
     links: [
       { label: "Features", href: "#" },
       { label: "Use Cases", href: "#" },
-     { label: "Pricing", href: "/pricing" },
+      { label: "Pricing", href: "/pricing" },
       { label: "ChangeLog", href: "#" },
     ],
   },
   {
     title: "Developers",
     links: [
-      { label: "SDK", href: "#" },
+      { label: "SDK", href: "/sdk" },
       { label: "Documentation", href: "#" },
       { label: "API Reference", href: "#" },
       { label: "GitHub", href: "#" },
