@@ -13,7 +13,7 @@ import {
 import AuthFooter from "@/components/common/SignIn/AuthFooter";
 import { IoArrowBackOutline } from "react-icons/io5";
 import Link from "next/link";
-import CheckInbox from "../SignIn/CheckInbox";
+import CheckInbox from "./CheckInbox";
 
 const ForgotPasswordForm = () => {
   const [serverError, setServerError] = useState("");

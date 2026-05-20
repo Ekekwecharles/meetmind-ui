@@ -1,5 +1,5 @@
 import AuthLayout from "@/components/common/SignIn/AuthLayout";
-import ForgotPasswordForm from "@/components/common/ForgotPassword/ForgotPasswordForm";
+import ForgotPasswordForm from "@/components/common/SignIn/ForgotPasswordForm";
 
 const ForgotPasswordPage = () => {
   return (
