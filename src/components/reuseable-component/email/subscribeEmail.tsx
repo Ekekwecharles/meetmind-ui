@@ -30,7 +30,6 @@ const SubscribeEmail = ({ style }: Props) => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors, dirtyFields },
   } = useForm<subscribeEmailType>({
     resolver: zodResolver(subscribeEmailschema),
