@@ -18,7 +18,10 @@ export default function Footer() {
     >
       <div className="w-full lg:max-w-272 flex flex-col gap-12">
         {/* Top Section: Link Menu */}
-        <nav className="flex flex-col sm:flex-row items-start sm:items-center gap-6 font-normal text-lg  pb-8 border-b border-gray-800/50">
+        <nav
+          aria-label="footer nav links"
+          className="flex flex-col sm:flex-row items-start sm:items-center gap-6 font-normal text-lg  pb-8 border-b border-gray-800/50"
+        >
           {footerLinks.map((link) => (
             <Link
               key={link.label}
