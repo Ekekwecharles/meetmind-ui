@@ -23,6 +23,7 @@
   --color-text-secondary: #6b7280;
   --color-text-body: #5e6470;
   --color-text-subtext: #3f4555;
+  --color-text-divider: #91949d;
   --color-text-white-primary: #fefeff;
   --color-text-white-secondary: #e1e3e4;
   --color-text-link: #3f4555;
@@ -67,7 +68,7 @@
   --color-info-text: #1e3a8a;
 
   /* =============== BORDER & DIVIDER COLORS =============== */
-  --color-border: #737373;
+  --color-bg-divider: #d1d5db;
 
   /* =============== CARD & CONTAINER COLORS =============== */
   --color-card-bg: #ffffff;

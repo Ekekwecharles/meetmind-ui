@@ -1,7 +1,7 @@
 "use client";
 
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 
 interface AuthInputProps {
@@ -11,6 +11,8 @@ interface AuthInputProps {
   registration: UseFormRegisterReturn;
   error?: FieldError;
   showPasswordToggle?: boolean;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
 }
 
 const AuthInput = ({
@@ -20,6 +22,8 @@ const AuthInput = ({
   registration,
   error,
   showPasswordToggle,
+  leftIcon,
+  rightIcon,
 }: AuthInputProps) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -30,6 +34,14 @@ const AuthInput = ({
       </label>
 
       <div className="relative">
+        {leftIcon && (
+          <div
+            className="absolute left-4 top-1/2 -translate-y-1/2 
+                text-input-placeholder"
+          >
+            {leftIcon}
+          </div>
+        )}
         <input
           type={
             showPasswordToggle ? (showPassword ? "text" : "password") : type
@@ -40,8 +52,19 @@ const AuthInput = ({
             transition-all placeholder:text-placeholder 
             focus:border-input-border-focus 
             ${error ? "border-error" : "border-input-border"}
+            ${leftIcon ? "pl-12" : ""}
+            ${showPasswordToggle || rightIcon ? "pr-12" : ""}
             `}
         />
+        {rightIcon && (
+          <div
+            className="absolute right-4 top-1/2 -translate-y-1/2 
+                text-input-placeholder cursor-pointer"
+          >
+            {rightIcon}
+          </div>
+        )}
+
         {showPasswordToggle && (
           <button
             type="button"
