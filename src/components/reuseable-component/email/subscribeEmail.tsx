@@ -30,6 +30,7 @@ const SubscribeEmail = ({ style }: Props) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, dirtyFields },
   } = useForm<subscribeEmailType>({
     resolver: zodResolver(subscribeEmailschema),
@@ -52,11 +53,7 @@ const SubscribeEmail = ({ style }: Props) => {
       setServerError(null);
       setIsSuccess(false);
 
-      await api.post(
-        // "https://api.staging.meetmind.hng14.com/api/v1/waitlist", // ✅ fix endpoint
-        "https://api.staging.meetmind.hng14.com/api/v1/subscriptions/email", // ✅ fix endpoint
-        data,
-      );
+      await api.post("/api/v1/subscriptions/email", data);
 
       setFormData(data);
       setIsSuccess(true);
