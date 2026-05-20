@@ -62,7 +62,7 @@ const Signform = () => {
       setIsSuccess(false);
 
       await api.post(
-        "https://api.staging.meetmind.hng14.com/api/v1/subscriptions/email",
+        "https://api.staging.meetmind.hng14.com/api/v1/auth/signup",
         data,
       );
 
