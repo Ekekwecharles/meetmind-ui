@@ -9,21 +9,19 @@ export default function WaitlistPage() {
   return (
     <div className="flex flex-col gap-7">
       {/* Temporary Navbar */}
-      <div>
-        <Navbar />
-      </div>
+
+      <Navbar />
 
       {/* Main Content */}
-      <div className="bg-[#F7F9FB]  flex-col gap-7">
+      <div className="bg-[#F7F9FB] flex flex-col gap-7">
         <HeroSection />
         <Features />
         <CTASection />
       </div>
 
       {/* Temporary Footer */}
-      <div>
-        <Footer />
-      </div>
+
+      <Footer />
     </div>
   );
 }

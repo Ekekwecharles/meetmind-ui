@@ -55,23 +55,26 @@ const HeroSection = () => {
         {/* --- EMAIL + CTA SECTION --- */}
         <div className="w-full mt-8">
           <div
-            className="md:flex flex-row
+            className="flex flex-col md:flex-row
             items-center justify-center gap-4 w-full"
           >
             {/* Google Chat icon */}
-            <div className="">
-              <Image
-                src="/icons/google-chat.svg"
-                width={60}
-                height={60}
-                alt="Google Chat"
-              />
-            </div>
+
+            <Image
+              src="/icons/google-chat.svg"
+              width={60}
+              height={60}
+              alt="Google Chat"
+            />
 
             {/* Email input */}
 
             <div className=" w-full md:w-[70%] lg:w-[50%]">
-              <SubscribeEmail style="flex flex-col md:flex-row gap-5 w-full" />
+              <SubscribeEmail
+                style="flex flex-col md:flex-row gap-5 w-full"
+                label="email"
+                labelStyle="text-[#6b7280]"
+              />
             </div>
           </div>
         </div>

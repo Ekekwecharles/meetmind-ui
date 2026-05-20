@@ -11,12 +11,13 @@ import Buttons from "../buttons";
 
 type Props = {
   style: string;
+  label?: string;
+  labelStyle?: string;
 };
 
-const SubscribeEmail = ({ style }: Props) => {
+const SubscribeEmail = ({ style, label, labelStyle }: Props) => {
   const {
     focusedFields,
-    handleBlur,
     handleFocus,
     isLoading,
     isSuccess,
@@ -88,13 +89,13 @@ const SubscribeEmail = ({ style }: Props) => {
 
       <form onSubmit={handleSubmit(SubmitData)} className={`${style} w-full`}>
         <div className="flex flex-col gap-1 flex-1 w-full">
+          <label className={`${labelStyle}`}> {label}</label>
           <input
             className={`border h-12 rounded-lg px-4 py-3.5 focus:outline-none focus:ring-1 w-full ${getInputStyle("email")}`}
             type="email"
             id="email"
             {...register("email")}
             onFocus={() => handleFocus("email")}
-            onBlur={() => handleBlur("email")}
             placeholder="Enter your email"
           />
           {errors.email && (
