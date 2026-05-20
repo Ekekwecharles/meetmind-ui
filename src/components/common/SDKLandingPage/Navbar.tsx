@@ -96,6 +96,8 @@ export default function Navbar() {
           className="md:hidden text-[#0F172A]"
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
+          aria-controls="mobile-menu"
+          aria-expanded={isMobileMenuOpen}
         >
           {isMobileMenuOpen ? (
             <MdOutlineCancel size={24} />
@@ -119,6 +121,13 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              href="/docs"
+              className="flex items-center gap-1 text-[#0F172A] text-sm font-medium cursor-pointer"
+            >
+              <span>Docs</span>
+              <RiArrowDropDownLine className="w-4 h-4" />
+            </Link>
             <Link
               href="/signup"
               className="inline-block text-center px-4 py-2 bg-[#02505E] hover:bg-[#02505ece] text-[#FEFEFF] font-semibold rounded-lg text-sm"
