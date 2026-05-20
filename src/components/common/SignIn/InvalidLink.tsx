@@ -12,10 +12,10 @@ const InvalidLink = () => {
           <div
             className="
               flex h-[56px] w-[56px] items-center justify-center
-              rounded-full bg-[#FEF3F2]
+              rounded-full bg-icon-bg
             "
           >
-            <span className="text-[24px] font-bold text-[#F04438]">!</span>
+            <span className="text-[24px] font-bold text-icon-text">!</span>
           </div>
         </div>
 

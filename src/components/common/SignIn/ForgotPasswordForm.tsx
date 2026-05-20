@@ -33,12 +33,10 @@ const ForgotPasswordForm = () => {
     },
   });
 
-  const onSubmit = async (data: ForgotPasswordFormData) => {
+  const onSubmit = async () => {
     setServerError("");
 
     try {
-      console.log(data);
-
       setEmailSent(true);
     } catch {
       setServerError("Something went wrong");

@@ -11,9 +11,11 @@ import { useState } from "react";
 import AuthDivider from "@/components/common/SignIn/AuthDivider";
 import GoogleAuthButton from "./GoogleAuthButton";
 import AuthFooter from "@/components/common/SignIn/AuthFooter";
+import { useRouter } from "next/navigation";
 
 const SignInForm = () => {
   const [serverError, setServerError] = useState("");
+  const router = useRouter();
 
   const {
     register,
@@ -33,12 +35,13 @@ const SignInForm = () => {
   const onSubmit = async (data: SignInFormData) => {
     setServerError("");
     try {
-      const response = await loginUser(data);
-
-      console.log(response);
+      await loginUser(data);
+      router.push("/");
     } catch (error) {
       if (axios.isAxiosError(error)) {
         setServerError(error.response?.data?.detail || "Something went wrong");
+      } else {
+        setServerError("Something went wrong");
       }
     }
   };

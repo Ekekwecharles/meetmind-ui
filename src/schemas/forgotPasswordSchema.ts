@@ -1,7 +1,9 @@
 import { z } from "zod";
 
 export const forgotPasswordSchema = z.object({
-  email: z.email("Email address is required").trim(),
+  email: z.string().trim().email({
+    error: "Please enter a valid email address",
+  }),
 });
 
 export type ForgotPasswordFormData = z.infer<typeof forgotPasswordSchema>;

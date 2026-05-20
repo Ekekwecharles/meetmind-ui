@@ -77,6 +77,9 @@
   --color-card-text: #9ca3af;
   --color-card-shadow: rgba(0, 0, 0, 0.05);
 
+  --color-icon-bg: #fef3f2;
+  --color-icon-text: #f04438;
+
   /* =============== SCROLLBAR COLORS =============== */
   --color-scrollbar-track: #f3f4f6;
   --color-scrollbar-thumb: #d1d5db;

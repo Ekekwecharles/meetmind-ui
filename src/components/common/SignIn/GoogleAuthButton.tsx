@@ -5,8 +5,11 @@ import { FcGoogle } from "react-icons/fc";
 
 const GoogleAuthButton = () => {
   const handleGoogleSignIn = () => {
-    window.location.href =
-      "https://api.staging.meetmind.hng14.com/api/v1/auth/google";
+    const baseUrl =
+      process.env.NEXT_PUBLIC_API_BASE_URL ||
+      "https://api.staging.meetmind.hng14.com";
+
+    window.location.href = `${baseUrl}/api/v1/auth/google`;
   };
 
   return (
