@@ -1,5 +1,6 @@
 "use client";
 
+import Error from "@/components/password-reset/Error";
 import InvalidLink from "@/components/password-reset/InvalidLink";
 import LeftSide from "@/components/password-reset/LeftSideLayout";
 import ResetPasswordForm from "@/components/password-reset/ResetPasswordForm";
@@ -12,6 +13,7 @@ export default function ResetPasswordPage() {
   const [step, setStep] = useState("new-password");
   // const [step, setStep] = useState("invalid-link");
   // const [step, setStep] = useState("success");
+  // const [step, setStep] = useState("error");
 
   return (
     <div className="bg-[#F7F9FB] overflow-auto">
@@ -42,6 +44,8 @@ export default function ResetPasswordPage() {
             {step === "invalid-link" && <InvalidLink />}
 
             {step === "success" && <ResetSuccess />}
+
+            {step === "error" && <Error />}
           </RightSideLayout>
         </div>
       </div>

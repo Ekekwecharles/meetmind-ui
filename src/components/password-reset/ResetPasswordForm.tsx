@@ -1,7 +1,7 @@
 "use client";
 
-import { z } from "zod";
-import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { FiArrowLeft, FiCheck } from "react-icons/fi";
@@ -17,12 +17,12 @@ const resetPasswordSchema = z
       .min(8, "Password must be at least 8 characters")
       .regex(/[A-Z]/, "Must contain uppercase letter")
       .regex(/[a-z]/, "Must contain lowercase letter")
-      .regex(/[@#$%]/, "Must contain one symbol (@,#,$,%)"),
+      .regex(/[^a-zA-Z0-9]/, "Must contain at least one special character"),
 
     confirmPassword: z.string(),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: "Password do not match",
+    message: "Passwords do not match",
     path: ["confirmPassword"],
   });
 
@@ -45,7 +45,7 @@ export default function ResetPasswordForm({ setStep }: Props) {
   const {
     register,
     handleSubmit,
-    watch,
+    control,
     formState: { errors, isSubmitting },
     reset,
   } = useForm<ResetPasswordFormData>({
@@ -53,13 +53,17 @@ export default function ResetPasswordForm({ setStep }: Props) {
     mode: "onChange",
   });
 
-  const password = watch("password", "");
+  const password = useWatch({
+    control,
+    name: "password",
+    defaultValue: "",
+  });
 
   const validations = {
     length: password.length >= 8,
     uppercase: /[A-Z]/.test(password),
     lowercase: /[a-z]/.test(password),
-    symbol: /[@#$%]/.test(password),
+    symbol: /[^a-zA-Z0-9]/.test(password),
   };
 
   const isPasswordValid =
@@ -73,19 +77,28 @@ export default function ResetPasswordForm({ setStep }: Props) {
   };
 
   async function onValid(data: ResetPasswordFormData) {
-    // setPasswordResetSuccessful(false);
+    if (!token) {
+      setStep("invalid-link");
+      return;
+    }
 
-    const DataSentToApi = { token, password: data.password };
+    const dataSentToApi = { token, password: data.password };
 
     try {
-      await api.post("/api/v1/auth/reset-password", DataSentToApi);
+      await api.post("/api/v1/auth/reset-password", dataSentToApi);
 
       reset();
 
       setStep("success");
-    } catch {
-      // If backend returns 4xx/5xx, Axios lands here
-      setStep("invalid-link");
+    } catch (error: unknown) {
+      const status = (error as { response?: { status?: number } }).response
+        ?.status;
+      if (status === 400 || status === 401 || status === 410) {
+        setStep("invalid-link");
+        return;
+      } else {
+        setStep("error");
+      }
     }
   }
 
@@ -174,7 +187,7 @@ export default function ResetPasswordForm({ setStep }: Props) {
                   />
 
                   <ValidationItem
-                    text="One symbol (@,#,$,%)"
+                    text="At least one special character"
                     valid={validations.symbol}
                     submitAttempted={submitAttempted}
                   />
@@ -238,7 +251,7 @@ export default function ResetPasswordForm({ setStep }: Props) {
 
             <button
               disabled={isSubmitting}
-              className={`w-full text-white bg-[#02505E] rounded-xl p-2 transistion-all ${
+              className={`w-full text-white bg-[#02505E] rounded-xl p-2 transition-all ${
                 isSubmitting
                   ? "bg-[#02505E]/70 cursor-not-allowed opacity-70"
                   : "bg-[#02505E] hover:bg-[#013f4a] cursor-pointer"
@@ -248,7 +261,7 @@ export default function ResetPasswordForm({ setStep }: Props) {
             </button>
 
             <Link
-              href="/signUp"
+              href="#"
               className="flex text-[#5E6470] gap-2 mt-5 justify-center items-center"
             >
               <FiArrowLeft size={18} className="text-[#91949D]" /> Back to Login

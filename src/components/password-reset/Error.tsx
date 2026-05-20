@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 // ==================== 🧩Main Component ====================
-export default function ResetSuccess() {
+export default function Error() {
   const router = useRouter();
 
   return (
@@ -23,24 +23,23 @@ export default function ResetSuccess() {
           <div className="flex flex-col items-center">
             <div className="mb-4">
               <Image
-                src="/icons/green-check.svg"
-                alt="mail"
+                src="/icons/red-alert.svg"
+                alt="logo"
                 width={40}
                 height={40}
               />
             </div>
             <div className="text-center">
-              <h3 className="font-bold text-xl">Password reset successful</h3>
+              <h3 className="font-bold text-xl">Something went wrong</h3>
               <p className="text-[#5E6470] mt-2 mb-3">
-                Your password has been updated. You can now log in with your new
-                password.
+                Please check your connection and try again.
               </p>
             </div>
             <button
               className={`text-sm text-white font-medium bg-[#02505E] rounded-md w-full p-3 mt-1`}
-              onClick={() => router.push("#")}
+              onClick={() => router.push("/forgot-password")}
             >
-              Sign in
+              Request a new link
             </button>
           </div>
         </div>

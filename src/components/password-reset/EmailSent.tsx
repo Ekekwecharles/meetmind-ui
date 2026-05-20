@@ -1,6 +1,5 @@
 "use client";
 
-// import { ArrowLeft, CircleCheck } from "lucide-react";
 import { FiArrowLeft } from "react-icons/fi";
 import { HiOutlineCheckCircle } from "react-icons/hi2";
 import { useEffect, useState } from "react";
@@ -66,13 +65,12 @@ export default function EmailSent({ setStep, email }: Props) {
             </div>
 
             <div className="mb-1 flex text-sm text-[#25B788] items-center gap-2 p-3 px-4 bg-[#E9F8F3] rounded-xl">
-              {/* <CircleCheck size={15} /> */}
               <HiOutlineCheckCircle size={15} />
               <p>Email sent successfully</p>
             </div>
 
             <button
-              //   disabled={isSubmitting}
+              disabled={isCooldownActive}
               className={`text-sm font-medium bg-[#E1E3E4] rounded-md w-full p-2 mt-4 ${
                 isCooldownActive
                   ? "text-white cursor-not-allowed font-extrabold"
@@ -93,10 +91,9 @@ export default function EmailSent({ setStep, email }: Props) {
             </button>
 
             <a
-              href="/sign-up"
+              href="#"
               className="flex text-[#5E6470] gap-2 mt-5 justify-center text-sm"
             >
-              {/* <ArrowLeft strokeWidth={1.5} className="text-[#91949D]" />{" "} */}
               <FiArrowLeft className="text-[#91949D]" size={18} />
               <span className="pt-[2px]">Back to login</span>
             </a>

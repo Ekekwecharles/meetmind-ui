@@ -2,12 +2,11 @@
 
 import { FiChevronDown, FiArrowLeft } from "react-icons/fi";
 import api from "@/lib/api";
-import z from "zod";
+import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
-
-type ForgotPasswordFormData = z.infer<typeof forgotPasswordSchema>;
+import Link from "next/link";
 
 interface Props {
   setStep: React.Dispatch<React.SetStateAction<string>>;
@@ -17,6 +16,8 @@ interface Props {
 const forgotPasswordSchema = z.object({
   email: z.string().email("Email address is required"),
 });
+
+type ForgotPasswordFormData = z.infer<typeof forgotPasswordSchema>;
 
 // ==================== 🧩Main Component ====================
 export default function EnterEmailForm({ setStep, setEmail }: Props) {
@@ -103,20 +104,20 @@ export default function EnterEmailForm({ setStep, setEmail }: Props) {
               {isSubmitting ? "Sending..." : "Send reset link"}
             </button>
 
-            <a
-              href="/signUp"
-              className="flex text-[#5E6470] gap-2 mt-5 justify-center text-sm"
+            <Link
+              href="#"
+              className="flex text-[#5E6470] gap-2 mt-5 justify-center items-center text-sm"
             >
               <FiArrowLeft size={18} className="text-[#91949D]" />
               <span className="pt-[2px]">Back to login</span>
-            </a>
+            </Link>
           </form>
         </div>
         <p className="text-center p-4 mt-2 md:p-0 md:mt-5 text-[#5E6470] text-shadow-mauve-400 bg-[#F7F9FB] rounded-2xl">
           Don&apos;t have an account?{" "}
-          <a href="" className="text-[#035A69]">
+          <Link href="/sign-up" className="text-[#035A69]">
             Sign up
-          </a>
+          </Link>
         </p>
       </div>
     </div>
