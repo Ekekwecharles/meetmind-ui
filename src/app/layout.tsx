@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Figtree, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import Providers from "./providers";
 import AuthProvider from "@/components/providers/AuthProvider";
 
 const figtree = Figtree({ subsets: ["latin"], variable: "--font-sans" });
@@ -53,7 +54,9 @@ export default function RootLayout({
       )}
     >
       <body className="min-h-full flex flex-col">
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          <Providers>{children}</Providers>
+        </AuthProvider>
       </body>
     </html>
   );
