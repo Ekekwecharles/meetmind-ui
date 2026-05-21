@@ -46,4 +46,3 @@ export function HelpHero({ onSearch }: HelpHeroProps) {
       </div>
     </section>
   );
-}
