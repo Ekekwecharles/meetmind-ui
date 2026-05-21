@@ -60,7 +60,12 @@ const SignInForm = () => {
       router.push("/onboarding");
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        setServerError(error.response?.data?.detail || "Something went wrong");
+        const errorMessage =
+          error.response?.data?.detail?.[0]?.msg ||
+          error.response?.data?.message ||
+          "Invalid email or password";
+
+        setServerError(errorMessage);
       } else {
         setServerError("Something went wrong");
       }
@@ -106,6 +111,10 @@ const SignInForm = () => {
             showPasswordToggle
           />
 
+          {serverError && (
+            <p className="text-center text-sm text-error-text">{serverError}</p>
+          )}
+
           {/* Forgot Password */}
           <div className="flex justify-center">
             <Link
@@ -116,10 +125,6 @@ const SignInForm = () => {
               Forgot Password?
             </Link>
           </div>
-
-          {serverError && (
-            <p className="text-center text-sm text-error-text">{serverError}</p>
-          )}
 
           {/* Submit Button */}
           <button
