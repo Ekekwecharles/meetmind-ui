@@ -1,4 +1,4 @@
-import { Search } from "lucide-react";
+import { Search, Files, Sparkles } from "lucide-react";
 
 interface HelpHeroProps {
   onSearch: (value: string) => void;
@@ -12,66 +12,22 @@ export function HelpHero({ onSearch }: HelpHeroProps) {
           <h1 className="text-3xl md:text-4xl font-bold text-[#0F172A] text-center">
             Help & Support
           </h1>
-          {/* Decorative Figma SVG element */}
-          <div className="absolute top-[-10px] right-[-50px] md:right-[-60px] pointer-events-none select-none">
-            <svg width="65" height="60" viewBox="0 0 110 100" fill="none">
-              <rect
-                x="10"
-                y="20"
-                width="50"
-                height="62"
-                rx="5"
-                stroke="#94a3b8"
-                strokeWidth="1.8"
-                fill="none"
+
+          {/* Decorative elements using strictly Lucide icons */}
+          <div className="absolute top-[-12px] right-[-40px] md:right-[-50px] pointer-events-none select-none text-[#94a3b8] flex items-start gap-1">
+            <Files size={28} strokeWidth={1.5} className="opacity-80" />
+            <div className="flex flex-col gap-1 -ml-2 -mt-2">
+              <Sparkles
+                size={16}
+                strokeWidth={1.5}
+                className="text-[#94a3b8]"
               />
-              <rect
-                x="18"
-                y="13"
-                width="50"
-                height="62"
-                rx="5"
-                stroke="#94a3b8"
-                strokeWidth="1.8"
-                fill="none"
+              <Sparkles
+                size={10}
+                strokeWidth={1.5}
+                className="text-[#94a3b8] ml-2"
               />
-              <line
-                x1="26"
-                y1="34"
-                x2="56"
-                y2="34"
-                stroke="#94a3b8"
-                strokeWidth="1.4"
-              />
-              <line
-                x1="26"
-                y1="42"
-                x2="56"
-                y2="42"
-                stroke="#94a3b8"
-                strokeWidth="1.4"
-              />
-              <line
-                x1="26"
-                y1="50"
-                x2="46"
-                y2="50"
-                stroke="#94a3b8"
-                strokeWidth="1.4"
-              />
-              <path
-                d="M88 18 L90 12 L92 18 L98 20 L92 22 L90 28 L88 22 L82 20 Z"
-                stroke="#94a3b8"
-                strokeWidth="1.2"
-                fill="none"
-              />
-              <path
-                d="M76 8 L77 5 L78 8 L81 9 L78 10 L77 13 L76 10 L73 9 Z"
-                stroke="#94a3b8"
-                strokeWidth="1"
-                fill="none"
-              />
-            </svg>
+            </div>
           </div>
         </div>
 
