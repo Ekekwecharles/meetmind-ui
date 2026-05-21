@@ -11,25 +11,25 @@ const resources = [
     icon: <BsFileText size={22} className="text-[#3B82F6]" />,
     title: "Getting Started Guide",
     description: "Learn the basics of MeetMind",
-    href: "/docs/getting-started",
+    href: "#",
   },
   {
     icon: <BsGlobe size={22} className="text-[#3B82F6]" />,
     title: "API Documentation",
     description: "Developer reference and SDK docs",
-    href: "/docs/api",
+    href: "#",
   },
   {
     icon: <BsBoxArrowUpRight size={22} className="text-[#3B82F6]" />,
     title: "Video Tutorials",
     description: "Watch step-by-step tutorials",
-    href: "/tutorials",
+    href: "#",
   },
   {
     icon: <BsChatSquare size={22} className="text-[#3B82F6]" />,
     title: "Community Forum",
     description: "Connect with other users",
-    href: "/community",
+    href: "#",
   },
 ];
 

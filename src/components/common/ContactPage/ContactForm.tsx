@@ -3,6 +3,7 @@
 import { useState } from "react";
 import axios from "axios";
 import api from "@/lib/api";
+import { Check } from "lucide-react";
 
 interface ContactFormData {
   name: string;
@@ -64,18 +65,7 @@ export function ContactForm() {
     return (
       <div className="w-full py-12 flex flex-col items-center justify-center gap-3 text-center">
         <div className="w-12 h-12 rounded-full bg-[#02505E]/10 flex items-center justify-center">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#02505E"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M20 6L9 17l-5-5" />
-          </svg>
+          <Check size={24} className="text-[#02505E]" />
         </div>
         <h3 className="text-lg font-semibold text-[#0F172A]">Message sent!</h3>
         <p className="text-sm text-[#64748b]">

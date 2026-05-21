@@ -65,8 +65,8 @@ export default function ContactPage() {
                     <MessageCircle size={16} />
                     Live Chat
                   </div>
-                  <span className="text-xs text-[#16a34a] bg-[#dcfce7] px-3 py-1 rounded-full font-medium">
-                    Online
+                  <span className="text-xs text-[#64748b] bg-[#f1f5f9] px-3 py-1 rounded-full font-medium">
+                    Coming soon
                   </span>
                 </div>
               </div>
