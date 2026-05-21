@@ -22,8 +22,8 @@ export default function CTASection() {
             width={88}
             height={88}
             className="hidden md:block md:absolute md:bottom-0 
-            // md:-right-4 md:w-60 lg:bottom-0 lg:-right-6 lg:w-90 
-            // md:opacity-50 md:pointer-events-none"
+               md:-right-4 md:w-60 lg:bottom-0 lg:-right-6 lg:w-90 
+               md:opacity-50 md:pointer-events-none"
           />
 
           <div className="max-w-73.5 md:max-w-135.5">
