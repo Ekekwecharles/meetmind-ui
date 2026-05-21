@@ -92,6 +92,8 @@ const SignInForm = () => {
             registration={register("email", {
               onChange: () => {
                 if (errors.email) clearErrors("email");
+
+                if (serverError) setServerError("");
               },
             })}
             error={errors.email}
@@ -105,6 +107,8 @@ const SignInForm = () => {
             registration={register("password", {
               onChange: () => {
                 if (errors.password) clearErrors("password");
+
+                if (serverError) setServerError("");
               },
             })}
             error={errors.password}
