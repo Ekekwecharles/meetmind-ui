@@ -69,34 +69,33 @@ export default function SubscribeCTA() {
                 noValidate
                 className="flex flex-col items-center gap-3"
               >
-                <div className="flex flex-col md:flex-row gap-2 justify-center w-full">
-                  <input
+                <div className="flex flex-col md:flex-row gap-2 justify-center w-full max-w-xs md:max-w-xl mx-auto">
+                <input
                     {...register("email")}
                     type="email"
                     placeholder="Enter your email"
                     disabled={isSubmitting}
-                    className="md:text-left flex-1 p-3 max-w-xs text-center bg-white rounded-md focus:outline-none disabled:opacity-60"
-                  />
-                  <button
-                    type="submit" // or "button"
+                    className="w-full md:text-left md:flex-1 p-3 text-center bg-white rounded-md focus:outline-none disabled:opacity-60"
+                />
+                <button
+                    type="submit" 
                     disabled={isSubmitting}
-                    className="inline-block px-6 py-3 bg-[#D9E8EA] text-[#035A69] hover:bg-[#F7F9F8] hover:text-[#02505E] font-bold rounded-lg text-base cursor-pointer disabled:opacity-60"
-                  >
+                    className="w-full md:w-auto inline-block px-6 py-3 bg-[#D9E8EA] text-[#035A69] hover:bg-[#F7F9F8] hover:text-[#02505E] font-bold rounded-lg text-base cursor-pointer disabled:opacity-60"
+                    >
                     {isSubmitting ? "Subscribing..." : "Subscribe"}
-                  </button>
+                    </button>
                 </div>
-
                 {errors.email && (
-                  <p className="text-red-200 text-sm mt-1">
+                <p className="text-red-200 text-sm mt-1">
                     {errors.email.message}
-                  </p>
+                </p>
                 )}
                 {status === "error" && (
-                  <p className="text-red-200 text-sm mt-1">
-                    Something went wrong. Please try again.
-                  </p>
-                )}
-              </form>
+                        <p className="text-red-200 text-sm mt-1">
+                            Something went wrong. Please try again.
+                        </p>
+                        )}
+            </form>
             )}
           </div>
         </div>
