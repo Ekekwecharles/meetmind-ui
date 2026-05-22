@@ -29,6 +29,7 @@ export default function HelpSupport() {
           <input
             type="text"
             placeholder="Search help articles..."
+            aria-label="Search help articles"
             className={`
               w-full pl-11 pr-4 py-3 bg-white border border-[#DADADA]
               rounded-xl text-gray-800 text-sm focus:outline-none
@@ -38,7 +39,10 @@ export default function HelpSupport() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="p-5 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+          <button
+            type="button"
+            className="p-5 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow cursor-pointer text-left w-full"
+          >
             <div className="mb-4 text-[#02505E]">
               <LuBookOpen className="text-xl" />
             </div>
@@ -48,9 +52,12 @@ export default function HelpSupport() {
             <p className="text-xs text-[#5E6470]">
               Set up your first AI interview in minutes.
             </p>
-          </div>
+          </button>
 
-          <div className="p-5 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+          <button
+            type="button"
+            className="p-5 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow cursor-pointer text-left w-full"
+          >
             <div className="mb-4 text-[#02505E]">
               <LuPlug className="text-xl" />
             </div>
@@ -60,9 +67,12 @@ export default function HelpSupport() {
             <p className="text-xs text-[#5E6470]">
               Connect Zoom, Google Meet and more.
             </p>
-          </div>
+          </button>
 
-          <div className="p-5 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+          <button
+            type="button"
+            className="p-5 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow cursor-pointer text-left w-full"
+          >
             <div className="mb-4 text-[#02505E]">
               <LuCpu className="text-xl" />
             </div>
@@ -72,9 +82,12 @@ export default function HelpSupport() {
             <p className="text-xs text-[#5E6470]">
               Understand how MeetMind speaks and listens.
             </p>
-          </div>
+          </button>
 
-          <div className="p-5 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+          <button
+            type="button"
+            className="p-5 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow cursor-pointer text-left w-full"
+          >
             <div className="mb-4 text-[#02505E]">
               <LuClipboardList className="text-xl" />
             </div>
@@ -84,7 +97,7 @@ export default function HelpSupport() {
             <p className="text-xs text-[#5E6470]">
               Share interview details, notes & metrics with your team.
             </p>
-          </div>
+          </button>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4">
@@ -114,7 +127,10 @@ export default function HelpSupport() {
       </section>
 
       <section className="space-y-4">
-        <button className="w-full flex items-center justify-between p-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+        <button
+          type="button"
+          className="w-full flex items-center justify-between p-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+        >
           <div className="flex items-center gap-3">
             <div className="text-gray-500">
               <LuFileText className="text-xl" />
@@ -126,7 +142,10 @@ export default function HelpSupport() {
           <LuChevronRight className="text-gray-400 text-xl" />
         </button>
 
-        <button className="w-full flex items-center justify-between p-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+        <button
+          type="button"
+          className="w-full flex items-center justify-between p-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+        >
           <div className="flex items-center gap-3">
             <div className="text-gray-500">
               <LuCode className="text-xl" />
@@ -138,7 +157,10 @@ export default function HelpSupport() {
           <LuChevronRight className="text-gray-400 text-xl" />
         </button>
 
-        <button className="w-full flex items-center justify-between p-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+        <button
+          type="button"
+          className="w-full flex items-center justify-between p-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+        >
           <div className="flex items-center gap-3">
             <div className="text-gray-500">
               <LuCirclePlay className="text-xl" />
