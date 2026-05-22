@@ -29,7 +29,11 @@ export default function HelpSupport() {
           <input
             type="text"
             placeholder="Search help articles..."
-            className="w-full pl-11 pr-4 py-3 bg-white border border-[#DADADA] rounded-xl text-gray-800 text-sm focus:outline-none focus:border-[#02505e] transition-colors shadow-sm"
+            className={`
+              w-full pl-11 pr-4 py-3 bg-white border border-[#DADADA]
+              rounded-xl text-gray-800 text-sm focus:outline-none
+              focus:border-[#02505e] transition-colors shadow-sm
+            `}
           />
         </div>
 
@@ -84,11 +88,23 @@ export default function HelpSupport() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <button className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 bg-[#02505E] hover:bg-[#02505E]/95 text-white font-semibold text-sm rounded-xl transition-all shadow-sm cursor-po
+          <button
+            className={`
+            flex-1 flex items-center justify-center gap-2 px-4 py-3.5
+            bg-[#02505E] hover:bg-[#02505E]/95 text-white font-semibold text-sm
+            rounded-xl transition-all shadow-sm cursor-pointer
+          `}
+          >
             <LuMessageSquare className="text-lg" />
             Chat with us
           </button>
-          <button className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 bg-white border border-[#DADADA] hover:bg-gray-50 text-[#0F172A] font-semibold text-sm rounded-xl transition-all 
+          <button
+            className={`
+            flex-1 flex items-center justify-center gap-2 px-4 py-3.5 bg-white
+            border border-[#DADADA] hover:bg-gray-50 text-[#0F172A] font-semibold
+            text-sm rounded-xl transition-all
+          `}
+          >
             <LuMail className="text-lg" />
             Send an email
           </button>

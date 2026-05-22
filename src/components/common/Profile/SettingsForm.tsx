@@ -54,7 +54,11 @@ export default function SettingsForm() {
                 name="interviewType"
                 value={preferences.interviewType}
                 onChange={handlePreferenceChange}
-                className="w-full px-4 py-3 bg-white border border-[#DADADA] rounded-xl text-gray-800 text-sm focus:outline-none focus:border-[#02505e] transition-colors appearance-none cursor-pointer
+                className={`
+                  w-full px-4 py-3 bg-white border border-[#DADADA] rounded-xl
+                  text-gray-800 text-sm focus:outline-none focus:border-[#02505e]
+                  transition-colors appearance-none cursor-pointer
+                `}
               >
                 <option value="Product Designer">Product Designer</option>
                 <option value="Software Engineer">Software Engineer</option>
@@ -82,7 +86,11 @@ export default function SettingsForm() {
                 name="duration"
                 value={preferences.duration}
                 onChange={handlePreferenceChange}
-                className="w-full px-4 py-3 bg-white border border-[#DADADA] rounded-xl text-gray-800 text-sm focus:outline-none focus:border-[#02505e] transition-colors appearance-none cursor-pointer
+                className={`
+                  w-full px-4 py-3 bg-white border border-[#DADADA] rounded-xl
+                  text-gray-800 text-sm focus:outline-none focus:border-[#02505e]
+                  transition-colors appearance-none cursor-pointer
+                `}
               >
                 <option value="30 mins">30 mins</option>
                 <option value="45 mins">45 mins</option>
@@ -111,7 +119,11 @@ export default function SettingsForm() {
             value={preferences.evaluationFocus}
             onChange={handlePreferenceChange}
             rows={4}
-            className="w-full px-4 py-3 bg-white border border-[#DADADA] rounded-xl text-gray-800 text-sm focus:outline-none focus:border-[#02505e] transition-colors resize-none leading-relaxed"
+            className={`
+              w-full px-4 py-3 bg-white border border-[#DADADA] rounded-xl
+              text-gray-800 text-sm focus:outline-none focus:border-[#02505e]
+              transition-colors resize-none leading-relaxed
+            `}
           />
         </div>
       </section>
@@ -190,7 +202,11 @@ export default function SettingsForm() {
             </div>
             <button
               type="button"
-              className="px-5 py-2.5 bg-[#02505E] hover:bg-[#02505E]/95 text-white font-semibold text-sm rounded-xl transition-colors cursor-pointer w-full sm:w-auto text-center shadow-sm"
+              className={`
+                px-5 py-2.5 bg-[#02505E] hover:bg-[#02505E]/95 text-white
+                font-semibold text-sm rounded-xl transition-colors cursor-pointer
+                w-full sm:w-auto text-center shadow-sm
+              `}
             >
               Enable
             </button>
@@ -206,7 +222,11 @@ export default function SettingsForm() {
             </div>
             <button
               type="button"
-              className="px-5 py-2.5 bg-[#02505E] hover:bg-[#02505E]/95 text-white font-semibold text-sm rounded-xl transition-colors cursor-pointer w-full sm:w-auto text-center shadow-sm"
+              className={`
+                px-5 py-2.5 bg-[#02505E] hover:bg-[#02505E]/95 text-white
+                font-semibold text-sm rounded-xl transition-colors cursor-pointer
+                w-full sm:w-auto text-center shadow-sm
+              `}
             >
               Manage
             </button>
