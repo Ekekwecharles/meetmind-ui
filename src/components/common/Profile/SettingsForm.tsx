@@ -2,14 +2,6 @@
 import React, { useState } from "react";
 import { ToggleSwitch } from "@/components/common/ToggleSwitch";
 
-// Tailwind classes extracted to avoid pre-commit line length limits
-const SELECT_CLASSES =
-  "w-full px-4 py-3 bg-white border border-[#DADADA] rounded-xl text-gray-800 text-sm focus:outline-none focus:border-[#02505e] transition-colors appearance-none cursor-pointer";
-const TEXTAREA_CLASSES =
-  "w-full px-4 py-3 bg-white border border-[#DADADA] rounded-xl text-gray-800 text-sm focus:outline-none focus:border-[#02505e] transition-colors resize-none leading-relaxed";
-const BTN_CLASSES =
-  "px-5 py-2.5 bg-[#02505E] hover:bg-[#02505E]/95 text-white font-semibold text-sm rounded-xl transition-colors cursor-pointer w-full sm:w-auto text-center shadow-sm";
-
 export default function SettingsForm() {
   // State for selectors
   const [preferences, setPreferences] = useState({
@@ -62,7 +54,7 @@ export default function SettingsForm() {
                 name="interviewType"
                 value={preferences.interviewType}
                 onChange={handlePreferenceChange}
-                className={SELECT_CLASSES}
+                className="w-full px-4 py-3 bg-white border border-[#DADADA] rounded-xl text-gray-800 text-sm focus:outline-none focus:border-[#02505e] transition-colors appearance-none cursor-pointer
               >
                 <option value="Product Designer">Product Designer</option>
                 <option value="Software Engineer">Software Engineer</option>
@@ -90,7 +82,7 @@ export default function SettingsForm() {
                 name="duration"
                 value={preferences.duration}
                 onChange={handlePreferenceChange}
-                className={SELECT_CLASSES}
+                className="w-full px-4 py-3 bg-white border border-[#DADADA] rounded-xl text-gray-800 text-sm focus:outline-none focus:border-[#02505e] transition-colors appearance-none cursor-pointer
               >
                 <option value="30 mins">30 mins</option>
                 <option value="45 mins">45 mins</option>
@@ -119,7 +111,7 @@ export default function SettingsForm() {
             value={preferences.evaluationFocus}
             onChange={handlePreferenceChange}
             rows={4}
-            className={TEXTAREA_CLASSES}
+            className="w-full px-4 py-3 bg-white border border-[#DADADA] rounded-xl text-gray-800 text-sm focus:outline-none focus:border-[#02505e] transition-colors resize-none leading-relaxed"
           />
         </div>
       </section>
@@ -196,7 +188,10 @@ export default function SettingsForm() {
               </h3>
               <p className="text-xs text-[#5E6470] mt-0.5">Not enabled</p>
             </div>
-            <button type="button" className={BTN_CLASSES}>
+            <button
+              type="button"
+              className="px-5 py-2.5 bg-[#02505E] hover:bg-[#02505E]/95 text-white font-semibold text-sm rounded-xl transition-colors cursor-pointer w-full sm:w-auto text-center shadow-sm"
+            >
               Enable
             </button>
           </div>
@@ -209,7 +204,10 @@ export default function SettingsForm() {
               </h3>
               <p className="text-xs text-[#5E6470] mt-0.5">2 active sessions</p>
             </div>
-            <button type="button" className={BTN_CLASSES}>
+            <button
+              type="button"
+              className="px-5 py-2.5 bg-[#02505E] hover:bg-[#02505E]/95 text-white font-semibold text-sm rounded-xl transition-colors cursor-pointer w-full sm:w-auto text-center shadow-sm"
+            >
               Manage
             </button>
           </div>
