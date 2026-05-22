@@ -26,7 +26,7 @@ export const teamMembers = [
   },
   {
     name: "Omodasola Omoo",
-    role: "LEAD PRODUCT DESGINER",
+    role: "LEAD PRODUCT DESIGNER",
     bio: "Crafting intuitive experiences for AI-powered conversations.",
     image: "/images/about-us/omo.jpg",
   },

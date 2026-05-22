@@ -207,6 +207,18 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* About page tokens */
+  --color-brand-accent: `#6366f1`;
+  --color-accent-teal: `#0b7285`;
+  --color-accent-teal-dark: `#0a5f70`;
+  --color-newsletter-bg: `#0f2f36`;
+  --color-newsletter-subtext: `#cbd5e1`;
+  --color-newsletter-btn-bg: `#e2e8f0`;
+  --color-newsletter-btn-text: `#0f2f36`;
+  --color-belief-card-bg: `#1f2937`;
+  --color-timeline-bg: `#111827`;
+  --color-mission-bg: `#111827`;
 }
 
 @layer base {

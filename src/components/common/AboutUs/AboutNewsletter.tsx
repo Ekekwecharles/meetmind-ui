@@ -18,7 +18,7 @@ export default function AboutNewsletter() {
 
     try {
       await api.post("/api/v1/subscriptions/email", {
-        email,
+        email: email.trim(),
       });
 
       setStatus("success");
@@ -69,6 +69,8 @@ export default function AboutNewsletter() {
           {/* status message */}
           {message && (
             <p
+              role={status === "error" ? "alert" : "status"}
+              aria-live={status === "error" ? "assertive" : "polite"}
               className={`mt-4 text-sm ${
                 status === "success" ? "text-green-400" : "text-red-400"
               }`}

@@ -25,7 +25,6 @@ export default function AboutWhyChoose() {
               fill
               className="object-cover"
               sizes="100vw"
-              priority
             />
           </div>
         </div>
@@ -64,14 +63,14 @@ export default function AboutWhyChoose() {
                   </span>
                 </li>
               ))}
-              <Image
-                src="/icons/clipboard-star.svg"
-                alt="Clipboard star"
-                height={130}
-                width={130}
-                className="hidden lg:block mt-6 -ml-6"
-              />
             </ul>
+            <Image
+              src="/icons/clipboard-star.svg"
+              alt="Clipboard star"
+              height={130}
+              width={130}
+              className="hidden lg:block mt-6 -ml-6"
+            />
           </div>
         </div>
 
