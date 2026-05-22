@@ -54,12 +54,14 @@ export default function AboutNewsletter() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="w-full flex-1 rounded-[0.5rem] bg-input-bg px-[1rem] py-[0.875rem] text-[0.9375rem] text-text-color-primary placeholder:text-input-placeholder border border-input-border focus
+              className="w-full flex-1 rounded-[0.5rem] bg-input-bg px-[1rem] py-[0.875rem] text-[0.9375rem] text-text-color-primary placeholder:text-input-placeholder 
+              border border-input-border focus:outline-none focus:border-input-border-focus"
             />
             <button
               type="submit"
               disabled={status === "loading"}
-              className="w-full md:w-auto shrink-0 rounded-[0.5rem] bg-soft-green px-[2rem] py-[0.875rem] text-[0.9375rem] font-semibold hover:opacity-90 transition-opacity cursor-pointer disabled:opa
+              className="w-full md:w-auto shrink-0 rounded-[0.5rem] bg-soft-green px-[2rem] py-[0.875rem] text-[0.9375rem] font-semibold hover:opacity-90 
+              transition-opacity cursor-pointer disabled:opacity-50"
             >
               {status === "loading" ? "Subscribing..." : "Subscribe"}
             </button>
