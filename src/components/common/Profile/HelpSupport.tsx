@@ -13,6 +13,14 @@ import {
   LuChevronRight,
 } from "react-icons/lu";
 
+// Tailwind classes extracted to avoid pre-commit line length limits
+const INPUT_CLASSES =
+  "w-full pl-11 pr-4 py-3 bg-white border border-[#DADADA] rounded-xl text-gray-800 text-sm focus:outline-none focus:border-[#02505e] transition-colors shadow-sm";
+const BTN_CLASS_PRIMARY =
+  "flex-1 flex items-center justify-center gap-2 px-4 py-3.5 bg-[#02505E] hover:bg-[#02505E]/95 text-white font-semibold text-sm rounded-xl transition-all shadow-sm cursor-pointer";
+const BTN_CLASS_SECONDARY =
+  "flex-1 flex items-center justify-center gap-2 px-4 py-3.5 bg-white border border-[#DADADA] hover:bg-gray-50 text-[#0F172A] font-semibold text-sm rounded-xl transition-all";
+
 export default function HelpSupport() {
   return (
     <div className="max-w-4xl space-y-10 pb-16">
@@ -29,7 +37,7 @@ export default function HelpSupport() {
           <input
             type="text"
             placeholder="Search help articles..."
-            className="w-full pl-11 pr-4 py-3 bg-white border border-[#DADADA] rounded-xl text-gray-800 text-sm focus:outline-none focus:border-[#02505e] transition-colors shadow-sm"
+            className={INPUT_CLASSES}
           />
         </div>
 
@@ -84,11 +92,11 @@ export default function HelpSupport() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <button className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 bg-[#02505E] hover:bg-[#02505E]/95 text-white font-semibold text-sm rounded-xl transition-all shadow-sm cursor-po
+          <button className={BTN_CLASS_PRIMARY}>
             <LuMessageSquare className="text-lg" />
             Chat with us
           </button>
-          <button className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 bg-white border border-[#DADADA] hover:bg-gray-50 text-[#0F172A] font-semibold text-sm rounded-xl transition-all 
+          <button className={BTN_CLASS_SECONDARY}>
             <LuMail className="text-lg" />
             Send an email
           </button>
