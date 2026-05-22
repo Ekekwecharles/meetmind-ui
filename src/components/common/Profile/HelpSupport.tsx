@@ -89,6 +89,7 @@ export default function HelpSupport() {
 
         <div className="flex flex-col sm:flex-row gap-4">
           <button
+            type="button"
             className={`
             flex-1 flex items-center justify-center gap-2 px-4 py-3.5
             bg-[#02505E] hover:bg-[#02505E]/95 text-white font-semibold text-sm
@@ -99,10 +100,11 @@ export default function HelpSupport() {
             Chat with us
           </button>
           <button
+            type="button"
             className={`
             flex-1 flex items-center justify-center gap-2 px-4 py-3.5 bg-white
             border border-[#DADADA] hover:bg-gray-50 text-[#0F172A] font-semibold
-            text-sm rounded-xl transition-all
+            text-sm rounded-xl transition-all cursor-pointer
           `}
           >
             <LuMail className="text-lg" />

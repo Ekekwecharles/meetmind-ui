@@ -11,6 +11,9 @@
   --font-heading: var(--font-sans);
   --font-serif: var(--font-serif);
 
+  /* =============== BRAND COLORS =============== */
+  --color-brand-primary: #02505e;
+
   /* =============== BACKGROUND COLORS =============== */
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f7f9fb;

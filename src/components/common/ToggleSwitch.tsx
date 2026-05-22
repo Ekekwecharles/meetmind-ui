@@ -1,5 +1,3 @@
-import React from "react";
-
 export const ToggleSwitch = ({
   checked,
   onChange,
@@ -9,9 +7,11 @@ export const ToggleSwitch = ({
 }) => (
   <button
     type="button"
+    role="switch"
+    aria-checked={checked}
     onClick={onChange}
-    className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-      checked ? "bg-[#02505e]" : "bg-gray-200"
+    className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-bra
+      checked ? "bg-brand-primary" : "bg-gray-200"
     }`}
   >
     <span
