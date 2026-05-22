@@ -14,7 +14,7 @@ export function HelpHero({ onSearch }: HelpHeroProps) {
             Help & Support
           </h1>
 
-          {/* Decorative elements using only strictly React Icons */}
+          {/* Decorative elements using strictly React Icons */}
           <div className="absolute top-[-12px] right-[-40px] md:right-[-50px] pointer-events-none select-none text-[#94a3b8] flex items-start gap-1">
             <FiCopy size={28} strokeWidth={1.5} className="opacity-80" />
             <div className="flex flex-col gap-1 -ml-2 -mt-2">
