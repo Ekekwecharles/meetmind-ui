@@ -13,7 +13,8 @@ const subscribeSchema = z.object({
 type SubscribeFormData = z.infer<typeof subscribeSchema>;
 
 export default function SubscribeCTA() {
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  // UPDATED: Added "loading" to the status type definition
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const {
     register,
@@ -28,13 +29,20 @@ export default function SubscribeCTA() {
   });
 
   const onSubmit = async (data: SubscribeFormData) => {
-    if (data) {
+    // UPDATED: Set status to "loading" at the start and log data to prevent unused variable warnings
+    setStatus("loading");
+    try {
+      console.log("Subscribing email:", data.email);
       await new Promise((resolve) => setTimeout(resolve, 1500));
       setStatus("success");
       reset();
+    } catch (error) {
+      // UPDATED: Capture and log the error for diagnostics
+      console.error("Subscription submission failed:", error);
+      setStatus("error");
     }
   };
-
+  
   return (
     <section
       id="subscribe-email"
@@ -70,32 +78,39 @@ export default function SubscribeCTA() {
                 className="flex flex-col items-center gap-3"
               >
                 <div className="flex flex-col md:flex-row gap-2 justify-center w-full max-w-xs md:max-w-xl mx-auto">
-                <input
+                  <input
                     {...register("email")}
                     type="email"
                     placeholder="Enter your email"
                     disabled={isSubmitting}
-                    className="w-full md:text-left md:flex-1 p-3 text-center bg-white rounded-md focus:outline-none disabled:opacity-60"
-                />
-                <button
+                    className="w-full md:text-left md:flex-1 p-3 text-center bg-white rounded-md 
+                    focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D9E8EA] 
+                    focus-visible:ring-offset-2 focus-visible:ring-offset-[#036475] disabled:opacity-60"
+                  />
+                  <button
                     type="submit" 
                     disabled={isSubmitting}
-                    className="w-full md:w-auto inline-block px-6 py-3 bg-[#D9E8EA] text-[#035A69] hover:bg-[#F7F9F8] hover:text-[#02505E] font-bold rounded-lg text-base cursor-pointer disabled:opacity-60"
-                    >
-                    {isSubmitting ? "Subscribing..." : "Subscribe"}
-                    </button>
+                    className="w-full md:w-auto inline-block px-6 py-3
+                     bg-[#D9E8EA] text-[#035A69] hover:bg-[#F7F9F8] hover:text-[#02505E] 
+                     font-bold rounded-lg text-base cursor-pointer 
+                     focus-visible:outline-none focus-visible:ring-2 
+                     focus-visible:ring-[#D9E8EA] focus-visible:ring-offset-2 
+                     focus-visible:ring-offset-[#036475] disabled:opacity-60"
+                  >
+                    {isSubmitting || status === "loading" ? "Subscribing..." : "Subscribe"}
+                  </button>
                 </div>
                 {errors.email && (
-                <p className="text-red-200 text-sm mt-1">
+                  <p className="text-red-200 text-sm mt-1">
                     {errors.email.message}
-                </p>
+                  </p>
                 )}
                 {status === "error" && (
-                        <p className="text-red-200 text-sm mt-1">
-                            Something went wrong. Please try again.
-                        </p>
-                        )}
-            </form>
+                  <p className="text-red-200 text-sm mt-1">
+                    Something went wrong. Please try again.
+                  </p>
+                )}
+              </form>
             )}
           </div>
         </div>

@@ -19,11 +19,10 @@ const items: ToCItem[] = [
 export default function TableOfContents() {
   const [activeId, setActiveId] = useState<string>(items[0].id);
   
-  // Guard ref to prevent the IntersectionObserver from updating active state during a programmatic click scroll
   const isClickScrolling = useRef<boolean>(false);
-  const clickTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  
+  const clickTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Click handler: scrolls smoothly and silently pushes the state hash
   const handleClick = (e: MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const element = document.getElementById(id);
@@ -35,26 +34,22 @@ export default function TableOfContents() {
       
       element.scrollIntoView({ behavior: "smooth" });
 
-      // Clear any previous timeout if user clicks rapidly
       if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
 
-      // Re-enable observer tracking after the smooth scroll finishes (approx 800ms)
       clickTimeoutRef.current = setTimeout(() => {
         isClickScrolling.current = false;
       }, 800);
     }
   };
 
-  // Scroll Spy: dynamically highlights active section as the user scrolls
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: "-15% 0px -60% 0px", // Optimizes top/bottom boundaries for mid-sized viewport scanning
+      rootMargin: "-15% 0px -60% 0px", 
       threshold: 0,
     };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      // If the movement was triggered by a link click, ignore updates to prevent flickering
       if (isClickScrolling.current) return;
 
       entries.forEach((entry) => {
@@ -77,14 +72,12 @@ export default function TableOfContents() {
     };
   }, []);
 
-  // Mounting listener: handles shareable anchor hashes directly on visit
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
       const id = hash.replace("#", "");
       const element = document.getElementById(id);
-      if (element) {
-        // Delayed slight timeout ensures Next.js hydration and DOM paint has completed 
+      if (element) { 
         const timer = setTimeout(() => {
           element.scrollIntoView({ behavior: "smooth" });
           setActiveId(id);
@@ -108,6 +101,7 @@ export default function TableOfContents() {
               <a
                 href={`#${item.id}`}
                 onClick={(e) => handleClick(e, item.id)}
+                aria-current={isActive ? "location" : undefined}
                 className={`text-sm transition-colors duration-200 pl-4 block w-full ${
                   isActive
                     ? "text-[#0A4C57] font-semibold"

@@ -8,7 +8,7 @@ export default function ContactCTA() {
       </p>
       <Link
         href="/contact"
-        className="bg-white text-[#0A4C57] text-sm font-semibold py-2.5 px-6 rounded-md hover:bg-gray-100 transition-colors whitespace-nowrap w-full sm:w-auto inline-block text-center"
+        className="bg-white text-[#0A4C57] text-sm font-semibold py-2.5 px-6 rounded-md hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#D9E8EA] focus-visible:ring-offset-[#0A4C57] transition-colors whitespace-nowrap w-full sm:w-auto inline-block text-center"
       >
         Contact us
       </Link>
