@@ -1,28 +1,6 @@
 "use client";
 import React, { useState } from "react";
-
-// Custom Toggle Switch Component
-const ToggleSwitch = ({
-  checked,
-  onChange,
-}: {
-  checked: boolean;
-  onChange: () => void;
-}) => (
-  <button
-    type="button"
-    onClick={onChange}
-    className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-      checked ? "bg-[#02505e]" : "bg-gray-200"
-    }`}
-  >
-    <span
-      className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out ${
-        checked ? "translate-x-5" : "translate-x-0"
-      }`}
-    />
-  </button>
-);
+import { ToggleSwitch } from "@/components/common/ToggleSwitch";
 
 export default function ProfileInfoForm() {
   // State for form fields
@@ -37,11 +15,11 @@ export default function ProfileInfoForm() {
   const [requireApproval, setRequireApproval] = useState(true);
   const [hideNotes, setHideNotes] = useState(true);
 
-  // State for password fields
+  // State for passwords
   const [passwords, setPasswords] = useState({
-    current: "••••••••",
-    newPass: "••••••••",
-    confirmPass: "••••••••",
+    current: "",
+    newPass: "",
+    confirmPass: "",
   });
 
   const handleProfileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
