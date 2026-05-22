@@ -88,7 +88,10 @@ export function NewsletterForm({ variant = "dark" }: NewsletterFormProps) {
           id="newsletter-email"
           type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+  setEmail(e.target.value);
+  if (error) setError(null); // Adjust variable name based on your useState hook
+}}
           placeholder="Enter your email"
           required
           disabled={isLoading}

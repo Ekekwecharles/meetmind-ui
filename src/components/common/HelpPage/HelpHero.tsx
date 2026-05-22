@@ -28,6 +28,7 @@ export function HelpHero({ onSearch }: HelpHeroProps) {
           <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-[#94a3b8] pointer-events-none" size={16} />
           <input
             type="text"
+            aria-label="Search help articles"
             onChange={(e) => onSearch(e.target.value)}
             placeholder="Search for help articles, guides, and FAQs..."
             className="w-full pl-11 pr-4 py-3 rounded-lg border border-[#E1E3E4] bg-[#F8FAFC]/50 text-[#0F172A] placeholder:text-[#94a3b8] text-sm focus:outline-none focus:border-[#1a6b6b] transition-colors"
