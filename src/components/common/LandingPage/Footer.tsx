@@ -5,28 +5,28 @@ const footerColumns = [
   {
     title: "Product",
     links: [
-      { label: "Features", href: "#" },
-      { label: "Use Cases", href: "#" },
+      { label: "Features", href: "/coming-soon" },
+      { label: "Use Cases", href: "/coming-soon" },
       { label: "Pricing", href: "/pricing" },
-      { label: "ChangeLog", href: "#" },
+      { label: "ChangeLog", href: "/coming-soon" },
     ],
   },
   {
     title: "Developers",
     links: [
       { label: "SDK", href: "/sdk" },
-      { label: "Documentation", href: "#" },
-      { label: "API Reference", href: "#" },
-      { label: "GitHub", href: "#" },
+      { label: "Documentation", href: "/coming-soon" },
+      { label: "API Reference", href: "/coming-soon" },
+      { label: "GitHub", href: "/coming-soon" },
     ],
   },
   {
     title: "Resources",
     links: [
       { label: "Blog", href: "/blogpost" },
-      { label: "Help Center", href: "#" },
-      { label: "Case Studies", href: "#" },
-      { label: "Tutorials", href: "#" },
+      { label: "Help Center", href: "/coming-soon" },
+      { label: "Case Studies", href: "/coming-soon" },
+      { label: "Tutorials", href: "/coming-soon" },
     ],
   },
   {
@@ -41,12 +41,23 @@ const footerColumns = [
 ];
 
 const socialLinks = [
-  { name: "LinkedIn", icon: "/icons/linkedin-outline.svg", href: "#" },
-  { name: "Facebook", icon: "/icons/facebook-outline.svg", href: "#" },
-  { name: "GitHub", icon: "/icons/github-outline.svg", href: "#" },
-  { name: "Instagram", icon: "/icons/instagram-outline.svg", href: "#" },
+  {
+    name: "LinkedIn",
+    icon: "/icons/linkedin-outline.svg",
+    href: "/coming-soon",
+  },
+  {
+    name: "Facebook",
+    icon: "/icons/facebook-outline.svg",
+    href: "/coming-soon",
+  },
+  { name: "GitHub", icon: "/icons/github-outline.svg", href: "/coming-soon" },
+  {
+    name: "Instagram",
+    icon: "/icons/instagram-outline.svg",
+    href: "/coming-soon",
+  },
 ];
-
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -85,7 +96,7 @@ export default function Footer() {
             {/* Social icons */}
             <div className="flex items-center gap-4 mt-6">
               {socialLinks.map((social) => (
-                <a
+                <Link
                   key={social.name}
                   href={social.href}
                   aria-label={social.name}
@@ -98,7 +109,7 @@ export default function Footer() {
                     height={20}
                     className="w-5 h-5"
                   />
-                </a>
+                </Link>
               ))}
             </div>
           </div>
