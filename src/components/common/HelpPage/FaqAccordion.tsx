@@ -115,31 +115,44 @@ const faqs: FaqGroup[] = [
 function AccordionItem({
   question,
   answer,
+  id,
 }: {
   question: string;
   answer: string;
+  id: string;
 }) {
   const [open, setOpen] = useState(false);
+  const panelId = `panel-${id}`;
+  const buttonId = `button-${id}`;
+
   return (
     <div className="border-b border-[#E1E3E4] last:border-0">
-      <button
-        onClick={() => setOpen(!open)}
-        className="flex items-center justify-between w-full py-4 text-sm text-[#0F172A] hover:text-[#02505E] transition-colors text-left gap-4"
-        aria-expanded={open}
+      <h3>
+        <button
+          id={buttonId}
+          onClick={() => setOpen(!open)}
+          className="flex items-center justify-between w-full py-4 text-sm text-[#0F172A] hover:text-[#02505E] transition-colors text-left gap-4"
+          aria-expanded={open}
+          aria-controls={panelId}
+        >
+          <span>{question}</span>
+          <BsChevronDown
+            size={18}
+            className={`shrink-0 text-[#64748b] transition-transform duration-200 ${
+              open ? "rotate-180" : ""
+            }`}
+          />
+        </button>
+      </h3>
+      <div
+        id={panelId}
+        role="region"
+        aria-labelledby={buttonId}
+        hidden={!open}
+        className="pb-4 text-sm text-[#64748b] leading-relaxed"
       >
-        <span>{question}</span>
-        <BsChevronDown
-          size={18}
-          className={`shrink-0 text-[#64748b] transition-transform duration-200 ${
-            open ? "rotate-180" : ""
-          }`}
-        />
-      </button>
-      {open && (
-        <div className="pb-4 text-sm text-[#64748b] leading-relaxed">
-          {answer}
-        </div>
-      )}
+        {answer}
+      </div>
     </div>
   );
 }
@@ -150,7 +163,7 @@ interface FaqAccordionProps {
 
 export function FaqAccordion({ searchQuery = "" }: FaqAccordionProps) {
   const query = searchQuery.toLowerCase().trim();
-  
+
   const filteredFaqs = useMemo(
     () =>
       faqs
@@ -163,7 +176,7 @@ export function FaqAccordion({ searchQuery = "" }: FaqAccordionProps) {
           ),
         }))
         .filter((group) => group.items.length > 0),
-    [query]
+    [query],
   );
 
   return (
@@ -172,9 +185,9 @@ export function FaqAccordion({ searchQuery = "" }: FaqAccordionProps) {
         <div className="mb-6">
           <div className="flex items-center gap-2 mb-1">
             <BsQuestionCircle size={15} className="text-[#64748b] shrink-0" />
-            <h3 className="text-sm font-bold text-[#0F172A]">
+            <h2 className="text-sm font-bold text-[#0F172A]">
               Frequently Asked Questions
-            </h3>
+            </h2>
           </div>
           <p className="text-xs text-[#64748b]">
             Find quick answers to common questions
@@ -193,13 +206,16 @@ export function FaqAccordion({ searchQuery = "" }: FaqAccordionProps) {
         ) : (
           filteredFaqs.map((group) => (
             <div key={group.group} className="mb-6">
-              <h4 className="text-xs font-semibold text-[#02505E] uppercase tracking-wide mb-3">
+              <h3 className="text-xs font-semibold text-[#02505E] uppercase tracking-wide mb-3">
                 {group.group}
-              </h4>
+              </h3>
               <div className="border border-[#E1E3E4] rounded-xl px-5 overflow-hidden">
                 {group.items.map((item, index) => (
                   <AccordionItem
                     key={`${group.group}-${index}`}
+                    id={`${group.group}-${index}`
+                      .replace(/\s+/g, "-")
+                      .toLowerCase()}
                     question={item.question}
                     answer={item.answer}
                   />
