@@ -24,11 +24,10 @@ const footerColumns = [
     title: "Resources",
     links: [
       { label: "Blog", href: "/blogpost" },
-      { label: "Help Center", href: "/coming-soon" },
+      { label: "Help Center", href: "/help" },
       { label: "Case Studies", href: "/coming-soon" },
       { label: "Tutorials", href: "/coming-soon" },
     ],
-    
   },
   {
     title: "Company",
@@ -42,23 +41,12 @@ const footerColumns = [
 ];
 
 const socialLinks = [
-  {
-    name: "LinkedIn",
-    icon: "/icons/linkedin-outline.svg",
-    href: "/coming-soon",
-  },
-  {
-    name: "Facebook",
-    icon: "/icons/facebook-outline.svg",
-    href: "/coming-soon",
-  },
+  { name: "LinkedIn", icon: "/icons/linkedin-outline.svg", href: "/coming-soon" },
+  { name: "Facebook", icon: "/icons/facebook-outline.svg", href: "/coming-soon" },
   { name: "GitHub", icon: "/icons/github-outline.svg", href: "/coming-soon" },
-  {
-    name: "Instagram",
-    icon: "/icons/instagram-outline.svg",
-    href: "/coming-soon",
-  },
+  { name: "Instagram", icon: "/icons/instagram-outline.svg", href: "/coming-soon" },
 ];
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -97,7 +85,7 @@ export default function Footer() {
             {/* Social icons */}
             <div className="flex items-center gap-4 mt-6">
               {socialLinks.map((social) => (
-                <Link
+                <a
                   key={social.name}
                   href={social.href}
                   aria-label={social.name}
@@ -110,7 +98,7 @@ export default function Footer() {
                     height={20}
                     className="w-5 h-5"
                   />
-                </Link>
+                </a>
               ))}
             </div>
           </div>
