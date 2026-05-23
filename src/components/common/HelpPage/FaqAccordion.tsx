@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { BsChevronDown, BsQuestionCircle } from "react-icons/bs";
 import Link from "next/link";
 
@@ -150,16 +150,21 @@ interface FaqAccordionProps {
 
 export function FaqAccordion({ searchQuery = "" }: FaqAccordionProps) {
   const query = searchQuery.toLowerCase().trim();
-  const filteredFaqs = faqs
-    .map((group) => ({
-      ...group,
-      items: group.items.filter(
-        (item) =>
-          item.question.toLowerCase().includes(query) ||
-          item.answer.toLowerCase().includes(query),
-      ),
-    }))
-    .filter((group) => group.items.length > 0);
+  
+  const filteredFaqs = useMemo(
+    () =>
+      faqs
+        .map((group) => ({
+          ...group,
+          items: group.items.filter(
+            (item) =>
+              item.question.toLowerCase().includes(query) ||
+              item.answer.toLowerCase().includes(query),
+          ),
+        }))
+        .filter((group) => group.items.length > 0),
+    [query]
+  );
 
   return (
     <section className="w-full bg-white pb-14">
@@ -192,9 +197,9 @@ export function FaqAccordion({ searchQuery = "" }: FaqAccordionProps) {
                 {group.group}
               </h4>
               <div className="border border-[#E1E3E4] rounded-xl px-5 overflow-hidden">
-                {group.items.map((item) => (
+                {group.items.map((item, index) => (
                   <AccordionItem
-                    key={item.question}
+                    key={`${group.group}-${index}`}
                     question={item.question}
                     answer={item.answer}
                   />
