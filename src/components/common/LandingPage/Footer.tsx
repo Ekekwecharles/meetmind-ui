@@ -28,6 +28,7 @@ const footerColumns = [
       { label: "Case Studies", href: "/coming-soon" },
       { label: "Tutorials", href: "/coming-soon" },
     ],
+    
   },
   {
     title: "Company",
