@@ -7,7 +7,11 @@ export default function ComingSoon() {
   const router = useRouter();
 
   const handleBackClick = () => {
-    if (typeof window !== "undefined" && window.history.length > 1) {
+    if (
+      typeof window !== "undefined" &&
+      document.referrer.startsWith(window.location.origin) &&
+      window.history.length > 1
+    ) {
       router.back();
     } else {
       router.push("/");
