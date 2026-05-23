@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { logList, LogCategory, LogItem } from "./pageData/logList";
 
@@ -92,9 +93,12 @@ export default function Logs() {
                 </p>
 
                 {/* CTA Action */}
-                <button className="inline-flex items-center text-sm font-semibold text-[#004e59] hover:underline gap-1">
+                <Link
+                  href="#"
+                  className="inline-flex items-center text-sm font-semibold text-[#004e59] hover:underline gap-1"
+                >
                   Learn more <span className="text-xs">→</span>
-                </button>
+                </Link>
               </div>
             </div>
           ))
