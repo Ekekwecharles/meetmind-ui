@@ -42,7 +42,7 @@ export function HireRadioGroup({
             role="radio"
             key={opt.value}
             aria-checked={active}
-            tabIndex={active ? 0 : -1}
+            tabIndex={active || (!selected && index === 0) ? 0 : -1}
             onClick={() => handleSelect(opt.value)}
             onKeyDown={(e) => {
               if (e.key === " " || e.key === "Enter") {
@@ -62,6 +62,10 @@ export function HireRadioGroup({
                 const nextIndex =
                   (index + dir + options.length) % options.length;
                 handleSelect(options[nextIndex].value);
+                const radios = e.currentTarget
+                  .closest('[role="radiogroup"]')
+                  ?.querySelectorAll<HTMLButtonElement>('[role="radio"]');
+                radios?.[nextIndex]?.focus();
               }
             }}
             className={cn(

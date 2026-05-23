@@ -14,14 +14,15 @@ const Step3 = () => {
   const updateData = onboardingStore((state) => state.updateData);
   const nextStep = onboardingStore((state) => state.nextStep);
   const prevStep = onboardingStore((state) => state.prevStep);
+  const addToast = onboardingStore((s) => s.addToast);
   const mutation = useMutation({
     mutationKey: ["onboarding", "preferences"],
     mutationFn: onboardingAPI.setPreferences,
     onSuccess: () => {
       nextStep();
     },
-    onError: (error) => {
-      console.error(error);
+    onError: () => {
+      addToast("Failed to save preferences", "error");
     },
   });
   return (
