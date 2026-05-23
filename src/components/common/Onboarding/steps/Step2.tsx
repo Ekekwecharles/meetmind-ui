@@ -34,6 +34,9 @@ const Step2 = () => {
   const nextStep = onboardingStore((state) => state.nextStep);
   const prevStep = onboardingStore((state) => state.prevStep);
   const hasAttemptedStep = onboardingStore((state) => state.hasAttemptedStep);
+  const setHasAttemptedStep = onboardingStore(
+    (state) => state.setHasAttemptedStep,
+  );
   const isValid =
     data.companyName.trim() !== "" &&
     data.role.trim() !== "" &&
@@ -114,20 +117,29 @@ const Step2 = () => {
 
         <div className="flex flex-col gap-2 items-center">
           <Button
-            onClick={() =>
+            onClick={() => {
+              setHasAttemptedStep(true);
+
+              if (!isValid) return;
+
               mutation.mutate({
                 companyName: data.companyName,
                 role: data.role,
                 hires: data.hires,
-              })
-            }
+              });
+            }}
             disabled={!isValid || mutation.isPending}
             size="lg"
             className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
           >
             {mutation.isPending ? "Saving..." : "Continue"}
           </Button>
-          <Button onClick={prevStep} variant="ghost" className="w-fit">
+          <Button
+            onClick={prevStep}
+            disabled={mutation.isPending}
+            variant="ghost"
+            className="w-fit"
+          >
             <GoArrowLeft />
             Back
           </Button>

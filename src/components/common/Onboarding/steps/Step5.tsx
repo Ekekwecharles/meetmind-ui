@@ -15,11 +15,13 @@ import { FiFolderMinus } from "react-icons/fi";
 const Step5 = () => {
   const router = useRouter();
   const prevStep = onboardingStore((s) => s.prevStep);
+  const reset = onboardingStore((s) => s.reset);
 
   const mutation = useMutation({
     mutationFn: onboardingAPI.completeOnboarding,
     onSuccess: () => {
-      router.push("/Dashboard");
+      router.push("/dashboard");
+      reset();
     },
     onError: (error) => {
       console.error(error);
