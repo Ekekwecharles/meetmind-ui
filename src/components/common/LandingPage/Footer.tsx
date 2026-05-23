@@ -5,19 +5,19 @@ const footerColumns = [
   {
     title: "Product",
     links: [
-      { label: "Features", href: "#" },
-      { label: "Use Cases", href: "#" },
+      { label: "Features", href: "/coming-soon" },
+      { label: "Use Cases", href: "/coming-soon" },
       { label: "Pricing", href: "/pricing" },
-      { label: "ChangeLog", href: "#" },
+      { label: "ChangeLog", href: "/coming-soon" },
     ],
   },
   {
     title: "Developers",
     links: [
       { label: "SDK", href: "/sdk" },
-      { label: "Documentation", href: "#" },
-      { label: "API Reference", href: "#" },
-      { label: "GitHub", href: "#" },
+      { label: "Documentation", href: "/coming-soon" },
+      { label: "API Reference", href: "/coming-soon" },
+      { label: "GitHub", href: "/coming-soon" },
     ],
   },
   {
@@ -25,8 +25,8 @@ const footerColumns = [
     links: [
       { label: "Blog", href: "/blogpost" },
       { label: "Help Center", href: "/help" },
-      { label: "Case Studies", href: "#" },
-      { label: "Tutorials", href: "#" },
+      { label: "Case Studies", href: "/coming-soon" },
+      { label: "Tutorials", href: "/coming-soon" },
     ],
   },
   {
@@ -41,10 +41,10 @@ const footerColumns = [
 ];
 
 const socialLinks = [
-  { name: "LinkedIn", icon: "/icons/linkedin-outline.svg", href: "#" },
-  { name: "Facebook", icon: "/icons/facebook-outline.svg", href: "#" },
-  { name: "GitHub", icon: "/icons/github-outline.svg", href: "#" },
-  { name: "Instagram", icon: "/icons/instagram-outline.svg", href: "#" },
+  { name: "LinkedIn", icon: "/icons/linkedin-outline.svg", href: "/coming-soon" },
+  { name: "Facebook", icon: "/icons/facebook-outline.svg", href: "/coming-soon" },
+  { name: "GitHub", icon: "/icons/github-outline.svg", href: "/coming-soon" },
+  { name: "Instagram", icon: "/icons/instagram-outline.svg", href: "/coming-soon" },
 ];
 
 export default function Footer() {
