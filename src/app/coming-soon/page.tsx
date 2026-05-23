@@ -15,7 +15,6 @@ export default function ComingSoon() {
         historyIdx !== null &&
         Number.isInteger(historyIdx);
 
-      // Prefer router.back() if history stack contains entries or a verifiable internal history index exists
       if (hasHistory || hasValidIdx) {
         router.back();
       } else {
@@ -45,7 +44,11 @@ export default function ComingSoon() {
         <button
           onClick={handleBackClick}
           type="button"
-          className="inline-flex items-center gap-2 text-[#036475] hover:text-[#0A4C57] text-sm font-semibold py-2 px-4 rounded-md transition-colors cursor-pointer focus-visible:outline-none focus-vis
+          className="inline-flex items-center gap-2 text-[#036475]
+           hover:text-[#0A4C57] text-sm font-semibold py-2 px-4 rounded-md
+           transition-colors cursor-pointer focus-visible:outline-none
+            focus-visible:ring-2 focus-visible:ring-offset-2 
+            focus-visible:ring-[#036475]"
         >
           <GoArrowLeft className="w-4 h-4" />
           Go back
