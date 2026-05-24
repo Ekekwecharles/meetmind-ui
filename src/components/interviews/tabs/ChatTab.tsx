@@ -285,6 +285,11 @@ export default function ChatTab({
   const fileInputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const attachmentsRef = useRef<AttachmentPreview[]>([]);
+
+  useEffect(() => {
+    attachmentsRef.current = attachments;
+  }, [attachments]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -293,11 +298,11 @@ export default function ChatTab({
   // Revoke all object URLs on unmount to prevent memory leaks
   useEffect(() => {
     return () => {
-      attachments.forEach((a) => {
+      attachmentsRef.current.forEach((a) => {
         if (a.url) URL.revokeObjectURL(a.url);
       });
     };
-  }, [attachments]);
+  }, []);
 
   const { state: recordingState, toggle: toggleRecording } = useVoiceRecorder(
     (text) => setInputValue((prev) => (prev ? `${prev} ${text}` : text)),

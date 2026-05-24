@@ -127,7 +127,7 @@ export async function askQuestion(
   if (MOCKS_ENABLED) {
     // Return a mock assistant response
     return {
-      id: crypto.randomUUID(),
+      id: globalThis.crypto?.randomUUID?.(),
       role: "assistant",
       content: `Mock response to: ${query}`,
       title: undefined,
