@@ -140,6 +140,13 @@
   --color-primary: var(--primary);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
+
+  /* =============== STATUS BADGE COLORS =============== */
+  --color-badge-live-bg: #f5f3ff;
+  --color-badge-live-text: #7c3aed;
+  --color-badge-upcoming-bg: #fff7ed;
+  --color-badge-upcoming-text: #c2410c;
+  --color-badge-upcoming-dot: #ea580c;
 }
 
 :root {
