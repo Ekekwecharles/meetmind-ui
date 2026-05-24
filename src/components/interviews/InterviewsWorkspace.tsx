@@ -30,9 +30,9 @@ export default function InterviewsWorkspace() {
     data: interview,
     isLoading: interviewLoading,
     error: interviewError,
-  } = useInterview("currentSelectedId");
+  } = useInterview(currentSelectedId);
 
-  const { data: chat = [] } = useChatHistory("currentSelectedId");
+  const { data: chat = [] } = useChatHistory(currentSelectedId);
 
   // ── Handle interview selection on mobile (closes sidebar after pick) ──
   const handleSelect = (id: string) => {

@@ -3,7 +3,6 @@
 import {
   getChatHistory,
   getInterview,
-  getScorecard,
   getTranscript,
   listInterviews,
 } from "@/lib/services/interviews.service";
@@ -37,14 +36,6 @@ export function useTranscript(id: string | null) {
   return useQuery({
     queryKey: ["interviews", id, "transcript"],
     queryFn: () => getTranscript(id!),
-    enabled: !!id,
-  });
-}
-
-export function useScorecard(id: string | null) {
-  return useQuery({
-    queryKey: ["interviews", id, "scorecard"],
-    queryFn: () => getScorecard(id!),
     enabled: !!id,
   });
 }

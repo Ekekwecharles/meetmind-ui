@@ -15,7 +15,7 @@ export type InterviewListStatus = "live" | "upcoming" | "none";
 // Matches API enum exactly: zoom | google_meet
 // Was `string` before — now strict
 
-export type InterviewPlatform = "zoom" | "google_meet" | "discord" | string;
+export type InterviewPlatform = string; //zoom, google_meet, discord etc
 
 // ── AI participation mode ──────────────────────────────────────────────────────
 // From UpdateAIConfigRequest in spec: passive | standard | proactive

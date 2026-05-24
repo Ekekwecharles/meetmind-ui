@@ -4,14 +4,12 @@ import {
   getMockInterviewById,
   MOCK_CHAT,
   MOCK_INTERVIEW_LIST,
-  MOCK_SCORECARD,
   MOCK_TRANSCRIPT,
 } from "@/lib/mocks/interviews.mock";
 import type {
   ChatMessage,
   InterviewDetail,
   InterviewListItem,
-  ScorecardCategory,
   TranscriptMessage,
 } from "@/types/interview";
 
@@ -127,6 +125,17 @@ export async function askQuestion(
   id: string,
   query: string,
 ): Promise<ChatMessage> {
+  if (MOCKS_ENABLED) {
+    // Return a mock assistant response
+    return {
+      id: crypto.randomUUID(),
+      role: "assistant",
+      content: `Mock response to: ${query}`,
+      title: undefined,
+      bullets: undefined,
+    };
+  }
+
   const res = await api.post(`/api/v1/interviews/${id}/ask`, { query });
   const data = unwrapData<ApiChatTurn>(res.data);
   return mapApiToChatMessage(data);
@@ -204,16 +213,6 @@ export async function confirmInterview(id: string): Promise<void> {
 
 export async function cancelInterview(id: string): Promise<void> {
   await api.patch(`/api/v1/interviews/${id}/cancel`);
-}
-
-// ── Scorecard ──────────────────────────────────────────────────────────────────
-// No scorecard endpoint in spec yet — stays as mock
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export async function getScorecard(_id: string): Promise<ScorecardCategory[]> {
-  if (MOCKS_ENABLED) return MOCK_SCORECARD;
-  // TODO: wire to real endpoint once available
-  return MOCK_SCORECARD;
 }
 
 // ── Mappers ────────────────────────────────────────────────────────────────────
@@ -316,7 +315,7 @@ function mapApiToDetail(raw: ApiInterview, id: string): InterviewDetail {
 
 function mapApiToChatMessage(raw: ApiChatTurn): ChatMessage {
   return {
-    id: raw.id ?? crypto.randomUUID(),
+    id: raw.id ?? globalThis.crypto?.randomUUID?.(),
     role: raw.role ?? "assistant",
     content: raw.content ?? "",
     title: raw.title,

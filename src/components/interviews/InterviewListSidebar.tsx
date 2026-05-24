@@ -24,8 +24,9 @@ export default function InterviewListSidebar({
         </h2>
         <button
           type="button"
-          className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-color-primary)]"
-          aria-label="More options"
+          disabled
+          className="cursor-not-allowed text-[var(--color-text-secondary)] opacity-50"
+          aria-label="More options (coming soon)"
         >
           <HiOutlineEllipsisVertical className="h-5 w-5" />
         </button>
