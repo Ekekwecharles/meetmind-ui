@@ -95,7 +95,6 @@ export async function getInterview(id: string): Promise<InterviewDetail> {
   if (MOCKS_ENABLED) return getMockInterviewById(id);
 
   const res = await api.get(`/api/v1/interviews/${id}`);
-  console.log("Interview", res);
   const data = unwrapData<ApiInterview>(res.data);
   return mapApiToDetail(data, id);
 }

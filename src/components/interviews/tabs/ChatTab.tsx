@@ -290,6 +290,15 @@ export default function ChatTab({
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  // Revoke all object URLs on unmount to prevent memory leaks
+  useEffect(() => {
+    return () => {
+      attachments.forEach((a) => {
+        if (a.url) URL.revokeObjectURL(a.url);
+      });
+    };
+  }, [attachments]);
+
   const { state: recordingState, toggle: toggleRecording } = useVoiceRecorder(
     (text) => setInputValue((prev) => (prev ? `${prev} ${text}` : text)),
     undefined,
@@ -306,6 +315,12 @@ export default function ChatTab({
         text,
         attachments.map((a) => a.file),
       );
+
+      // ✅ Revoke all object URLs before clearing
+      attachments.forEach((a) => {
+        if (a.url) URL.revokeObjectURL(a.url);
+      });
+
       setInputValue("");
       setAttachments([]);
     } finally {
@@ -501,7 +516,9 @@ export default function ChatTab({
             aria-label="Send"
             onClick={handleSend}
             disabled={
-              isSending || (!inputValue.trim() && attachments.length === 0)
+              !onSendMessage ||
+              isSending ||
+              (!inputValue.trim() && attachments.length === 0)
             }
             className="transition-opacity disabled:opacity-40 hover:opacity-70"
           >

@@ -1,16 +1,16 @@
 import axios from "axios";
 
-export type ApiEnvelope<T> = {
+type ApiEnvelope<T> = {
   data: T;
   message?: string;
+  success?: boolean;
 };
 
 export function unwrapData<T>(payload: unknown): T {
   if (
     payload &&
     typeof payload === "object" &&
-    "data" in payload &&
-    (payload as ApiEnvelope<T>).data !== undefined
+    Object.prototype.hasOwnProperty.call(payload, "data")
   ) {
     return (payload as ApiEnvelope<T>).data;
   }

@@ -11,7 +11,7 @@ import { useQuery } from "@tanstack/react-query";
 export function useInterviewsList(page = 1, pageSize = 20) {
   return useQuery({
     queryKey: ["interviews", "list", page, pageSize],
-    queryFn: () => listInterviews(page, pageSize), // ← wrapped, fixes the TS error
+    queryFn: () => listInterviews(page, pageSize),
   });
 }
 
@@ -29,6 +29,8 @@ export function useChatHistory(id: string | null) {
     queryKey: ["interviews", id, "chat"],
     queryFn: () => getChatHistory(id!),
     enabled: !!id,
+    refetchInterval: 5000, // Poll every 5s for live updates
+    refetchOnWindowFocus: true, // or false, based on requirements
   });
 }
 
@@ -37,5 +39,7 @@ export function useTranscript(id: string | null) {
     queryKey: ["interviews", id, "transcript"],
     queryFn: () => getTranscript(id!),
     enabled: !!id,
+    refetchInterval: 3000, // More frequent for live transcript
+    refetchOnWindowFocus: true,
   });
 }
