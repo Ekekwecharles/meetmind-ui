@@ -159,10 +159,25 @@ export async function getTranscript(id: string): Promise<TranscriptMessage[]> {
 
 // ── Export transcript ──────────────────────────────────────────────────────────
 // GET /api/v1/interviews/{interview_id}/transcript/export
+// Returns a plain text file (.txt) as a direct download
 
-export async function exportTranscript(id: string): Promise<unknown> {
-  const res = await api.get(`/api/v1/interviews/${id}/transcript/export`);
-  return unwrapData(res.data);
+export async function exportTranscript(id: string): Promise<void> {
+  const res = await api.get(`/api/v1/interviews/${id}/transcript/export`, {
+    responseType: "blob", // ← tell axios to treat response as binary
+  });
+
+  // Extract filename from content-disposition header or use a fallback
+  const disposition = (res.headers["content-disposition"] as string) ?? "";
+  const match = disposition.match(/filename=(.+)/);
+  const filename = match?.[1] ?? `transcript_${id}.txt`;
+
+  // Create a temporary link and trigger the download
+  const url = URL.createObjectURL(new Blob([res.data], { type: "text/plain" }));
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
 }
 
 // ── Stop transcript ────────────────────────────────────────────────────────────

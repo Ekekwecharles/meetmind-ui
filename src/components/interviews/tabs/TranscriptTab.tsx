@@ -1,7 +1,10 @@
 "use client";
 
 import SessionStateCard from "@/components/interviews/session/SessionStateCard";
-import { stopTranscript } from "@/lib/services/interviews.service";
+import {
+  exportTranscript,
+  stopTranscript,
+} from "@/lib/services/interviews.service";
 import { cn } from "@/lib/utils";
 import type {
   InterviewDetail,
@@ -40,6 +43,7 @@ export default function TranscriptTab({
 }: Props) {
   const [isStopping, setIsStopping] = useState(false);
   const showSessionCard = SESSION_ONLY.includes(sessionPhase);
+  const [isDownloading, setIsDownloading] = useState(false);
 
   // ── Stop transcribing ──────────────────────────────────────────────────────
   // POST /api/v1/interviews/{interview_id}/transcript/stop
@@ -57,12 +61,17 @@ export default function TranscriptTab({
   };
 
   // ── Download transcript ────────────────────────────────────────────────────
-  // GET /api/v1/interviews/{interview_id}/transcript/export
-  // Wire to exportTranscript() when ready — leaving as placeholder for now
-  const handleDownload = () => {
-    // TODO: call exportTranscript(interview.id) and trigger file download
+  const handleDownload = async () => {
+    if (isDownloading) return;
+    setIsDownloading(true);
+    try {
+      await exportTranscript(interview.id);
+    } catch {
+      // TODO: show error toast when toast system is available
+    } finally {
+      setIsDownloading(false);
+    }
   };
-
   if (showSessionCard) {
     return (
       <div className="p-6">
@@ -126,9 +135,32 @@ export default function TranscriptTab({
             type="button"
             aria-label="Download transcript"
             onClick={handleDownload}
-            className="transition-opacity hover:opacity-70"
+            disabled={isDownloading}
+            className="transition-opacity hover:opacity-70 disabled:opacity-40"
           >
-            <HiOutlineArrowDownTray className="h-5 w-5" />
+            {isDownloading ? (
+              <svg
+                className="h-5 w-5 animate-spin"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8h4z"
+                />
+              </svg>
+            ) : (
+              <HiOutlineArrowDownTray className="h-5 w-5" />
+            )}
           </button>
           <button
             type="button"
@@ -201,7 +233,8 @@ export default function TranscriptTab({
             type="button"
             onClick={handleStopTranscript}
             disabled={isStopping}
-            className="flex items-center gap-2 rounded-lg bg-[var(--color-error-bg)] px-4 py-2 text-sm font-medium text-[var(--color-error)] transition-opacity hover:opacity-80 disabled:opacity-50"
+            className="flex items-center gap-2 rounded-lg bg-[var(--color-error-bg)] px-4 py-2 text-sm font-medium text-[var(--color-error)] 
+            transition-opacity hover:opacity-80 disabled:opacity-50"
           >
             <FiSquare className="h-3 w-3" />
             {isStopping ? "Stopping…" : "Stop Transcribing"}
@@ -246,7 +279,8 @@ function TranscriptError({ onRetry }: { onRetry: () => void }) {
       <button
         type="button"
         onClick={onRetry}
-        className="mt-6 flex items-center gap-2 rounded-lg border border-[var(--color-card-border)] px-5 py-2.5 text-sm font-medium text-[var(--color-text-color-primary)] hover:bg-[var(--color-bg-seco
+        className="mt-6 flex items-center gap-2 rounded-lg border border-[var(--color-card-border)] px-5 py-2.5 text-sm font-medium
+         text-[var(--color-text-color-primary)] hover:bg-[var(--color-bg-secondary)]"
       >
         Try again
       </button>

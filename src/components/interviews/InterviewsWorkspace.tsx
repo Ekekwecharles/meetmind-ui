@@ -19,9 +19,9 @@ export default function InterviewsWorkspace() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<InterviewTab>("transcript");
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  // const [sessionPhase, setSessionPhase] =
-  //   useState<SessionPhase>("live_transcript");
-  const [sessionPhase, setSessionPhase] = useState<SessionPhase>("connecting");
+  const [sessionPhase, setSessionPhase] =
+    useState<SessionPhase>("live_transcript");
+  // const [sessionPhase, setSessionPhase] = useState<SessionPhase>("connecting");
 
   const {
     data: list = [],
