@@ -306,7 +306,7 @@ function mapApiToDetail(raw: ApiInterview, id: string): InterviewDetail {
     observation: "",
     highlights: [],
     redFlags: [],
-    sessionPhase: "live_transcript",
+    // sessionPhase: "live_transcript",
     elapsed: "",
     participants: 0,
   };
