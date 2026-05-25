@@ -167,9 +167,15 @@ export async function exportTranscript(id: string): Promise<void> {
   });
 
   // Extract filename from content-disposition header or use a fallback
-  const disposition = (res.headers["content-disposition"] as string) ?? "";
-  const match = disposition.match(/filename=(.+)/);
-  const filename = match?.[1] ?? `transcript_${id}.txt`;
+  const disposition = String(res.headers["content-disposition"] ?? "");
+  const encodedName =
+    disposition.match(/filename\*\s*=\s*UTF-8''([^;]+)/i)?.[1] ?? null;
+  const plainName =
+    disposition.match(/filename\s*=\s*"([^"]+)"/i)?.[1] ??
+    disposition.match(/filename\s*=\s*([^;]+)/i)?.[1] ??
+    null;
+  const parsedName = encodedName ? decodeURIComponent(encodedName) : plainName;
+  const filename = (parsedName ?? `transcript_${id}.txt`).trim();
 
   // Create a temporary link and trigger the download
   const url = URL.createObjectURL(new Blob([res.data], { type: "text/plain" }));

@@ -137,6 +137,10 @@
   --color-dark-red: #d93e3e;
   --color-light-red: #fdecec;
 
+  --color-session-connection-lost-text: #fac5c5;
+  --color-session-connection-lost-border: #fdecec;
+  --color-session-connection-lost-bg: #fdecec;
+
   /* =============== RADIUS =============== */
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);

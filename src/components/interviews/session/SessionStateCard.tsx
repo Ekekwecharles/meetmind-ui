@@ -270,8 +270,9 @@ function getPhaseConfig(phase: SessionPhase): PhaseConfig {
       statusLabel: "Connection lost",
       statusClass: "text-[var(--color-error)]",
       dotClass: "bg-[var(--color-error)]",
-      boxClass: "border-[var(--color-dark-red)] bg-[var(--color-light-red)]",
-      iconBg: "bg-[var(--color-light-grayish-red)]",
+      boxClass:
+        "border-[var(--color-session-connection-lost-border)] bg-[var(--color-session-connection-lost-bg)]",
+      iconBg: "bg-[var(--color-session-connection-lost-text)]",
       icon: <PiPlugsFill className="h-5 w-5 text-[var(--color-error)]" />,
       title: "Connection Lost",
       titleClass: "text-[var(--color-error-dark)]",

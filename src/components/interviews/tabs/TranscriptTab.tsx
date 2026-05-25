@@ -52,7 +52,7 @@ export default function TranscriptTab({
     setIsStopping(true);
     try {
       await stopTranscript(interview.id);
-      onPhaseChange?.("transcript_error"); // or whatever phase follows stop
+      onPhaseChange?.("live_transcript");
     } catch {
       // Surface error visually if needed — for now just re-enable the button
     } finally {
@@ -115,7 +115,10 @@ export default function TranscriptTab({
             {interview.elapsed}
           </span>
         </div>
-        <TranscriptError onRetry={() => onPhaseChange?.("live_transcript")} />
+        <TranscriptError
+          elapsed={interview.elapsed}
+          onRetry={() => onPhaseChange?.("live_transcript")}
+        />
       </div>
     );
   }
@@ -245,7 +248,13 @@ export default function TranscriptTab({
   );
 }
 
-function TranscriptError({ onRetry }: { onRetry: () => void }) {
+function TranscriptError({
+  elapsed,
+  onRetry,
+}: {
+  elapsed?: string;
+  onRetry: () => void;
+}) {
   return (
     <div className="flex flex-col items-center justify-center py-16 text-center">
       <div className="mb-4 text-[var(--color-error)]">
@@ -273,8 +282,11 @@ function TranscriptError({ onRetry }: { onRetry: () => void }) {
         Transcript failed to load
       </h3>
       <p className="mt-2 max-w-md text-sm text-[var(--color-text-secondary)]">
-        Live transcript stream was interrupted. The agent was dropped from the
-        meeting at 00:05:47. Your audio recording is still running.
+        Live transcript stream was interrupted.
+        {elapsed
+          ? ` The agent was dropped from the meeting at ${elapsed}.`
+          : ""}{" "}
+        Your audio recording is still running.
       </p>
       <button
         type="button"

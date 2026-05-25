@@ -11,7 +11,7 @@ import {
   useTranscript,
 } from "@/hooks/useInterviews";
 import type { InterviewTab, SessionPhase } from "@/types/interview";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HiOutlineArrowLeft, HiOutlineBars3 } from "react-icons/hi2";
 
 // ==================== 🧩Main Component ====================
@@ -19,9 +19,9 @@ export default function InterviewsWorkspace() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<InterviewTab>("transcript");
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [sessionPhase, setSessionPhase] =
-    useState<SessionPhase>("live_transcript");
-  // const [sessionPhase, setSessionPhase] = useState<SessionPhase>("connecting");
+  // const [sessionPhase, setSessionPhase] =
+  //   useState<SessionPhase>("live_transcript");
+  const [sessionPhase, setSessionPhase] = useState<SessionPhase>("connecting");
 
   const {
     data: list = [],
@@ -30,6 +30,14 @@ export default function InterviewsWorkspace() {
   } = useInterviewsList();
 
   const currentSelectedId = selectedId ?? list[0]?.id ?? null;
+
+  useEffect(() => {
+    function run() {
+      setSessionPhase("live_transcript");
+    }
+
+    run();
+  }, [currentSelectedId]);
 
   const {
     data: interview,
